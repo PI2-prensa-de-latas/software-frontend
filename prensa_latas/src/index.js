@@ -9,6 +9,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route path="/" exact={true} component={App} />
+            <Route path="/profile" exact={true} component={Profile} />
         </Switch>
     </BrowserRouter>, document.getElementById('root'));
 
