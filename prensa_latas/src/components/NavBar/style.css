@@ -1,0 +1,25 @@
+.containner {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    height: 80px;
+}
+
+.bar {
+    width: 100vw;
+    height: 55px;
+    background: green;
+    bottom: 0;
+    position: absolute; 
+}
+
+.qr-button {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    bottom: -20px;
+    right: -20px;
+    position: absolute;
+    border-radius: 100%;
+}
