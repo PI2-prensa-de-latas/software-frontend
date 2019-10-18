@@ -1,14 +1,14 @@
 import React from 'react';
 
-import './style.css';
+import style from './style'
 
 export default class NavBar extends React.Component {
     render () {
         return (
-            <div className='containner'>
-                <div className='bar'>
+            <div style={style.containner}>
+                <div style={style.bar}>
                 </div>
-                <div className='qr-button'>
+                <div style={style.qrButton}>
                 </div>
             </div>
         )
