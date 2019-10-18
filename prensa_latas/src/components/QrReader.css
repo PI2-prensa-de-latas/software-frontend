@@ -1,61 +1,112 @@
 .QrReader {
-    width: 100%;
-    height: 100%;
+    width: 100;
+    height: 100;
+}
+
+.QrReader section {
+  position: static !important;
 }
 
 .QrReader section div {
-    width: 50% !important;
-    height: 50% !important;
+    width: 50vw !important;
+    height: 50vw !important;
     left: 25% !important;
-    top: 25% !important;
-    box-shadow: #02961f 0px 0px 0px 4px inset !important;
-    /* border: 10px solid rgba(0, 0, 0, 0.3) !important; */
+    top: 50% !important;
+    margin-top: -25vw;
+    box-shadow: none !important;
     border: none !important;
 }
 
+.corner-border {
+  width: 50vw;
+  height: 50vw;
+  left: 0;
+  top: 0;
+  margin-top: -25vw;
+  position: absolute;
+  border-left: 25vw solid rgba(0, 0, 0, 0.3);
+  border-top: 50vh solid rgba(0, 0, 0, 0.3);
+  border-right: 25vw solid rgba(0, 0, 0, 0.3);
+  border-bottom: 50vh solid rgba(0, 0, 0, 0.3);
+}
+
 .back {
-  height: 70px;
-  width: 70px;
-  position: relative;
-  background-color: #02961f;
+  height: 90px;
+  width: 90px;
+  bottom: -3.5vw;
+  left: -2.5vh;
+  position: absolute;
+  background-color: #00695C;
   border-radius: 50%;
   border: none;
 }
 
 .arrow {
   border: solid rgb(235, 224, 224);
-  border-width: 0 5px 5px 0;
+  border-width: 0 6px 6px 0;
   display: inline-block;
-  padding: 15%;
+  padding: 12%;
+  top: 25%;
+  margin-left: 25%;
 }
 
-.left {
+.arrow-left {
   transform: rotate(135deg);
-  /* -webkit-transform: rotate(135deg); */
 }
 
-/* .top, .bottom {
+.popup-error {
+  width: 30%;
+  height: 10%;
+  background-color: rgb(231, 224, 192);
+  border-radius: 3%;
+}
+
+.popup-error button {
+  width: 75%;
+  background-color: #068152;
+  border-radius: 25%;
+  border: none;
+  font-weight: bold;
+  color: white;
+}
+
+.popup-error p {
+  padding: 10% 5% 0 5%;
+  text-align: center;
+}
+
+.corner {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  top: 50%;
+  margin-top: -30vw;
+  left: 20%;
+}
+
+.top, .bottom {
+    z-index: 1;
     position: absolute;
-    width: 15%;
-    height: 15%;
+    width: 12.5%;
+    height: 12.5%;
   }
   
   .top {
     top: 0;
-    border-top: 10px solid #a0a0a0;
+    border-top: 3px solid white;
   }
   
   .bottom {
     bottom: 0;
-    border-bottom: 10px solid #a0a0a0;
+    border-bottom: 3px solid white;
   }
   
   .left {
     left: 0;
-    border-left: 10px solid #a0a0a0;
+    border-left: 3px solid white;
   }
   
   .right {
     right: 0;
-    border-right: 10px solid #a0a0a0;
-  } */
+    border-right: 3px solid white;
+  }
