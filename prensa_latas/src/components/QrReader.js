@@ -5,27 +5,35 @@ import './QrReader.css';
  
 class QrReaderCam extends Component {
   state = {
-    result: 'No result'
+    result: 'No result',
+    message_error: false,
   }
  
   handleScan = data => {
-    // let path = "https://ead.escoladotrabalhador.gov.br/mod/simplecertificate/verify.php?code=5d084f11-4bb0-4d89-9da2-073fc0a87866";
+    let code = "TestError";
     if (data) {
-      // if (data !== path) {
-      //   return (
-      //     <div>
-      //       Tá errado!
-      //       <button>Ok</button>
-      //     </div>
-      //   )
-      // }
+      if (data !== code) {
+        this.setState({
+          message_error: true,
+        })
+        console.log('error')
+      }
       this.setState({
-        result: data
+        result: data,
       })
     }
   }
+
   handleError = err => {
     console.error(err)
+  }
+
+  closeErrorMessage = message_error => {
+    if(message_error) {
+      this.setState({
+        message_error: false,
+      })
+    }
   }
 
   render() {
@@ -33,10 +41,11 @@ class QrReaderCam extends Component {
       <div>
         <QrReader
           delay={300}
-          onError={this.handleError}
+          onError={this.renderErrorMessage}
           onScan={this.handleScan}
-          className='QrReader' 
+          className='qr-reader' 
         />
+        {console.log(this.state.result)}
         <div className="corner">
           <div className="top left"></div>
           <div className="top right"></div>
@@ -45,16 +54,20 @@ class QrReaderCam extends Component {
         </div>
         <div className="corner-border">
         </div>
-        {console.log(this.state.result)}
         <Link to='/'>
           <button className="back">
             <p className="arrow arrow-left"></p>
           </button>
         </Link>
-        {/*<div className="popup-error">
-          <p>Não parece ser um QR Code nosso :(</p>
-          <p><button>Ok</button></p>
-        </div> */}
+        {this.state.message_error===true?(
+          <div className="popup-error">
+            <p>Não Parece um QR Code nosso :(</p>
+            <button onClick={this.closeErrorMessage}>Ok</button>
+          </div>
+        ):(
+          <div></div>
+        )}  
+        
       </div>
     )
   }

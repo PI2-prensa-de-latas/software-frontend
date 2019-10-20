@@ -4,7 +4,7 @@ import QrReaderCam from '../components/QrReader';
 function Cam() {
   return (
     <div className="container-fluid">
-      <div className="Cam">
+      <div>
           <QrReaderCam />
       </div> 
     </div>);  
