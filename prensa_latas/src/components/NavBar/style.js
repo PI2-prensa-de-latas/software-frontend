@@ -31,6 +31,14 @@ const style = {
         bottom: '-20px',
         position: 'absolute',
         borderRadius: '100%',
+    },
+    qrContainner : {
+        width: '90%',
+        height: '90%',
+        display: 'flex',
+        flexDirection: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 }
 

@@ -7,6 +7,7 @@ import {
 } from "react-icons/md";
 
 import style from './style'
+import qrIcon from './../../assets/svg/qrcode-scan.svg'
 
 export default class NavBar extends React.Component {
     render () {
@@ -22,6 +23,12 @@ export default class NavBar extends React.Component {
                     </div>
                 </div>
                 <div style={style.qrButton}>
+                    <div style={style.qrContainner}>
+                        <img
+                            src={qrIcon}
+                            height={50}
+                        />
+                    </div>
                 </div>
             </div>
         )
