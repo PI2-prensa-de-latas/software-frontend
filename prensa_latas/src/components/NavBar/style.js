@@ -15,6 +15,14 @@ const style = {
         bottom: 0,
         position: 'absolute',
     },
+    iconContainner : {
+        display: 'flex',
+        justifyContent: 'space-between',
+        fontSize: 35,
+        marginTop: 10,
+        marginRight: 80,
+        color: colors.White,
+    },
     qrButton : {
         width: '100px',
         height: '100px',

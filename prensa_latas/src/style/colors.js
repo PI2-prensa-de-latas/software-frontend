@@ -5,6 +5,7 @@ const COLORS = {
     MidGreen: '#00695C',
     LightGreen: '#439889',
     DarkGreen: '#003D33',
+    White: '#fff',
 }
 
 export default COLORS;
