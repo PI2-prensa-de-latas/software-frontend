@@ -23,6 +23,9 @@ const style = {
         marginRight: 80,
         color: colors.White,
     },
+    selected : {
+        color: colors.LightGreen,
+    },
     qrButton : {
         width: '100px',
         height: '100px',
