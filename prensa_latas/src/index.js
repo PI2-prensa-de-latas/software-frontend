@@ -11,19 +11,25 @@ ReactDOM.render(
     <>
         <WaveHeader title={'Título Exemplo'}/>
         <p style={{ fontSize: 50 }}>
-                This is a giante content
+                This is a giant content
         </p>
         <p style={{ fontSize: 50 }}>
-                This is a giante content
+                This is a giant content
         </p>
         <p style={{ fontSize: 50 }}>
-                This is a giante content
+                This is a giant content
         </p>
         <p style={{ fontSize: 50 }}>
-                This is a giante content
+                This is a giant content
         </p>
         <p style={{ fontSize: 50 }}>
-                This is a giante content
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
         </p>
         <NavBar/>
     </>
