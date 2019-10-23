@@ -1,5 +1,5 @@
 import React from 'react';
-import QrReaderCam from '../components/QrReader';
+import QrReaderCam from '../components/QrReader/index';
 
 function Cam() {
   return (

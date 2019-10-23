@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import QrReader from 'react-qr-reader';
 import { Link } from 'react-router-dom';
-import './QrReader.css';
+import './style.css';
+import style from './style';
  
 class QrReaderCam extends Component {
   state = {
@@ -43,26 +44,26 @@ class QrReaderCam extends Component {
           delay={300}
           onError={this.renderErrorMessage}
           onScan={this.handleScan}
-          className='qr-reader' 
+          className="qr-reader" 
         />
         {console.log(this.state.result)}
-        <div className="corner">
-          <div className="top left"></div>
-          <div className="top right"></div>
-          <div className="bottom left"></div>
-          <div className="bottom right"></div>
+        <div style={style.corner}>
+          <div style={Object.assign({}, style.top, style.left)}></div>
+          <div style={Object.assign({}, style.top, style.right)}></div>
+          <div style={Object.assign({}, style.bottom, style.left)}></div>
+          <div style={Object.assign({}, style.bottom, style.right)}></div>
         </div>
-        <div className="corner-border">
+        <div style={style.cornerBorder}>
         </div>
         <Link to='/'>
-          <button className="back">
-            <p className="arrow arrow-left"></p>
+          <button style={style.back}>
+            <p style={style.arrow}></p>
           </button>
         </Link>
         {this.state.message_error===true?(
-          <div className="popup-error">
-            <p>Não Parece um QR Code nosso :(</p>
-            <button onClick={this.closeErrorMessage}>Ok</button>
+          <div style={style.popupError}>
+            <p style={style.popupError.p}>Não Parece um QR Code nosso :(</p>
+            <button onClick={this.closeErrorMessage} style={style.popupError.button}>Ok</button>
           </div>
         ):(
           <div></div>
