@@ -4,10 +4,38 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import WaveHeader from './components/WaveHeader';
 import NavBar from './components/NavBar';
 
 ReactDOM.render(
-    <NavBar selected='MAP'/>, document.getElementById('root'));
+    <>
+        <WaveHeader title={'Título Exemplo'}/>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <p style={{ fontSize: 50 }}>
+                This is a giant content
+        </p>
+        <NavBar/>
+    </>
+    ,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
