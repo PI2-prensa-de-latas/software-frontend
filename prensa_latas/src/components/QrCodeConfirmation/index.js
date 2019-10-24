@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './QrCodeConfimartion.css';
+import style from './style';
 
 class QrCodeConfimartion extends Component {
     render () {
         return (
-            <div className="qrcode-confirmation">
+            <div style={style.qrcodeConfirmation}>
                 <h1>Conectado à maquina</h1>
                 <p>Nome da Máquina</p>
             </div>
