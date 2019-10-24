@@ -7,6 +7,8 @@ const style = {
         bottom: 0,
         overflow: 'hidden',
         height: '80px',
+        position: 'fixed',
+        overflow: 'hidden',
     },
     bar : {
         width: '100vw',
