@@ -15,32 +15,6 @@ ReactDOM.render(
             <Route path="/QrReader" exact={true} component={Cam} />
         </Switch>
     </BrowserRouter>,
-    // <>
-    //     <WaveHeader title={'Título Exemplo'}/>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <NavBar/>
-    // </>
-    // ,
     document.getElementById('root')
 );
 
