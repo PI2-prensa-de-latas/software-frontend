@@ -5,29 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import WaveHeader from './components/WaveHeader';
-import NavBar from './components/NavBar';
+import NavBar from './components/Profile';
 
 ReactDOM.render(
     <>
-        <WaveHeader title={'Título Exemplo'}/>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
+        <ProfileHeader/>
         <p style={{ fontSize: 50 }}>
                 This is a giant content
         </p>
