@@ -18,8 +18,7 @@ const style = {
         left: 0,
         marginTop: "-5px",
         marginLeft: "-5px",
-        border: "black solid 2px"
-        
+        border: "black solid 2px"       
     }
 }
 
