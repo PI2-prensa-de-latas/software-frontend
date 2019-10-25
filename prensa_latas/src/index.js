@@ -4,15 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import WaveHeader from './components/WaveHeader';
-import NavBar from './components/Profile';
+import ProfileHeader from './components/ProfileHeader';
+import NavBar from './components/NavBar';
 
 ReactDOM.render(
     <>
         <ProfileHeader/>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
         <NavBar/>
     </>
     ,
