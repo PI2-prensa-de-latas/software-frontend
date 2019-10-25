@@ -1,10 +1,16 @@
 .qr-reader {
-    width: 100;
-    height: 100;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: 'hidden'; */
 }
 
 .qr-reader section {
   position: static !important;
+}
+
+.qr-reader video {
+    width: 100vw !important;
+    height: 100vh !important;
 }
 
 .qr-reader section div {

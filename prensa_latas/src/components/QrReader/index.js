@@ -55,11 +55,13 @@ class QrReaderCam extends Component {
         </div>
         <div style={style.cornerBorder}>
         </div>
-        <Link to='/'>
-          <button style={style.back}>
-            <p style={style.arrow}></p>
-          </button>
-        </Link>
+        <div>
+          <Link to='/'>
+            <button style={style.back}>
+              <p style={style.arrow}></p>
+            </button>
+          </Link>
+        </div>
         {this.state.message_error===true?(
           <div style={style.popupError}>
             <p style={style.popupError.p}>Não Parece um QR Code nosso :(</p>
@@ -68,7 +70,6 @@ class QrReaderCam extends Component {
         ):(
           <div></div>
         )}  
-        
       </div>
     )
   }

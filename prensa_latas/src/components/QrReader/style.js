@@ -12,16 +12,20 @@ const style = {
         borderTop: '50vh solid rgba(0, 0, 0, 0.3)',
         borderRight: '25vw solid rgba(0, 0, 0, 0.3)',
         borderBottom: '50vh solid rgba(0, 0, 0, 0.3)',
+        marginBottom: '-25vw',
     },
     back : {
         height: '90px',
         width: '90px',
-        bottom: '-3.5vw',
-        left: '-2.5vh',
+        left: 0,
+        bottom: 0,
+        marginBottom: '-12px',
+        marginLeft: '-12px',
         position: 'absolute',
         backgroundColor: colors.MidGreen,
         borderRadius: '50%',
         border: 'none',
+        overflow: 'hidden',
     },
     arrow : {
         border: 'solid rgb(235, 224, 224)',
@@ -36,9 +40,9 @@ const style = {
         position: 'absolute',
         width: '60vw',
         height: '60vw',
-        top: '50%',
+        top: '50vh',
         marginTop: '-30vw',
-        left: '20%',
+        left: '20vw',
     },
     top : {
         zIndex: '1',
@@ -93,22 +97,6 @@ const style = {
             border: 'none',
             fontWeight: 'bold',
             color: 'white',
-        }
-    },
-    qrReader : {
-        width: '100',
-        height: '100',
-        section : {
-            position: 'static !important',
-            div : {
-                width: '50vw !important',
-                height: '50vw !important',
-                left: '25% !important',
-                top: '50% !important',
-                marginTop: '-25vw',
-                boxShadow: 'none !important',
-                border: 'none !important',
-            }
         }
     }
 }

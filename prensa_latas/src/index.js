@@ -5,8 +5,6 @@ import App from './App';
 import Cam from './screens/Cam';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import WaveHeader from './components/WaveHeader';
-import NavBar from './components/NavBar';
 
 ReactDOM.render(
     <BrowserRouter>
@@ -14,34 +12,7 @@ ReactDOM.render(
             <Route path="/" exact={true} component={App} />
             <Route path="/QrReader" exact={true} component={Cam} />
         </Switch>
-    </BrowserRouter>,
-    // <>
-    //     <WaveHeader title={'Título Exemplo'}/>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <p style={{ fontSize: 50 }}>
-    //             This is a giant content
-    //     </p>
-    //     <NavBar/>
-    // </>
-    // ,
-    document.getElementById('root')
+    </BrowserRouter>, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
