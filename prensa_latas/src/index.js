@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import WaveHeader from './components/WaveHeader';
-import NavBar from './components/NavBar';
+// import WaveHeader from './components/WaveHeader';
+// import NavBar from './components/NavBar';
 import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 
 ReactDOM.render(
