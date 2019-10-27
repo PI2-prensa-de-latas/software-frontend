@@ -5,8 +5,6 @@ import App from './App';
 import Cam from './screens/Cam';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import WaveHeader from './components/WaveHeader';
-import NavBar from './components/NavBar';
 
 ReactDOM.render(
     <BrowserRouter>
