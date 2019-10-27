@@ -2,38 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Cam from './screens/Cam';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import WaveHeader from './components/WaveHeader';
-import NavBar from './components/NavBar';
 
 ReactDOM.render(
-    <>
-        <WaveHeader title={'Título Exemplo'}/>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <p style={{ fontSize: 50 }}>
-                This is a giant content
-        </p>
-        <NavBar/>
-    </>
-    ,
+    <BrowserRouter>
+        <Switch>
+            <Route path="/" exact={true} component={App} />
+            <Route path="/QrReader" exact={true} component={Cam} />
+        </Switch>
+    </BrowserRouter>,
     document.getElementById('root')
 );
 

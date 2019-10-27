@@ -1,0 +1,24 @@
+.qr-reader {
+    width: 100vw;
+    height: 100vh;
+    /* overflow: 'hidden'; */
+}
+
+.qr-reader section {
+  position: static !important;
+}
+
+.qr-reader video {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.qr-reader section div {
+    width: 50vw !important;
+    height: 50vw !important;
+    left: 25% !important;
+    top: 50% !important;
+    margin-top: -25vw;
+    box-shadow: none !important;
+    border: none !important;
+}
