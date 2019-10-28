@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import WaveHeader from './components/WaveHeader';
-// import NavBar from './components/NavBar';
 import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 
 ReactDOM.render(
@@ -15,31 +13,6 @@ ReactDOM.render(
             <Route path="/QrCodeConfirmation" exact={true} component={QrCodeConfirmationScreen} />
         </Switch>
     </BrowserRouter>
-//     <>
-//         <WaveHeader title={'Título Exemplo'}/>
-//         <p style={{ fontSize: 50 }}>
-//                 This is a giant content
-//         </p>
-//         <p style={{ fontSize: 50 }}>
-//                 This is a giant content
-//         </p>
-//         <p style={{ fontSize: 50 }}>
-//                 This is a giant content
-//         </p>
-//         <p style={{ fontSize: 50 }}>
-//                 This is a giant content
-//         </p>
-//         <p style={{ fontSize: 50 }}>
-//                 This is a giant content
-//         </p>
-//         <p style={{ fontSize: 50 }}>
-//                 This is a giant content
-//         </p>
-//         <p style={{ fontSize: 50 }}>
-//                 This is a giant content
-//         </p>
-//         <NavBar/>
-//     </>
     ,
     document.getElementById('root')
 );

@@ -3,7 +3,7 @@ import QrCodeConfirmation from '../components/QrCodeConfirmation/index';
 
 function QrCodeConfirmationScreen() {
   return (
-    <div className="container-fluid" style={{height:'100%',}}>
+    <div className="container-fluid">
       <div>
           <QrCodeConfirmation />
       </div> 

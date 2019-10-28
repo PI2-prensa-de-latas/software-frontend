@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import style from './style';
 import logo from '../../assets/images/logo.svg';
+import check from '../../assets/images/check_circle.svg';
 
 class QrCodeConfimartion extends Component {
     render () {
@@ -12,6 +13,7 @@ class QrCodeConfimartion extends Component {
                 </div>
                 <p style={style.machine}>Nome da Máquina</p>
                 <img src={logo} alt='Logo' style={style.logo} />
+                <img src={check} alt='Check' style={style.check} />
                 <button onClick={this.closeErrorMessage} style={style.button}>Prosseguir</button>
             </div>
         )
