@@ -4,16 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ProfileHeader from './components/ProfileHeader';
-import NavBar from './components/NavBar';
-import WaveHeader from './components/WaveHeader';
-
+import PromoScreen from './screens/Promo';
 
 ReactDOM.render(
     <>
-        <WaveHeader/>
-        <ProfileHeader/>
-        <NavBar/>
+        <PromoScreen/>
     </>
     ,
     document.getElementById('root')
