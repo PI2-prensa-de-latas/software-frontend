@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import PromoItem from './../../components/PromoItem';
+
 export default class PromoScreen extends React.Component {
     state = {
         promo_list: []
@@ -18,6 +20,6 @@ export default class PromoScreen extends React.Component {
         if(pl){
             console.log(pl);
         }
-        return (<h1>Test</h1>)
+        return (<PromoItem/>)
     }
 }
