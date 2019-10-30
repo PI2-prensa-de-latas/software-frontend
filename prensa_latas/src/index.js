@@ -5,14 +5,17 @@ import App from './App';
 import Cam from './screens/Cam';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 
 ReactDOM.render(
-    <BrowserRouter>
+<BrowserRouter>
         <Switch>
             <Route path="/" exact={true} component={App} />
-            <Route path="/QrReader" exact={true} component={Cam} />
+            <Route path="/QrReader" exact={true} component={Cam} />            
+            <Route path="/QrCodeConfirmation" exact={true} component={QrCodeConfirmationScreen} />
         </Switch>
-    </BrowserRouter>,
+    </BrowserRouter>
+    ,
     document.getElementById('root')
 );
 
