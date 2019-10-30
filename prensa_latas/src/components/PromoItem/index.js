@@ -8,10 +8,25 @@ export default class PromoItem extends React.Component {
 
         return (
             <div style={styles.container}>
-                <img
-                    src={item.img}
-                />
-                <h1>{item.name}</h1>
+                <div style={styles.imgContainer}>
+                    <img
+                        style={styles.img}
+                        src={item.img}
+                    />
+                </div>
+                <div style={styles.infoContainer}>
+                    <div style={styles.title}>
+                        {item.name}
+                    </div>
+                    <div style={styles.labelContainer}>
+                        <div style={styles.label}>
+
+                        </div>
+                        <div style={styles.label}>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
