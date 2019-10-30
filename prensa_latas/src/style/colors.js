@@ -6,7 +6,10 @@ const COLORS = {
     LightGreen: '#439889',
     DarkGreen: '#003D33',
     White: '#fff',
+    Black: '#000',
     AlmostWhite: '#E7E5E5',
+    Urgent: '#FC2D00',
+    Warning: '#F8FC26'
 }
 
 export default COLORS;

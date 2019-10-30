@@ -42,9 +42,18 @@ const style = {
         float: 'right',
         marginLeft: '8px',
         marginTop: '10px',
-        background: '#ffc',
+        background: colors.LightGray,
+        borderRadius: '3px',
+        fontSize: '14px',
+        lineHeight: '20px',
+        textAlign: 'center',
     },
-
+    score : {
+        background: 'red',
+    },
+    time : {
+        background: 'blue',
+    }
 }
 
 export default style;
