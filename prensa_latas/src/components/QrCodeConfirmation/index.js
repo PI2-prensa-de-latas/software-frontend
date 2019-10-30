@@ -11,10 +11,10 @@ class QrCodeConfimartion extends Component {
                 <div style={style.connected}>
                     <p>Conectado à máquina</p>
                 </div>
-                <p style={style.machine}>Nome da Máquina</p>
+                <p style={style.machine}>{this.props.name}</p>
                 <img src={logo} alt='Logo' style={style.logo} />
                 <img src={check} alt='Check' style={style.check} />
-                <button onClick={this.closeErrorMessage} style={style.button}>Prosseguir</button>
+                <button style={style.button}>Prosseguir</button>
             </div>
         )
     }

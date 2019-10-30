@@ -5,7 +5,7 @@ function QrCodeConfirmationScreen() {
   return (
     <div className="container-fluid">
       <div>
-          <QrCodeConfirmation />
+          <QrCodeConfirmation name="Nome da Máquina" />
       </div> 
     </div>);  
 }
