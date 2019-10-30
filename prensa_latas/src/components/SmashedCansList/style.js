@@ -1,6 +1,10 @@
 import colors from './../../style/colors'
 
 const style = {
+    fullScreen: {
+        width: '100%',
+        height: '100%',
+    },
     title : {
         width: '100vw',
         textAlign: 'center',
@@ -26,6 +30,7 @@ const style = {
         borderColor: colors.MidGray,
         borderRadius: '7px',
         position: 'absolute',
+        overflow: 'auto',
     },
     waitingCan : {
         marginTop: '35%',
@@ -40,7 +45,7 @@ const style = {
         width: '60vw',
         height: '7vh',
         bottom: '5vh',
-        matginTop: '10vh',
+        marginTop: '10vh',
         marginLeft: '20vw',
         backgroundColor: colors.MidGreen,
         borderTopLeftRadius: '50px',
@@ -50,6 +55,39 @@ const style = {
         border: 'none',
         fontWeight: 'bold',
         color: 'white',
+    },
+    table : {
+        width: '100%',
+        maxHeight: '40vh',
+        backgroundColor: colors.LightGray,
+        borderCollapse: 'collapse',
+    },
+    tr : {
+        height: '45px',
+        width: '100%',
+        borderBottom: '2px solid',
+    },
+    tdLeft : {
+        width: '15%',
+        height: '45px',
+    },
+    tdMiddle : {
+        width: '70%',
+        height: '45px',
+        bold: 'True',
+        fontSize: '22.5px',
+        fontWeight: 'bold',
+    },
+    tdRight : {
+        width: '15%',
+        height: '45px',
+        borderLeft: '0',
+    },
+    checkCircle: {
+        fontSize: '45px',
+    },
+    smashedCan: {
+        height: '45px',
     }
 }
 
