@@ -11,15 +11,26 @@ export default class PromoScreen extends React.Component {
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/7th74')
             .then(response => this.setState({
-                promo_list: response.data
+                promo_list: response.data,
             }))
     }
 
     render() {
-        var pl = this.state.promo_list;
-        if(pl){
-            console.log(pl);
-        }
-        return (<PromoItem/>)
+        console.log(this.state.promo_list);
+
+        let items = this.state.promo_list.map((item, id) => {
+            return (
+                <PromoItem
+                    item={item}
+                    key={"item_" + id}
+                />
+            )
+        })
+
+        return (
+            <>
+                {items}
+            </>
+        )
     }
 }
