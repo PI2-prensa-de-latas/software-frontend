@@ -5,6 +5,7 @@ import WaveHeader from './../../components/WaveHeader';
 import Header from './../../components/Header';
 import PromoItem from './../../components/PromoItem';
 import NavBar from './../../components/NavBar';
+import SpecificPromo from './SpecificPromo';
 
 export default class PromoScreen extends React.Component {
 
@@ -22,6 +23,7 @@ export default class PromoScreen extends React.Component {
         axios.get('https://api.myjson.com/bins/7th74')
             .then(response => this.setState({
                 promo_list: response.data,
+                selected_promo: 2,
             }))
     }
 
@@ -51,8 +53,7 @@ export default class PromoScreen extends React.Component {
             )
         })
 
-        if (this.state.selected_promo === null) {
-    
+        if (this.state.selected_promo === null) {  
             return (
                 <>
                     <WaveHeader title="Promoções"/>
@@ -60,11 +61,13 @@ export default class PromoScreen extends React.Component {
                     <NavBar selected="PROMO"/>
                 </>
             )
-        } else {
+        } else {            
             return(
                 <>
                 <Header title="Promoções" action={this.clearSelection}/>
-                {items[this.state.selected_promo]}
+                <SpecificPromo
+                    item={this.state.promo_list[this.state.selected_promo]}
+                />
                 </>
             )
         }
