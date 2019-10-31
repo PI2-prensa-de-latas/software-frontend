@@ -44,6 +44,11 @@ const style = {
         flexDirection: 'center',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    blankSpace : {
+        bottom: 0,
+        width: '100%',
+        height: '100px',
     }
 }
 
