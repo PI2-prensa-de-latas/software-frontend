@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
+import WaveHeader from './../../components/WaveHeader';
 import PromoItem from './../../components/PromoItem';
+import NavBar from './../../components/NavBar';
 
 export default class PromoScreen extends React.Component {
     state = {
@@ -29,7 +31,9 @@ export default class PromoScreen extends React.Component {
 
         return (
             <>
+                <WaveHeader title="Promoções"/>
                 {items}
+                <NavBar selected="PROMO"/>
             </>
         )
     }
