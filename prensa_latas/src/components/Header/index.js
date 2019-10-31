@@ -5,7 +5,7 @@ import styles from './style';
 import { FaChevronLeft } from 'react-icons/fa';
 
 class Header extends React.Component {
-    state = {  }
+
     render() {
         return (
             <div style={styles.container}>

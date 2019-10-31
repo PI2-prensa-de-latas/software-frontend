@@ -2,13 +2,21 @@ import React from 'react';
 import axios from 'axios';
 
 import WaveHeader from './../../components/WaveHeader';
+import Header from './../../components/Header';
 import PromoItem from './../../components/PromoItem';
 import NavBar from './../../components/NavBar';
 
 export default class PromoScreen extends React.Component {
-    state = {
-        promo_list: []
+
+    constructor(props){
+        super(props);
+        this.state = {
+            promo_list: [],
+            selected_promo: null,
+        }
+        this.clearSelection = this.clearSelection.bind(this);
     }
+
 
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/7th74')
@@ -17,24 +25,48 @@ export default class PromoScreen extends React.Component {
             }))
     }
 
+    select(i) {
+        this.setState({
+            selected_promo: i,
+        })
+    }
+
+    clearSelection() {
+        this.setState({
+            selected_promo: null,
+        })
+    }
+
     render() {
         console.log(this.state.promo_list);
 
         let items = this.state.promo_list.map((item, id) => {
             return (
-                <PromoItem
-                    item={item}
-                    key={"item_" + id}
-                />
+                <div onClick={() => {this.select(id)}} key={"divItem_"+id}>
+                    <PromoItem
+                        item={item}
+                        key={"item_" + id}
+                    />
+                </div>
             )
         })
 
-        return (
-            <>
-                <WaveHeader title="Promoções"/>
-                {items}
-                <NavBar selected="PROMO"/>
-            </>
-        )
+        if (this.state.selected_promo === null) {
+    
+            return (
+                <>
+                    <WaveHeader title="Promoções"/>
+                    {items}
+                    <NavBar selected="PROMO"/>
+                </>
+            )
+        } else {
+            return(
+                <>
+                <Header title="Promoções" action={this.clearSelection}/>
+                {items[this.state.selected_promo]}
+                </>
+            )
+        }
     }
 }
