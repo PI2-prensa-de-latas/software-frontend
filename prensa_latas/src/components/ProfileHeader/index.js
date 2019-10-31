@@ -21,11 +21,10 @@ export default class ProfileHeader extends React.Component {
                     <img style={styles.profilePic}
                         src={this.state.user.pic}
                     />
-                    <p style={styles.name}>
+                    <div style={styles.name}>
                         {this.state.user.name}
-                    </p>
+                    </div>
                 </div>
-                <div style={styles.blankSpace} />
             </>
         )
     }

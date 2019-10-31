@@ -18,8 +18,19 @@ const style = {
         left: 0,
         marginTop: "-5px",
         marginLeft: "-5px",
-        border: "black solid 2px"       
+        border: "black solid 2px"   
+    },
+    name: {
+        fontFamily: "roboto sans-serif",
+        fontStyle: "bold",
+        fontSize: "xx-large",
+        color: "#00695C", 
+        textAlign: "center",
+        top: "5%",
+        left: "40%",
+        position: "fixed"
     }
+    
 }
 
 export default style;
