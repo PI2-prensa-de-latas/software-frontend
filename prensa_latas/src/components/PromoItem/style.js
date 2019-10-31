@@ -13,7 +13,7 @@ const style = {
         float: 'left',
         width: '80px',
         height: '80px',
-        background: '#fcc',
+        // background: '#fcc', // for debugging
         margin: '10px',
         borderRadius: '5px',
         overflow: 'hidden'
@@ -24,15 +24,17 @@ const style = {
         objectFit: 'cover',
     },
     infoContainer : {
-        background: '#cfc',
+        // background: '#cfc', // for debugging
         marginRight: '10px',
         marginLeft: '100px',
         height: '100%',
     },
     title : {
         height: '40px',
-        background: '#ccf',
-        padding: '10px 0',
+        fontSize: '16px',
+        fontWeight: 'bold',
+        // background: '#ccf', // for debugging
+        padding: '10px 0 0 0',
         verticalAlign: 'middle',
         display: 'table-cell',
     },
