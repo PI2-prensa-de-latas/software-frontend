@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './style';
 import colors from './../../style/colors';
-import { compileFunction } from 'vm';
+import canIcon from './../../assets/svg/canIcon.svg';
 
 export default class PromoItem extends React.Component {
 
@@ -53,7 +53,11 @@ export default class PromoItem extends React.Component {
                     </div>
                     <div style={styles.labelContainer}>
                         <div style={styles.label}>
-                        
+                            <img
+                                style={styles.canIcon}
+                                src={canIcon}
+                            />
+                            {item.obtained_score}
                         </div>
                         <div
                             style={{
