@@ -61,12 +61,14 @@ export default class PromoScreen extends React.Component {
                     <NavBar selected="PROMO"/>
                 </>
             )
-        } else {            
+        } else {
+            let selected = this.state.promo_list[this.state.selected_promo];
             return(
                 <>
-                <Header title="Promoções" action={this.clearSelection}/>
+                <WaveHeader title={selected.name}/>
                 <SpecificPromo
-                    item={this.state.promo_list[this.state.selected_promo]}
+                    item={selected}
+                    backButton={this.clearSelection}
                 />
                 </>
             )

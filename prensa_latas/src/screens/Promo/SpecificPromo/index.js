@@ -41,11 +41,14 @@ class SpecificPromo extends React.Component {
                         Termina em
                     </div>
                     <div style={styles.date}>
-                        {'2 ' + timeText}
+                        {item.remaining_time.quantity + ' ' + timeText}
                     </div>
                 </div>
             </div>
-            <div style={styles.backButton}>
+            <div
+                style={styles.backButton}
+                onClick={this.props.backButton}
+            >
                 Voltar
             </div>
             </>
