@@ -4,11 +4,22 @@ import {
     GiSodaCan
 } from "react-icons/gi";
 
+import axios from 'axios'
 import styles from './style'
 import './style.css';
 import headerImg from './../../assets/svg/arc.svg'
 
 export default class ProfileScore extends React.Component {
+
+    state = {
+        user: ''
+    }
+    
+    componentDidMount(){
+    axios.get('https://api.myjson.com/bins/ssseg')
+        .then(response => this.setState({user: response.data}))
+    }
+
     render() {
         return (
             <>
@@ -17,7 +28,7 @@ export default class ProfileScore extends React.Component {
                 </div>
                 <div style={styles.circle}>
                     <div style={styles.scoreFont}>
-                        480
+                        {this.state.user.score}
                         <GiSodaCan></GiSodaCan>
                     </div>
 
