@@ -41,8 +41,8 @@ const styles = {
         display: 'inline-block',
     },
     canIcon : {
-        height: '45px',
-        margin: '-5px -5px -5px 5px'
+        height: '70px',
+        margin: '-5px -10px -15px 0px'
     },
     whiteBorder : {
         float: 'left',
@@ -65,6 +65,20 @@ const styles = {
         textAlign: 'center',
         fontWeight: 'bold',
     },
+    backButton : {
+        width: '70vw',
+        maxWidth: '300px',
+        margin: '40px auto',
+        display: 'block',
+        height: '50px',
+        lineHeight: '50px',
+        fontSize: '22px',
+        fontWeight: 'bold',
+        background: colors.MidGreen,
+        color: colors.White,
+        borderRadius: '25px',
+        textAlign: 'center',
+    }
 }
 
 export default styles;

@@ -39,9 +39,9 @@ class SpecificPromo extends React.Component {
                     </div>
                 </div>
             </div>
-            <button>
+            <div style={styles.backButton}>
                 Voltar
-            </button>
+            </div>
             </>
         );
     }
