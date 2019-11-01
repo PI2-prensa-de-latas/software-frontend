@@ -4,40 +4,15 @@ import styles from './style';
 import colors from './../../style/colors';
 import canIcon from './../../assets/svg/canIcon.svg';
 
+import parseTime from './../../utils/parseTime';
+import styleOfRemain from './../../utils/styleOfRemaining';
+
 export default class PromoItem extends React.Component {
-
-    styleOfRemain(remaining_time) {
-        if (remaining_time.type !== 'd') {
-            return {
-                background: colors.Urgent,
-                color: colors.White,
-            }
-        }
-        if (remaining_time.quantity < 5) {
-            return {
-                background: colors.Warning,
-                color: colors.Black,
-            }
-        }
-        return {
-            background: colors.MidGreen,
-            color: colors.White
-        }
-    }
-
-    parseTimeText(type) {
-        switch (type) {
-            case 'd': return 'dias';
-            case 'h': return 'hrs';
-            case 'm': return 'min';
-            default : return '?';
-        }
-    }
 
     render() {
         let item = this.props.item;
-        let timeLabelStyle = this.styleOfRemain(item.remaining_time);
-        let timeText = this.parseTimeText(item.remaining_time.type);
+        let timeLabelStyle = styleOfRemain(item.remaining_time);
+        let timeText = parseTime(item.remaining_time.type);
 
         return (
             <div style={styles.container}>
@@ -53,11 +28,11 @@ export default class PromoItem extends React.Component {
                     </div>
                     <div style={styles.labelContainer}>
                         <div style={styles.label}>
+                            {item.obtained_score}
                             <img
                                 style={styles.canIcon}
                                 src={canIcon}
                             />
-                            {item.obtained_score}
                         </div>
                         <div
                             style={{
