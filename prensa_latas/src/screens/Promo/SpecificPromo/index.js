@@ -18,28 +18,30 @@ class SpecificPromo extends React.Component {
             <div style={styles.description}>
                 {item.description}
             </div>
-            <div>
-                Sua Participação
+            <div style={styles.participation}>
+                Sua participação
             </div>
-            <div>
-                <div>
+            <div style={styles.infoColumns}>
+                <div style={styles.scoreColumn}>
                     {item.obtained_score}
                     <img
+                        style={styles.canIcon}
                         src={canIcon}
                     />
                 </div>
-                <div>
-                    <div>
+                <div style={styles.whiteBorder}/>
+                <div style={styles.timeColumn}>
+                    <div style={styles.finishOn}>
                         Termina em
                     </div>
-                    <div>
-                        {this.parseTime}
+                    <div style={styles.date}>
+                        2 dias
                     </div>
                 </div>
             </div>
-            <div>
+            <button>
                 Voltar
-            </div>
+            </button>
             </>
         );
     }

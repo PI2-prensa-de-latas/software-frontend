@@ -53,11 +53,11 @@ export default class PromoItem extends React.Component {
                     </div>
                     <div style={styles.labelContainer}>
                         <div style={styles.label}>
+                            {item.obtained_score}
                             <img
                                 style={styles.canIcon}
                                 src={canIcon}
                             />
-                            {item.obtained_score}
                         </div>
                         <div
                             style={{
