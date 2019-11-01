@@ -10,15 +10,16 @@ const style = {
         textAlign: 'center',
     },    
     circle: {
-        height: "40vw",
-        width: "40vw",
+        height: "200px",
+        width: "200px",
         backgroundColor: "#00695C",
         borderRadius: "50%",
-        display: "inline-block",
-        position: 'fixed',
-        top: "20%",
-        left: "30%",
+        display: 'block',
+        position: 'relative',
         textAlign: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto', 
+        verticalAlign: "middle",
     },
     scoreFont: {
         fontFamily: "roboto sans-serif",
@@ -27,7 +28,12 @@ const style = {
         color: "#FFFFFF", 
         textAlign: "center",
         verticalAlign: "middle",
-        lineHeight: "40vw",
+        position: 'relative',
+        marginLeft: 'auto',
+        marginRight: 'auto', 
+        minHeight: '10em',
+        display: 'table-cell',
+        transform: 'translate(40%, 120%)',
     }
 }
 
