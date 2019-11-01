@@ -13,6 +13,7 @@ export default class NavBar extends React.Component {
 
     render () {
         return (
+            <>
             <div style={style.containner}>
                 <div style={style.bar}>
                     <div style={style.iconContainner}>
@@ -44,6 +45,8 @@ export default class NavBar extends React.Component {
                     </div>
                 </div>
             </div>
+            <div style={style.blankSpace}/>
+            </>
         )
     }
 }
