@@ -33,7 +33,7 @@ const styles = {
         float: 'left',
         width: '49.5%',
         height: '100%',
-        background: '#afa',
+        background: colors.LightGray,
         fontSize: '45px',
         lineHeight: '90px',
         textAlign: 'center',

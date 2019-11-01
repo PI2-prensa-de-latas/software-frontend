@@ -1,12 +1,18 @@
 import React from 'react';
 
-import canIcon from './../../../assets/svg/canIcon.svg'
-
+import canIcon from './../../../assets/svg/canIcon.svg';
 import styles from './style';
 
+import parseTime from './../../../utils/parseTime';
+import styleOfRemain from './../../../utils/styleOfRemaining';
+
 class SpecificPromo extends React.Component {
+
     render() {
         let item = this.props.item;
+        let timeText = parseTime(item.remaining_time.type);
+        let timeLabelStyle = styleOfRemain(item.remaining_time);
+
         return (
             <>
             <div style={styles.imgContainer}>
@@ -30,12 +36,12 @@ class SpecificPromo extends React.Component {
                     />
                 </div>
                 <div style={styles.whiteBorder}/>
-                <div style={styles.timeColumn}>
+                <div style={{...styles.timeColumn, ...timeLabelStyle}}>
                     <div style={styles.finishOn}>
                         Termina em
                     </div>
                     <div style={styles.date}>
-                        2 dias
+                        {'2 ' + timeText}
                     </div>
                 </div>
             </div>
