@@ -4,7 +4,7 @@ const style = {
     container: {
         width: '100%',
         heigth: 100,
-        top: "50%",
+        top: "60%",
         left: "0%",
         position: 'fixed',
         textAlign: 'center',
