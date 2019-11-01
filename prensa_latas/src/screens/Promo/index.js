@@ -6,6 +6,10 @@ import Header from './../../components/Header';
 import PromoItem from './../../components/PromoItem';
 import NavBar from './../../components/NavBar';
 import SpecificPromo from './SpecificPromo';
+import Loader from 'react-loader-spinner';
+
+import styles from './style';
+import colors from './../../style/colors';
 
 export default class PromoScreen extends React.Component {
 
@@ -14,6 +18,7 @@ export default class PromoScreen extends React.Component {
         this.state = {
             promo_list: [],
             selected_promo: null,
+            is_loading: true,
         }
         this.clearSelection = this.clearSelection.bind(this);
     }
@@ -23,7 +28,7 @@ export default class PromoScreen extends React.Component {
         axios.get('https://api.myjson.com/bins/7th74')
             .then(response => this.setState({
                 promo_list: response.data,
-                selected_promo: 2,
+                is_loading: false,
             }))
     }
 
@@ -53,11 +58,23 @@ export default class PromoScreen extends React.Component {
             )
         })
 
-        if (this.state.selected_promo === null) {  
+        if (this.state.selected_promo === null) {
+            console.log(styles.loading);
             return (
                 <>
                     <WaveHeader title="Promoções"/>
-                    {items}
+                    {
+                        this.state.is_loading ?
+                            <Loader
+                                style={styles.loading}
+                                type="Grid"
+                                color={colors.MidGreen}
+                                height={100}
+                                width={100}
+                            />
+                        :
+                            items
+                    }
                     <NavBar selected="PROMO"/>
                 </>
             )
