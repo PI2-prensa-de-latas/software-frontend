@@ -10,8 +10,8 @@ const style = {
         textAlign: 'center',
     },    
     circle: {
-        height: "20vw",
-        width: "20vw",
+        height: "40vw",
+        width: "40vw",
         backgroundColor: "#00695C",
         borderRadius: "50%",
         display: "inline-block",
@@ -23,11 +23,11 @@ const style = {
     scoreFont: {
         fontFamily: "roboto sans-serif",
         fontStyle: "bold",
-        fontSize: "xx-large",
+        fontSize: "xxx-large",
         color: "#FFFFFF", 
         textAlign: "center",
         verticalAlign: "middle",
-        lineHeight: "20vw",
+        lineHeight: "40vw",
     }
 }
 

@@ -7,7 +7,6 @@ import {
 import axios from 'axios'
 import styles from './style'
 import './style.css';
-import headerImg from './../../assets/svg/arc.svg'
 
 export default class ProfileScore extends React.Component {
 
