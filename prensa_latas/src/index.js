@@ -4,7 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import ProfileHeader from './components/ProfileHeader';
+import ProfileScore from './components/ProfileScore';
+
 import NavBar from './components/NavBar';
 import WaveHeader from './components/WaveHeader';
 
@@ -13,6 +16,7 @@ ReactDOM.render(
     <>
         <WaveHeader/>
         <ProfileHeader/>
+        <ProfileScore/>
         <NavBar/>
     </>
     ,
