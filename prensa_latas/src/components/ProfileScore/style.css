@@ -1,0 +1,32 @@
+#arc,
+#arc::before {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#arc {
+  border: solid #c9c9c9 12px;
+  clip: rect(0px, 200px, 190px, 0px);
+  margin: 25px;
+}
+
+#arc::before {
+  content: '';
+  border: solid #009BB4 12px;
+  top: -12px;
+  left: -12px;
+  clip: rect(0px, 200px, 180px, 0px);
+  transform: rotate(0deg);
+  /* define the fill length, using the rotation above.
+     from -180deg (0% fill) to 0deg (100% fill) */
+  /* if you have a better solution to make thing like this 
+     work, please let me know! :) */
+  /*start -80deg*/
+}
