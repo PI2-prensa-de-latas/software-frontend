@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import ProfileHeader from './components/ProfileHeader';
 import ProfileScore from './components/ProfileScore';
+import ProfileFeed from './components/ProfileFeed';
 
 import NavBar from './components/NavBar';
 import WaveHeader from './components/WaveHeader';
@@ -17,6 +18,7 @@ ReactDOM.render(
         <WaveHeader/>
         <ProfileHeader/>
         <ProfileScore/>
+        <ProfileFeed/>
         <NavBar/>
     </>
     ,
