@@ -29,7 +29,14 @@ const style = {
         top: "5%",
         left: "40%",
         position: "fixed"
-    }
+    },
+    editIcon: {
+      fontSize: "x-large",
+      color: "#00695C", 
+      top: "-40%",
+      left: "90%",
+      position: "fixed"
+  }
     
 }
 

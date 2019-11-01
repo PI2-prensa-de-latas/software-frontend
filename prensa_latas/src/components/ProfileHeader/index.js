@@ -1,5 +1,9 @@
 import React from 'react'
 
+import {
+    MdEdit
+} from "react-icons/md";
+
 import axios from 'axios'
 import styles from './style'
 
@@ -24,6 +28,12 @@ export default class ProfileHeader extends React.Component {
                     <div style={styles.name}>
                         {this.state.user.name}
                     </div>
+                   
+                    <div style={styles.editIcon}>
+                        <MdEdit></MdEdit>
+                    </div>
+                   
+                    
                 </div>
             </>
         )
