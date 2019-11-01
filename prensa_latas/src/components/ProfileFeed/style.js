@@ -4,8 +4,8 @@ const style = {
     container: {
         width: '100%',
         heigth: 100,
-        top: "70%",
-        left: "20%",
+        top: "50%",
+        left: "0%",
         position: 'fixed',
         textAlign: 'center',
 
@@ -13,10 +13,18 @@ const style = {
     feed: {
         fontFamily: "roboto sans-serif",
         fontStyle: "bold",
-        fontSize: "x-large",
+        fontSize: "xx-large",
         color: "#00695C", 
         textAlign: "center",
-        position: "relative"
+        position: "relative",
+        left: "10vw",
+    },
+    feedline: {
+        fontFamily: "roboto sans-serif",
+        fontSize: "large",
+        color: "#000", 
+        textAlign: "center",
+        position: "relative",
     },
     th: {
         borderBottom: "1px solid #ddd",

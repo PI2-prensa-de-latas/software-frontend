@@ -2,6 +2,7 @@ import React from 'react'
 
 import styles from './style'
 import axios from 'axios'
+import './style.css';
 
 export default class ProfileFeed extends React.Component {
     state = {
@@ -24,14 +25,20 @@ export default class ProfileFeed extends React.Component {
                         <table>
                         <tr>
                             <th>
-                                <h1 style={styles.feed}>Feed</h1>
+                                <h1 style={styles.feed}>Feed:</h1>
                             </th>
                         </tr>
                         <tr>
-                            <td>
-
+                            <td style={styles.feedline}>
+                                <img style={styles.feedline}
+                                        src={this.state.notification[0]}
+                                />
+                            </td>
+                            <td style={styles.feedline}>
+                                Você reciclou mais 3 latas para a promoção “Coca-cola Recycle Run!”. Toque para conferir! :D
                             </td>
                         </tr>
+                        
                         </table>
                 </div>
 
