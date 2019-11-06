@@ -6,6 +6,8 @@ import styles from './style';
 import parseTime from './../../../utils/parseTime';
 import styleOfRemain from './../../../utils/styleOfRemaining';
 
+/* eslint-disable */
+
 class SpecificPromo extends React.Component {
 
     render() {

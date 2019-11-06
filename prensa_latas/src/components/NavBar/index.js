@@ -9,6 +9,8 @@ import {
 import style from './style'
 import qrIcon from './../../assets/svg/qrcode-scan.svg'
 
+/* eslint-disable */
+
 export default class NavBar extends React.Component {
 
     render () {

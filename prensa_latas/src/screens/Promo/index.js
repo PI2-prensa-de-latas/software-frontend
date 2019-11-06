@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 import WaveHeader from './../../components/WaveHeader';
-import Header from './../../components/Header';
 import PromoItem from './../../components/PromoItem';
 import NavBar from './../../components/NavBar';
 import SpecificPromo from './SpecificPromo';

@@ -6,8 +6,8 @@ import { MdCheckCircle } from 'react-icons/md';
 class SmashedCansList extends Component {
     state = {
         smashed_cans: [],
-        rows: []
-
+        rows: [],
+        another_user: false,
     }
 
     setSmashedCans = () => {
@@ -22,6 +22,20 @@ class SmashedCansList extends Component {
                            'Pepsi', 
                            'Fanta'],
         })
+    }
+
+    setAnotherUser = () => {
+        this.setState({
+            another_user: true,
+        })
+    }
+
+    closeAnotherUserMessage = another_user => {
+        if (another_user) {
+            this.setState({
+                another_user: false,
+            })
+        }
     }
 
     render () {
@@ -52,7 +66,24 @@ class SmashedCansList extends Component {
                         </table>
                     )}
                 </div>
-                <button onClick={this.setSmashedCans} style={style.button}>Finalizar</button>
+                {this.state.smashed_cans.length === 0 ?
+                    (
+                        <button onClick={this.setSmashedCans} style={style.button}>Finalizar</button>
+                    ) : (
+                        <button onClick={this.setAnotherUser} style={style.button}>Finalizar</button> 
+                    )}
+                {this.state.another_user === true ? (
+                    <div>
+                        <div style={style.opaqueScreen}></div>
+                        <div style={style.popupAnotherUser}>
+                            <p style={style.popupAnotherUser.p}>Parece que outro alguém começou a usar essa máquina D:</p>
+                            <button onClick={this.closeAnotherUserMessage} style={style.popupAnotherUser.button}>Terminar</button>
+                        </div>
+                    </div>
+                    
+                ) : (
+                    <div></div>
+                )}
             </div>
         )
     }

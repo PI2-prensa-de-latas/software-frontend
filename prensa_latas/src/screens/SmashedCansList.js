@@ -5,10 +5,8 @@ import SmashedCansList from '../components/SmashedCansList/index';
 function SmashedCansListScreen() {
   return (
     <div className="container-fluid" >
-      <div >
           <WaveHeader />
           <SmashedCansList />
-      </div> 
     </div>);  
 }
 

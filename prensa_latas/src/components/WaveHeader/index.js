@@ -4,6 +4,8 @@ import styles from './style'
 
 import headerImg from './../../assets/images/header_waves.svg'
 
+/* eslint-disable */
+
 export default class WaveHeader extends React.Component {
     render() {
         return (
