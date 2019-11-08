@@ -21,7 +21,6 @@ const style = {
         border: "black solid 2px"   
     },
     name: {
-        fontFamily: "roboto sans-serif",
         fontStyle: "bold",
         fontSize: "xx-large",
         color: "#00695C", 

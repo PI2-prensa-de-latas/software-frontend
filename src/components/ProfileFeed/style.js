@@ -1,38 +1,46 @@
 import colors from '../../style/colors'
 
 const style = {
-    container: {
-        width: '100%',
-        heigth: 100,
-        top: "60%",
-        left: "0%",
-        position: 'fixed',
-        textAlign: 'center',
-
+    containerFeed : {
+        background: colors.White,
+        height: '100px',
+        width: '86vw',
+        margin: '12px auto',
+    },
+    container : {
+        background: colors.White,
+        height: '100px',
+        width: '86vw',
+        margin: '12px auto',
+        borderTop: "1px solid black",
     },
     feed: {
-        fontFamily: "roboto sans-serif",
         fontStyle: "bold",
         fontSize: "xx-large",
-        color: "#00695C", 
-        textAlign: "center",
-        position: "relative",
-        left: "10vw",
+        color: "#00695C",
+        textAlign: "left",
+        margin:"20px",
     },
-    feedline: {
-        fontFamily: "roboto sans-serif",
-        fontSize: "large",
-        color: "#000", 
-        textAlign: "center",
-        position: "relative",
+    imgContainer : {
+        float: 'left',
+        width: '80px',
+        height: '80px',
+        margin: '10px',
+        borderRadius: '5px',
+        overflow: 'hidden'
     },
-    th: {
-        borderBottom: "1px solid #ddd",
-      },
-
-    td: {
-        borderBottom: "1px solid #ddd",
-      }
+    img : {
+        height: '80px',
+        width: '80px',
+        objectFit: 'cover',
+    },
+    infoContainer : {
+        marginRight: '10px',
+        marginLeft: '100px',
+        height: '100%',
+        display: "table-cell",
+        verticalAlign: "middle",
+        padding: '10px 0 0 0',
+    },
 }
-
 export default style;

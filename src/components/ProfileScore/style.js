@@ -22,18 +22,20 @@ const style = {
         verticalAlign: "middle",
     },
     scoreFont: {
-        fontFamily: "roboto sans-serif",
         fontStyle: "bold",
         fontSize: "xxx-large",
         color: "#FFFFFF", 
         textAlign: "center",
         verticalAlign: "middle",
         position: 'relative',
-        marginLeft: 'auto',
-        marginRight: 'auto', 
-        minHeight: '10em',
-        display: 'table-cell',
-        transform: 'translate(40%, 120%)',
+        lineHeight: '200px',
+    },
+    smashedCan: {
+        height: '50px',
+        fill: "white",
+        color: "white",
+        verticalAlign: "middle",
+        marginTop: "-10px",
     }
 }
 

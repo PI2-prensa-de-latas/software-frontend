@@ -6,42 +6,41 @@ import './style.css';
 
 export default class ProfileFeed extends React.Component {
     state = {
-        notification: ''
+        notification: []
     }
-    
-    componentDidMount(){
-    axios.get('https://api.myjson.com/bins/ssseg')
-        .then(response => this.setState({notification: response.data.notification}))
+
+    componentDidMount() {
+        axios.get('https://api.myjson.com/bins/nvfr8')
+            .then(response => this.setState({notification: response.data.notification}))
     }
 
     render() {
-        return (        
-            <>
-{
-    console.log(this.state.notification[0])
-}
-                <div style={styles.container}>
-                    
-                        <table>
-                        <tr>
-                            <th>
-                                <h1 style={styles.feed}>Feed:</h1>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td style={styles.feedline}>
-                                <img style={styles.feedline}
-                                        src={this.state.notification[0]}
-                                />
-                            </td>
-                            <td style={styles.feedline}>
-                                Você reciclou mais 3 latas para a promoção “Coca-cola Recycle Run!”. Toque para conferir! :D
-                            </td>
-                        </tr>
-                        
-                        </table>
-                </div>
+        console.log(this.state.notification[0])
 
+        return (
+            <>
+                <div style={styles.containerFeed}>
+                    <h1 style={styles.feed}>Feed:</h1>
+
+                    <div>
+                        {
+                            this.state.notification.map((notification, ind) => { return (
+
+                                <div style={styles.container} onclick="myFunction()">
+                                    <div style={styles.imgContainer}>
+                                        <img style={styles.img}src={notification.image}></img>
+                                    </div>
+
+                                    <div style={styles.infoContainer}>
+                                        {notification.text}
+                                    </div>
+                                </div>
+
+                            )} )
+                        }
+                    </div>
+
+                </div>
             </>
         )
     }
