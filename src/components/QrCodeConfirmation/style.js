@@ -2,8 +2,8 @@ import colors from './../../style/colors'
 
 const style = {
     qrcodeConfirmation : {
-        height: '100%',
-        width: '100%',
+        height: '100vh',
+        width: '100vw',
         position: 'absolute',
         backgroundColor: colors.MidGreen,
     },

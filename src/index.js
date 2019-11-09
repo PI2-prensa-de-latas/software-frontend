@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 import SmashedCansListScreen from './screens/SmashedCansList';
+import FinishCansListScreen from './screens/FinishCansList';
 import PromoScreen from './screens/Promo';
 
 ReactDOM.render(
@@ -16,6 +17,7 @@ ReactDOM.render(
             <Route path="/QrReader" exact={true} component={Cam} />            
             <Route path="/QrCodeConfirmation" exact={true} component={QrCodeConfirmationScreen} />
 			<Route path="/SmashedCansList" exact={true} component={SmashedCansListScreen} />
+            <Route path="/FinishCansList" exact={true} component={FinishCansListScreen} />
             <Route path="/Promo" exact={true} component={PromoScreen} />
         </Switch>
     </BrowserRouter>
