@@ -17,6 +17,7 @@ export default class ProfileFeed extends React.Component {
     render() {
         console.log(this.state.notification[0])
 
+
         return (
             <>
                 <div style={styles.containerFeed}>
@@ -26,7 +27,7 @@ export default class ProfileFeed extends React.Component {
                         {
                             this.state.notification.map((notification, ind) => { return (
 
-                                <div style={styles.container} onclick="myFunction()">
+                                <div style={styles.container} onClick={() => this.redirectTo(notification.link)}>
                                     <div style={styles.imgContainer}>
                                         <img style={styles.img}src={notification.image}></img>
                                     </div>
@@ -43,5 +44,10 @@ export default class ProfileFeed extends React.Component {
                 </div>
             </>
         )
+    }
+
+    redirectTo(sUrl)
+    {
+        console.log(sUrl);
     }
 }
