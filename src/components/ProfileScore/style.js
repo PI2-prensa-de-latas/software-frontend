@@ -20,6 +20,7 @@ const style = {
         marginLeft: 'auto',
         marginRight: 'auto', 
         verticalAlign: "middle",
+        marginTop: 30,
     },
     scoreFont: {
         fontStyle: "bold",

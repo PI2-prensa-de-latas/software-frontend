@@ -8,6 +8,7 @@ const style = {
         top: -1,
         left: 0,
         textAlign: 'left',
+        zIndex:98,
     },
     profilePic: {
         width: '100px',

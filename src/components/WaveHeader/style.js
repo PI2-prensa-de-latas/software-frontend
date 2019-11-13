@@ -8,6 +8,7 @@ const style = {
         top: -1,
         left: 0,
         textAlign: 'center',
+        zIndex: 98,
     },
     img: {
         width: '102%',
