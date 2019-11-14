@@ -12,6 +12,7 @@ import ProfileScreen from './screens/Profile';
 import LoginScreen from './screens/Login';
 import StartScreen from './screens/Start';
 import RegisterScreen from './screens/Register';
+import MapScreen from './screens/Map';
 
 ReactDOM.render(
 <BrowserRouter>
@@ -25,7 +26,7 @@ ReactDOM.render(
             <Route path="/Login" exact component={LoginScreen} />
             <Route path="/Start" exact component={StartScreen} />
             <Route path="/Register" exact component={RegisterScreen} />
-
+            <Route path="/Map" exact component={MapScreen} />
         </Switch>
     </BrowserRouter>
     ,
