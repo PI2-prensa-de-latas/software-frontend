@@ -27,12 +27,8 @@ export default class ProfileHeader extends React.Component {
                     />
                     <div style={styles.name}>
                         {this.state.user.name}
+                        <MdEdit style={styles.editIcon}/>
                     </div>
-                   
-                    <div style={styles.editIcon}>
-                        <MdEdit></MdEdit>
-                    </div>
-                   
                     
                 </div>
             </>

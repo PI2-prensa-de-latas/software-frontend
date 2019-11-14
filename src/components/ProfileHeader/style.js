@@ -31,11 +31,11 @@ const style = {
         position: "fixed"
     },
     editIcon: {
-      fontSize: "x-large",
-      color: "#00695C", 
-      top: "-40%",
-      left: "90%",
-      position: "fixed"
+        color: "#00695C",
+        left: "90%",
+        top: "5%",
+        fontSize: "x-large",
+        position: "fixed",
   }
     
 }
