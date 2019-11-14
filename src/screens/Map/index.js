@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {fromLonLat} from 'ol/proj.js';
 
 import './style.css';
+import styles from './style'
 import MapComponent from './../../components/MapComponent';
 
 
@@ -48,7 +49,7 @@ class MapScreen extends Component {
     render() {
         return (
             <div className="MapScreen">
-                <LocationsSelect locations={this.locations} onSelectLocation={this.panToLocation}/>
+                <LocationsSelect style={styles.searchBar} locations={this.locations} onSelectLocation={this.panToLocation}/>
                 <MapComponent currentLocation={this.state.currentLocation}/>
             </div>
         );
