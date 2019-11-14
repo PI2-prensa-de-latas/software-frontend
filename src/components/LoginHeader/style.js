@@ -2,11 +2,12 @@ import colors from './../../style/colors';
 
 const style = {
     container : {
+        backgroundColor: colors.MidGreen,
         height: '100%',
         width: '100%',
         margin: 0,
-        zIndex: '0',
-        position:'absolute',
+        zIndex: '-2',
+        position:'fixed',
     },
     logoIcon: {
         display: 'block',

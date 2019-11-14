@@ -1,30 +1,23 @@
-import React, { Component } from "react";
-import Form from 'react-bootstrap/Form'
+import React, {Component} from "react";
 import Button from 'react-bootstrap/Button'
 import styles from './style';
+import { NavLink } from 'react-router-dom'
 
-export default class Home extends Component {
+export default class Start extends Component {
 
     render() {
         return (
             <div style={styles.container}>
-                <Button
-                    style={styles.buttonInput}
-                    block
-                    disabled={!this.validateForm()}
-                    type="submit"
-                >
-                    Cadastre-se
-                </Button>
-                <Button
-                    style={styles.buttonInput}
-                    block
-                    disabled={!this.validateForm()}
-                    type="submit"
-                >
-                    Login
-                </Button>
+                <div style={styles.containerButton}>
 
+                    <NavLink to="/Login" style={styles.buttonInput}> Cadastre-se </NavLink>
+
+                    <NavLink to="/Login" style={styles.buttonInput}> Login </NavLink>
+
+                    <div style={styles.text}>
+                        Recuperar senha
+                    </div>
+                </div>
 
             </div>
         );

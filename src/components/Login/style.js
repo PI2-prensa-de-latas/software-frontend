@@ -2,7 +2,6 @@ import colors from './../../style/colors';
 
 const style = {
     container : {
-        backgroundColor: colors.MidGreen,
         height: '100%',
         width: '100%',
         margin: 0,
