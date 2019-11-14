@@ -1,9 +1,5 @@
 import React from 'react'
 
-import {
-    GiSodaCan
-} from "react-icons/gi";
-
 import canImg from './../../assets/svg/canIconWhite.svg'
 
 import axios from 'axios'

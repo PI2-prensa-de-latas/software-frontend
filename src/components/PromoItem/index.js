@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styles from './style';
-import colors from './../../style/colors';
 import canIcon from './../../assets/svg/canIcon.svg';
 
 import parseTime from './../../utils/parseTime';
