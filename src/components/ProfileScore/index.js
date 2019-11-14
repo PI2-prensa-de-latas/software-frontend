@@ -24,7 +24,7 @@ export default class ProfileScore extends React.Component {
     render() {
         return (
             <>
-                <div style={styles.container}>
+                <div style={styles.containner}>
                     <img style={styles.score}/>
                 </div>
                         <div style={styles.circle}>
