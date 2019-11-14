@@ -2,36 +2,18 @@ import colors from './../../style/colors';
 
 const style = {
     container : {
-        background:  '#00695C',
-        height: '100vh',
-        width: '100vw',
-        margin: 0,
-        zIndex: '10',
-        position:'absolute',
-    },
-    logoIcon: {
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight:'auto',
-        width: '60%',
-        padding: '10vh 0',
-        zIndex: '12',
-        position:'relative',
-    },
-    loginWaves: {
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight:'auto',
+        backgroundColor: colors.MidGreen,
+        height: '100%',
         width: '100%',
-        zIndex: '8',
-        top: '30%',
+        margin: 0,
+        zIndex: '-1',
         position:'absolute',
     },
     containerLogin : {
         margin: 'auto',
         textAlign: 'center',
         verticalAlign: 'middle',
-        padding: '10vh 0',
+        marginTop: '120%',
     },
     title : {
         textAlign: 'center',

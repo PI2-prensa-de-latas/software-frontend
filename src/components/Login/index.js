@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import styles from './style';
-import logo from './../../assets/svg/logo.svg'
-import login_waves from "../../assets/images/login_waves.svg";
 
 export default class Login extends Component {
     constructor(props) {
@@ -32,8 +30,6 @@ export default class Login extends Component {
     render() {
         return (
             <div style={styles.container}>
-                <img src={logo} alt='Logo' style={styles.logoIcon}/>
-                <img src={login_waves} alt='login_waves' style={styles.loginWaves}/>
                 <Form style={styles.containerLogin} onSubmit={this.handleSubmit}>
                     <Form.Group controlId="email">
                         <Form.Control
