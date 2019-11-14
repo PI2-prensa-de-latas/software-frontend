@@ -12,7 +12,7 @@ const LocationsSelect = (props) => {
     );
     return(
         <div>
-            <select onChange={props.onSelectLocation}>
+            <select style={styles.searchBar}  onChange={props.onSelectLocation}>
                 {locations}
             </select>
         </div>
@@ -49,7 +49,7 @@ class MapScreen extends Component {
     render() {
         return (
             <div className="MapScreen">
-                <LocationsSelect style={styles.searchBar} locations={this.locations} onSelectLocation={this.panToLocation}/>
+                <LocationsSelect locations={this.locations} onSelectLocation={this.panToLocation}/>
                 <MapComponent currentLocation={this.state.currentLocation}/>
             </div>
         );

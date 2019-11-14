@@ -1,17 +1,22 @@
 import colors from '../../style/colors'
 
 const style = {
-    buttonInput:{
-        backgroundColor: '#E2F1F8',
+    searchBar:{
+        backgroundColor: colors.White,
         border: 'none',
-        color: '#003D33',
-        padding: '5px 70px',
+        color: colors.MidGreen,
+        padding: '4px 20%',
         textAlign: 'center',
+        left: '20%',
+        top: '10px',
         textDecoration: 'none',
         display: 'inline-block',
         fontSize: "large",
-        borderRadius:'15px',
+        borderRadius: '20px',
+        position: 'absolute',
+        zIndex: '3',
     },
+
     title: {
         color: colors.DarkGreen,
         fontSize: 30,
