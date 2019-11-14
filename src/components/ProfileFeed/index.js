@@ -49,5 +49,6 @@ export default class ProfileFeed extends React.Component {
     redirectTo(sUrl)
     {
         console.log(sUrl);
+        window.location(sUrl);
     }
 }
