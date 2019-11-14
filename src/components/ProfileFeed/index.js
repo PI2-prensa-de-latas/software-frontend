@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './style'
 import axios from 'axios'
 import './style.css';
+import style from "../NavBar/style";
 
 export default class ProfileFeed extends React.Component {
     state = {
@@ -36,11 +37,10 @@ export default class ProfileFeed extends React.Component {
                                         {notification.text}
                                     </div>
                                 </div>
-
                             )} )
                         }
                     </div>
-
+                    <div style={style.blankSpace}/>
                 </div>
             </>
         )
@@ -49,6 +49,6 @@ export default class ProfileFeed extends React.Component {
     redirectTo(sUrl)
     {
         console.log(sUrl);
-        window.location(sUrl);
+        window.location.href = sUrl;
     }
 }

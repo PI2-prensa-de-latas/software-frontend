@@ -42,5 +42,10 @@ const style = {
         verticalAlign: "middle",
         padding: '10px 0 0 0',
     },
+    blankSpace : {
+        bottom: 0,
+        width: '100%',
+        height: '100px',
+    }
 }
 export default style;
