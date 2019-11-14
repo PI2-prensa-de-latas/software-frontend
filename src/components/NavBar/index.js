@@ -14,9 +14,9 @@ export default class NavBar extends React.Component {
     render () {
         return (
             <>
-            <div style={style.containner}>
+            <div style={style.container}>
                 <div style={style.bar}>
-                    <div style={style.iconContainner}>
+                    <div style={style.iconContainer}>
                         <div/>
                         {this.props.selected === 'PROMO' ?
                             <MdAnnouncement style={style.selected}/>
