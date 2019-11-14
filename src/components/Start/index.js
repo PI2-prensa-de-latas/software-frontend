@@ -10,7 +10,7 @@ export default class Start extends Component {
             <div style={styles.container}>
                 <div style={styles.containerButton}>
 
-                    <NavLink to="/Login" style={styles.buttonInput}> Cadastre-se </NavLink>
+                    <NavLink to="/Register" style={styles.buttonInput}> Cadastre-se </NavLink>
 
                     <NavLink to="/Login" style={styles.buttonInput}> Login </NavLink>
 
