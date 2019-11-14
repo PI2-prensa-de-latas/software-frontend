@@ -1,4 +1,4 @@
-import colors from '../../style/colors'
+import colors from './../../style/colors'
 
 const style = {
     containerFeed : {
@@ -17,7 +17,7 @@ const style = {
     feed: {
         fontStyle: "bold",
         fontSize: "xx-large",
-        color: "#00695C",
+        color: colors.MidGreen,
         textAlign: "left",
         margin:"20px",
     },

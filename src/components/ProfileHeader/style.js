@@ -24,20 +24,19 @@ const style = {
     name: {
         fontStyle: "bold",
         fontSize: "xx-large",
-        color: "#00695C", 
+        color: colors.MidGreen,
         textAlign: "center",
         top: "5%",
         left: "40%",
         position: "fixed"
     },
     editIcon: {
-        color: "#00695C",
+        color: colors.MidGreen,
         left: "90%",
         top: "5%",
         fontSize: "x-large",
         position: "fixed",
   }
-    
 }
 
 export default style;

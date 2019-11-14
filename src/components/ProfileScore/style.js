@@ -12,7 +12,7 @@ const style = {
     circle: {
         height: "200px",
         width: "200px",
-        backgroundColor: "#00695C",
+        backgroundColor: colors.MidGreen,
         borderRadius: "50%",
         display: 'block',
         position: 'relative',
@@ -33,8 +33,8 @@ const style = {
     },
     smashedCan: {
         height: '50px',
-        fill: "white",
-        color: "white",
+        fill: colors.AlmostWhite,
+        color: colors.AlmostWhite,
         verticalAlign: "middle",
         marginTop: "-10px",
     }
