@@ -9,6 +9,7 @@ import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 import SmashedCansListScreen from './screens/SmashedCansList';
 import PromoScreen from './screens/Promo';
 import ProfileScreen from './screens/Profile';
+import LoginScreen from './screens/Login'
 
 ReactDOM.render(
 <BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.render(
 			<Route path="/SmashedCansList" exact={true} component={SmashedCansListScreen} />
             <Route path="/Promo" exact={true} component={PromoScreen} />
             <Route path="/Profile" exact={true} component={ProfileScreen} />
+            <Route path="/Login" exact component={LoginScreen} />
         </Switch>
     </BrowserRouter>
     ,
