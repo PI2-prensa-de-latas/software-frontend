@@ -4,6 +4,7 @@ import {fromLonLat} from 'ol/proj.js';
 import './style.css';
 import styles from './style'
 import MapComponent from './../../components/MapComponent';
+import NavBar from './../../components/NavBar';
 
 
 const LocationsSelect = (props) => {
@@ -51,6 +52,7 @@ class MapScreen extends Component {
             <div className="MapScreen">
                 <LocationsSelect locations={this.locations} onSelectLocation={this.panToLocation}/>
                 <MapComponent currentLocation={this.state.currentLocation}/>
+                <NavBar/>
             </div>
         );
     }
