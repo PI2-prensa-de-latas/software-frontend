@@ -1,11 +1,9 @@
 import colors from './../../style/colors'
 
 const style = {
-    containner : {
+    container : {
         width: '100vw',
-        position: 'absolute',
         bottom: 0,
-        overflow: 'hidden',
         height: '80px',
         position: 'fixed',
         overflow: 'hidden',
@@ -17,7 +15,7 @@ const style = {
         bottom: 0,
         position: 'absolute',
     },
-    iconContainner : {
+    iconContainer : {
         display: 'flex',
         justifyContent: 'space-between',
         fontSize: 35,
