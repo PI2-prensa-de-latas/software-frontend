@@ -4,6 +4,7 @@ import can from '../../assets/images/beer_can.svg';
 import { MdCheckCircle } from 'react-icons/md';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import url from '../../env';
 
 class SmashedCansList extends Component {
     // constructor(props) {
@@ -15,6 +16,9 @@ class SmashedCansList extends Component {
         rows: [],
         another_user: false,
         redirect_finish_cans_list: false,
+        user_id: 2,
+        machine_id: 1,
+        user_token: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTczODQxNTkwfQ.ByEU3vRxdSo21bNfhRRqoRmoCeds2bUSbKV_-70Ijuc',
     }
 
     // componentDidMount() {
@@ -36,45 +40,26 @@ class SmashedCansList extends Component {
 
     componentDidMount() {
         this.makeRequests()
-
-        // instance.get('http://localhost:1337/smashedCan/', {
-        //     timeout: 100000
-        // }).then(res => {
-        //     const smashed_cans = res.data;
-        //     this.setState({ smashed_cans: smashed_cans });
-        // });
-          
-        // let count = 0;
-        // while(count < 5) {
-        //     axios.interceptors.request.use(function (config) {
-        //         config.requestStartTime = Date.now() + 10000;
-
-        //         return config;
-        //     }, function (error) {
-        //         return Promise.reject(error);
-        //     });
-            // axios.get('http://localhost:1337/smashedCan/')
-            // .then(res => {
-            //     const smashed_cans = res.data;
-            //     this.setState({ smashed_cans: smashed_cans });
-            // })
-        //     count++;
-        //     console.log(count);
-        //     console.log('Olaas');
-        // }
     }
 
     async makeRequests () {
+        let current_timestamp = new Date()/1;
+        let current_url = `${url}/smashedCan?where={
+            "user":${this.state.user_id},
+            "machine":${this.state.machine_id},
+            "createdAt":{">":${current_timestamp}}}`;
+        console.log(current_timestamp);
         let count = 0;
-        while (count < 5) {
+        while (count < 1000) {
             await new Promise(resolve => setTimeout(resolve, 2000))
-            const response = await axios.get('http://localhost:1337/smashedCan/')
+            const response = await axios.get(current_url,
+                {headers: {'Authorization': this.state.user_token}})
             const smashed_cans = response.data;
             this.setState({ smashed_cans: smashed_cans });
             count++;
             // ...your response handling code here...
         }
-      }
+    }
 
     setRedirectFinishCansList = () => {
     this.setState({
@@ -111,7 +96,7 @@ class SmashedCansList extends Component {
     render () {
         let rows = []
         for(let i=0; i<this.state.smashed_cans.length; i++) {
-            rows.push(<tr style={style.tr}>
+            rows.push(<tr key={i} style={style.tr}>
                 <td style={style.tdLeft}><img src={can} alt='Logo' style={style.smashedCan} /></td>
                 <td style={style.tdMiddle}>{this.state.smashed_cans[i].category.trademark}</td>
                 <td style={style.tdRight}><MdCheckCircle style={style.checkCircle}/></td>
