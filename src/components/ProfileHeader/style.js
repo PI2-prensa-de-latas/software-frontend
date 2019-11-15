@@ -8,6 +8,7 @@ const style = {
         top: -1,
         left: 0,
         textAlign: 'left',
+        zIndex:98,
     },
     profilePic: {
         width: '100px',
@@ -18,8 +19,24 @@ const style = {
         left: 0,
         marginTop: "-5px",
         marginLeft: "-5px",
-        border: "black solid 2px"       
-    }
+        border: "black solid 2px"   
+    },
+    name: {
+        fontStyle: "bold",
+        fontSize: "xx-large",
+        color: colors.MidGreen,
+        textAlign: "center",
+        top: "5%",
+        left: "40%",
+        position: "fixed"
+    },
+    editIcon: {
+        color: colors.MidGreen,
+        left: "90%",
+        top: "5%",
+        fontSize: "x-large",
+        position: "fixed",
+  }
 }
 
 export default style;
