@@ -8,7 +8,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div style={styles.container}>
+            <div style={{...styles.container, background: this.props.background}}>
                 <Link to={this.props.link}>
                     <div
                         style={styles.icon}

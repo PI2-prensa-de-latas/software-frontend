@@ -1,25 +1,25 @@
 import colors from './../../style/colors';
 
 const style = {
-    logoIcon: {
-        marginTop: '20%',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight:'auto',
-        width: '30%',
-        zIndex: '2',
-    },
     container : {
         height: '100%',
         width: '100%',
         margin: 0,
         zIndex: '-1',
     },
+    logoIcon: {
+        paddingTop: '20%',
+        display: 'block',
+        marginLeft: 'auto',
+        marginRight:'auto',
+        width: '30%',
+        zIndex: '2',
+    },
     containerLogin : {
         margin: 'auto',
         textAlign: 'center',
         verticalAlign: 'middle',
-        marginTop: '30%',
+        paddingTop: '30%',
     },
     textInput: {
         backgroundColor: 'transparent',
