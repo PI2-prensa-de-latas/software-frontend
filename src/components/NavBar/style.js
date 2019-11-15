@@ -38,7 +38,7 @@ const style = {
         position: 'absolute',
         borderRadius: '100%',
     },
-    qrContainner : {
+    qrContainer : {
         width: '90%',
         height: '90%',
         display: 'flex',
