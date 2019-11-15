@@ -52,7 +52,7 @@ class MapScreen extends Component {
             <div className="MapScreen">
                 <LocationsSelect locations={this.locations} onSelectLocation={this.panToLocation}/>
                 <MapComponent currentLocation={this.state.currentLocation}/>
-                <NavBar/>
+                <NavBar selected={"MAP"}/>
             </div>
         );
     }
