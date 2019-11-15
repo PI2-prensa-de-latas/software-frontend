@@ -28,6 +28,9 @@ const style = {
     selected : {
         color: colors.LightGreen,
     },
+    none : {
+        color: colors.White,
+    },
     qrButton : {
         width: '100px',
         height: '100px',
