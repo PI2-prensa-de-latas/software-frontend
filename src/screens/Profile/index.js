@@ -16,7 +16,7 @@ export default class ProfileScreen extends React.Component {
                 <ProfileHeader/>
                 <ProfileScore/>
                 <ProfileFeed/>
-                <NavBar/>
+                <NavBar selected={"PROFILE"}/>
             </>
         )
     }
