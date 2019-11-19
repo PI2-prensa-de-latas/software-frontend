@@ -16,48 +16,31 @@ class SmashedCansList extends Component {
         rows: [],
         another_user: false,
         redirect_finish_cans_list: false,
-        user_id: 2,
-        machine_id: 1,
-        user_token: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTczODQxNTkwfQ.ByEU3vRxdSo21bNfhRRqoRmoCeds2bUSbKV_-70Ijuc',
+        user_id: this.props.state.user_id,
+        machine_id: this.props.state.machine_id,
+        user_token: this.props.state.user_token,
     }
-
-    // componentDidMount() {
-        // axios.get('http://localhost:1337/smashedCan')
-        // .then(res => {
-        //     const smashed_cans = res.data;
-        //     this.setState({ smashed_cans: smashed_cans });
-        // })
-        // const socket = socketIOClient('http://localhost:1337/');
-        // socket.on("smashedCan/subscribe/", data => this.setState({smashed_cans: data}));
-        // client
-        // socket.get('/smashedCan/join', {
-        //     room: 'test'
-        // }, function(response) {
-        //     console.log(response + ' porra')
-        // });
-        
-    // }
 
     componentDidMount() {
-        this.makeRequests()
+        this.getSmashedCans()
     }
 
-    async makeRequests () {
-        let current_timestamp = new Date()/1;
+    async getSmashedCans () {
         let current_url = `${url}/smashedCan?where={
             "user":${this.state.user_id},
             "machine":${this.state.machine_id},
-            "createdAt":{">":${current_timestamp}}}`;
-        console.log(current_timestamp);
+            "createdAt":{">":${this.props.state.initial_timestamp}}}`;
+        console.log(this.state.user_id)
+        console.log(this.state.machine_id)
+        console.log(this.props.state.initial_timestamp);
         let count = 0;
-        while (count < 1000) {
+        while (true) {
             await new Promise(resolve => setTimeout(resolve, 2000))
             const response = await axios.get(current_url,
                 {headers: {'Authorization': this.state.user_token}})
             const smashed_cans = response.data;
             this.setState({ smashed_cans: smashed_cans });
             count++;
-            // ...your response handling code here...
         }
     }
 
