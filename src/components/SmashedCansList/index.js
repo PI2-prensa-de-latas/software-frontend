@@ -3,7 +3,7 @@ import style from './style';
 import can from '../../assets/images/beer_can.svg';
 import { MdCheckCircle } from 'react-icons/md';
 import axios from 'axios';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import url from '../../env';
 
 class SmashedCansList extends Component {
@@ -11,7 +11,6 @@ class SmashedCansList extends Component {
         smashed_cans: [],
         rows: [],
         another_user: false,
-        redirect_finish_cans_list: false,
         user_id: this.props.state.user_id,
         machine_id: this.props.state.machine_id,
         user_token: this.props.state.user_token,
@@ -45,24 +44,6 @@ class SmashedCansList extends Component {
         }
     }
 
-    setRedirectFinishCansList = () => {
-    this.setState({
-        redirect_finish_cans_list: true
-    })
-    }
-
-    redirectToFinishCansList = () => {
-        if (this.state.redirect_finish_cans_list) {
-            console.log(this.state.smashed_cans)
-            return <Redirect 
-                to={{
-                    pathname: "/FinishCansList",
-                    state: { smashed_cans: this.state.smashed_cans }
-                }} 
-            />
-        }
-    }
-
     render () {
         let rows = []
         for(let i=0; i<this.state.smashed_cans.length; i++) {
@@ -90,8 +71,12 @@ class SmashedCansList extends Component {
                         </table>
                     )}
                 </div>
-                {this.redirectToFinishCansList()}
-                <button onClick={this.setRedirectFinishCansList} style={style.button}>Finalizar</button>
+                <Link to={{
+                    pathname: "/FinishCansList",
+                    state: { smashed_cans: this.state.smashed_cans }
+                }}>
+                    <button style={style.button}>Finalizar</button>
+                </Link>
                 {this.state.another_user === true ? (
                     <div>
                         <div style={style.opaqueScreen}></div>
