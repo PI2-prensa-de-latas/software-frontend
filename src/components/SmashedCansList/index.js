@@ -3,14 +3,10 @@ import style from './style';
 import can from '../../assets/images/beer_can.svg';
 import { MdCheckCircle } from 'react-icons/md';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import url from '../../env';
 
 class SmashedCansList extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.eventSource = new EventSource("http://localhost:1337/smashedCan");
-    // }
     state = {
         smashed_cans: [],
         rows: [],
@@ -26,21 +22,26 @@ class SmashedCansList extends Component {
     }
 
     async getSmashedCans () {
-        let current_url = `${url}/smashedCan?where={
+        let cans_url = `${url}/smashedCan?where={
             "user":${this.state.user_id},
             "machine":${this.state.machine_id},
             "createdAt":{">":${this.props.state.initial_timestamp}}}`;
+        let machine_url = `${url}/machine/${this.state.machine_id}`
         console.log(this.state.user_id)
         console.log(this.state.machine_id)
         console.log(this.props.state.initial_timestamp);
-        let count = 0;
         while (true) {
             await new Promise(resolve => setTimeout(resolve, 2000))
-            const response = await axios.get(current_url,
+            const response_machine = await axios.get(machine_url,
                 {headers: {'Authorization': this.state.user_token}})
-            const smashed_cans = response.data;
-            this.setState({ smashed_cans: smashed_cans });
-            count++;
+            if(response_machine.data.connectUser === this.state.user_id) {
+                const response_cans = await axios.get(cans_url,
+                    {headers: {'Authorization': this.state.user_token}})
+                const smashed_cans = response_cans.data;
+                this.setState({ smashed_cans: smashed_cans });
+            } else {
+                this.setState({ another_user: true });
+            }
         }
     }
 
@@ -59,20 +60,6 @@ class SmashedCansList extends Component {
                     state: { smashed_cans: this.state.smashed_cans }
                 }} 
             />
-        }
-    }
-
-    setAnotherUser = () => {
-        this.setState({
-            another_user: true,
-        })
-    }
-
-    closeAnotherUserMessage = another_user => {
-        if (another_user) {
-            this.setState({
-                another_user: false,
-            })
         }
     }
 
@@ -110,7 +97,9 @@ class SmashedCansList extends Component {
                         <div style={style.opaqueScreen}></div>
                         <div style={style.popupAnotherUser}>
                             <p style={style.popupAnotherUser.p}>Parece que outro alguém começou a usar essa máquina D:</p>
-                            <button onClick={this.closeAnotherUserMessage} style={style.popupAnotherUser.button}>Terminar</button>
+                            <Link to={'/'}>
+                                <button style={style.popupAnotherUser.button}>Terminar</button>
+                            </Link>
                         </div>
                     </div>
                     

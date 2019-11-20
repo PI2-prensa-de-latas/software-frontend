@@ -109,6 +109,7 @@ const style = {
             textAlign: 'center',
         },
         button : {
+            textAlign: 'center',
             fontSize: '25px',
             width: '80%',
             height: '25%',

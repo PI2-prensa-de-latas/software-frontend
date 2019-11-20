@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from './style';
 import can from '../../assets/images/beer_can.svg';
 import { MdCheckCircle } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 class FinishCansList extends Component {
     state = {
@@ -33,7 +34,9 @@ class FinishCansList extends Component {
                         {rows}
                     </table>
                 </div>
-                <button onClick={this.setSmashedCans} style={style.button}>Ok</button>
+                <Link to={'/'}>
+                    <button onClick={this.setSmashedCans} style={style.button}>Ok</button>
+                </Link>
             </div>
         )
     }
