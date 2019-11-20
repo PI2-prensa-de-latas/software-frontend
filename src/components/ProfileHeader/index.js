@@ -6,6 +6,9 @@ import {
 
 import axios from 'axios'
 import styles from './style'
+const USER_TOKEN = localStorage.getItem('token');
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
+const URL = 'http://localhost:1337/user';
 
 export default class ProfileHeader extends React.Component {
     
@@ -14,7 +17,9 @@ export default class ProfileHeader extends React.Component {
     }
     
     componentDidMount(){
-    axios.get('https://api.myjson.com/bins/ssseg')
+        axios
+            .get(URL,
+                {headers: {Token: AuthStr}})
         .then(response => this.setState({user: response.data}))
     }
     

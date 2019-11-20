@@ -32,7 +32,7 @@ export default class Login extends Component {
             this.setState({ error: "Preencha e-mail e senha para continuar!" });
         } else {
             try {
-                const response = await api.post("/login", { email, password });
+                const response = await api.post("/Login", { email, password });
                 login(response.data.token);
                 this.props.history.push("/Profile");
             } catch (err) {
