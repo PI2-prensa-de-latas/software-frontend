@@ -7,7 +7,7 @@ import style from "../NavBar/style";
 
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
-const URL = 'http://localhost:1337/user';
+const URL = 'http://localhost:1337/Notification';
 
 
 export default class ProfileFeed extends React.Component {
@@ -20,7 +20,7 @@ export default class ProfileFeed extends React.Component {
         axios
             .get(URL,
                 {headers: {Authorization: AuthStr}})
-            .then(response => this.setState({notification: response.data.notification}))
+            .then(response => this.setState({notification: response.data}))
     }
 
     render() {
