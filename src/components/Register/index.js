@@ -3,8 +3,10 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import styles from './style';
 import logo from "../../assets/svg/logo.svg";
+import { Link, withRouter } from "react-router-dom";
+import api from "../../services/api";
 
-export default class Register extends Component {
+class Register extends Component {
     constructor(props) {
         super(props);
 
@@ -18,7 +20,7 @@ export default class Register extends Component {
 
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0
-            && this.state.name.length > 0 && this.state.password != this.state.passwordConfirm;
+            && this.state.name.length > 0 && this.state.password !== this.state.passwordConfirm;
     }
 
     handleChange = event => {
@@ -27,9 +29,21 @@ export default class Register extends Component {
         });
     }
 
-    handleSubmit = event => {
-        event.preventDefault();
-    }
+    handleSubmit = async e => {
+        e.preventDefault();
+        const { name, email, password } = this.state;
+        if (!name || !email || !password) {
+            this.setState({ error: "Preencha todos os dados para se cadastrar" });
+        } else {
+            try {
+                await api.post("/user", { name, email, password });
+                this.props.history.push("/Login");
+            } catch (err) {
+                console.log(err);
+                this.setState({ error: "Ocorreu um erro ao registrar sua conta. T.T" });
+            }
+        }
+    };
 
     render() {
         return (
@@ -81,7 +95,6 @@ export default class Register extends Component {
                     <Button
                         style={styles.buttonInput}
                         block
-                        disabled={!this.validateForm()}
                         type="submit"
                     >
                         Cadastrar
@@ -91,3 +104,5 @@ export default class Register extends Component {
         );
     }
 }
+
+export default withRouter(Register);

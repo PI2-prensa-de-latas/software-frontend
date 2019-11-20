@@ -32,6 +32,7 @@ ReactDOM.render(
 <BrowserRouter>
         <Switch>
             <Route path="/" exact={true} component={App} />
+
             <PrivateRoute path="/QrReader" exact={true} component={Cam} />
             <PrivateRoute path="/QrCodeConfirmation" exact={true} component={QrCodeConfirmationScreen} />
 			<PrivateRoute path="/SmashedCansList" exact={true} component={SmashedCansListScreen} />
