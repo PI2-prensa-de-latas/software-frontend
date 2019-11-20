@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Cam from './screens/Cam';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
 import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 import SmashedCansListScreen from './screens/SmashedCansList';
 import PromoScreen from './screens/Promo';
@@ -21,7 +21,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
             isAuthenticated() ? (
                 <Component {...props} />
             ) : (
-                <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+                <Redirect to={{ pathname: "/Start", state: { from: props.location } }} />
             )
         }
     />
