@@ -18,7 +18,6 @@ export default class ProfileFeed extends React.Component {
     render() {
         console.log(this.state.notification[0])
 
-
         return (
             <>
                 <div style={styles.containerFeed}>
