@@ -5,6 +5,7 @@ import axios from 'axios'
 import './style.css';
 import style from "../NavBar/style";
 
+const USER_ID = localStorage.getItem('user');
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
 const URL = 'http://localhost:1337/Notification';
@@ -18,9 +19,9 @@ export default class ProfileFeed extends React.Component {
 
     componentDidMount() {
         axios
-            .get(URL,
+            .get(`${URL}/${USER_ID}`,
                 {headers: {Authorization: AuthStr}})
-            .then(response => this.setState({notification: response.data}))
+            .then(response => this.setState({notification: response.data})).then()
     }
 
     render() {
@@ -35,7 +36,6 @@ export default class ProfileFeed extends React.Component {
                         {
                             this.state.notification.map((notification, ind) => {
                                 return (
-
                                     <div style={styles.container} onClick={() => this.redirectTo(notification.link)}>
                                         <div style={styles.imgContainer}>
                                             <img style={styles.img} src={notification.image}></img>
