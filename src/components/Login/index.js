@@ -33,7 +33,7 @@ export default class Login extends Component {
         } else {
             try {
                 const response = await api.post("/Login", { email, password });
-                login(response.data.token);
+                login(response.data.token, response.data.user.id);
                 this.props.history.push("/Profile");
             } catch (err) {
                 this.setState({
