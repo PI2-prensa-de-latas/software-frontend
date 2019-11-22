@@ -16,7 +16,7 @@ export default class ProfileFeed extends React.Component {
         notification: []
     }
 
-
+    //
     // componentDidMount() {
     //     axios
     //         .get(`${URL}/${USER_ID}`,
@@ -38,7 +38,9 @@ export default class ProfileFeed extends React.Component {
                                 return (
                                     <div style={styles.container} onClick={() => this.redirectTo(notification.link)}>
                                         <div style={styles.imgContainer}>
-                                            <img style={styles.img} src={notification.image}></img>
+                                            <img style={styles.img} src={notification.image}
+                                                 alt={"Notification"}
+                                            ></img>
                                         </div>
 
                                         <div style={styles.infoContainer}>

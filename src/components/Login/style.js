@@ -23,14 +23,14 @@ const style = {
     textInput: {
         backgroundColor: 'transparent',
         padding: '10px',
-        color: '#CFD8DC',
+        color: colors.InputGrey,
         border: 'none',
-        borderBottom: 'solid 1px #CFD8DC',
+        borderBottom: 'solid 1px ' + colors.InputGrey,
     },
     buttonInput:{
-        backgroundColor: '#E2F1F8',
+        backgroundColor: colors.LightGray,
         border: 'none',
-        color: '#003D33',
+        color: colors.DarkGreen,
         padding: '5px 70px',
         textAlign: 'center',
         textDecoration: 'none',

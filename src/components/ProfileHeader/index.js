@@ -37,6 +37,7 @@ export default class ProfileHeader extends React.Component {
                 <div style={styles.container}>
                     <img style={styles.profilePic}
                          src={this.state.user.pic}
+                         alt={""}
                     />
                     <div style={styles.name}>
                         {this.state.user.name}

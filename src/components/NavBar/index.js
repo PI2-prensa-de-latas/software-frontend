@@ -48,6 +48,7 @@ export default class NavBar extends React.Component {
                             <img
                                 src={qrIcon}
                                 height={50}
+                                alt={""}
                             />
                         </div>
                     </div>
