@@ -35,6 +35,7 @@ export default class Login extends Component {
             try {
                 const response = await api.post("/Login", { email, password });
                 login(response.data.token, response.data.user.id);
+                window.location.href = '/Profile';
             } catch (err) {
                 this.setState({
                     error:
@@ -42,7 +43,6 @@ export default class Login extends Component {
                 });
             }
         }
-        return <Redirect to='/Profile' />
     };
 
     render() {
