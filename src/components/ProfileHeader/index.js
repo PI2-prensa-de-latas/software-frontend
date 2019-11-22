@@ -21,12 +21,10 @@ export default class ProfileHeader extends React.Component {
     }
 
     componentDidMount = async () => {
-        console.log(USER_ID);
         await axios
             .get(`${URL}/${USER_ID}`,
                 {headers: {Authorization: AuthStr}})
             .then(response => this.setState({user: response.data}));
-        console.log(this.state.user.pic);
 
         if (this.state.user.pic === undefined) {
             this.setState({user: {...this.state.user, pic: defaultPic}})

@@ -17,12 +17,12 @@ export default class ProfileFeed extends React.Component {
     }
 
 
-    componentDidMount() {
-        axios
-            .get(`${URL}/${USER_ID}`,
-                {headers: {Authorization: AuthStr}})
-            .then(response => this.setState({notification: response.data})).then()
-    }
+    // componentDidMount() {
+    //     axios
+    //         .get(`${URL}/${USER_ID}`,
+    //             {headers: {Authorization: AuthStr}})
+    //         .then(response => this.setState({notification: response.data})).then()
+    // }
 
     render() {
         console.log(this.state.notification[0])
