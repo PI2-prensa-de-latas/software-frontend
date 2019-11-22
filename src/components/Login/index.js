@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import styles from './style';
 import api from "../../services/api";
 import { login } from "../../services/auth";
+import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
     constructor(props) {
@@ -34,7 +35,6 @@ export default class Login extends Component {
             try {
                 const response = await api.post("/Login", { email, password });
                 login(response.data.token, response.data.user.id);
-                this.props.history.push("/Profile");
             } catch (err) {
                 this.setState({
                     error:
@@ -42,6 +42,7 @@ export default class Login extends Component {
                 });
             }
         }
+        return <Redirect to='/Profile' />
     };
 
     render() {

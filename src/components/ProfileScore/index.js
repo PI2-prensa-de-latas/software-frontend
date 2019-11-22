@@ -15,14 +15,15 @@ const URL = 'http://localhost:1337/score';
 export default class ProfileScore extends React.Component {
 
     state = {
-        user: ''
+        score: '',
     }
 
     componentDidMount() {
         axios
-            .get(`${URL}/${USER_ID}`,
-                {headers: {Authorization: AuthStr}})
+            .post(URL, {user: USER_ID}, {headers: {Authorization: AuthStr}},
+            )
             .then(response => this.setState({score: response.data}));
+        console.log('state', this.state)
     }
 
     render() {
@@ -33,7 +34,7 @@ export default class ProfileScore extends React.Component {
                 </div>
                 <div style={styles.circle}>
                     <div style={styles.scoreFont}>
-                        {this.state.score}
+                        {this.state.score.Score}
                         <img src={canImg} alt='Logo' style={styles.smashedCan}/>
                     </div>
                 </div>
