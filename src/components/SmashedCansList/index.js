@@ -30,13 +30,14 @@ class SmashedCansList extends Component {
         console.log(this.state.machine_id)
         console.log(this.props.state.initial_timestamp);
         while (true) {
-            await new Promise(resolve => setTimeout(resolve, 2000))
+            await new Promise(resolve => setTimeout(resolve, 500))
             const response_machine = await axios.get(machine_url,
                 {headers: {'Authorization': this.state.user_token}})
             if(response_machine.data.connectUser === this.state.user_id) {
                 const response_cans = await axios.get(cans_url,
                     {headers: {'Authorization': this.state.user_token}})
                 const smashed_cans = response_cans.data;
+                smashed_cans.sort((a, b) => a.id - b.id);
                 this.setState({ smashed_cans: smashed_cans });
             } else {
                 this.setState({ another_user: true });
@@ -57,9 +58,9 @@ class SmashedCansList extends Component {
         return (
             <div style={style.fullScreen}>
                 <h2 style={style.title}>Amassando Latas</h2>
-                <p style={style.instructions}>Exemplo exemplo exemplo exemplo exemplo exemplo
-                exemplo exemplo exemplo exemplo exemplo exemplo exemplo exemplo
-                exemplo exemplo exemplo exemplo exemplo exemplo exemplo exemplo.</p>
+                <p style={style.instructions}>
+                    Posicione a lata na entrada da máquina, na horizontal, com a logo virada para cima receba seus pontos.
+                </p>
                 <div style={style.list}>
                     {this.state.smashed_cans.length === 0 ? (
                         <div style={style.waitingCan}>
