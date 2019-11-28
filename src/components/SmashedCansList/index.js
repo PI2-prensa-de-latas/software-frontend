@@ -11,9 +11,9 @@ class SmashedCansList extends Component {
         smashed_cans: [],
         rows: [],
         another_user: false,
-        user_id: this.props.state.user_id,
-        machine_id: this.props.state.machine_id,
-        user_token: this.props.state.user_token,
+        // user_id: this.props.state.user_id,
+        // machine_id: this.props.state.machine_id,
+        user_token: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTczODQwNDUyfQ.vgumqjUn4yVXF5gMfXq41k4kGtbcovzJWxMZBAoY2LI',
     }
 
     componentDidMount() {
@@ -22,18 +22,15 @@ class SmashedCansList extends Component {
 
     async getSmashedCans () {
         let cans_url = `${url}/smashedCan?where={
-            "user":${this.state.user_id},
-            "machine":${this.state.machine_id},
+            "user":${this.props.state.user_id},
+            "machine":${this.props.state.machine_id},
             "createdAt":{">":${this.props.state.initial_timestamp}}}`;
-        let machine_url = `${url}/machine/${this.state.machine_id}`
-        console.log(this.state.user_id)
-        console.log(this.state.machine_id)
-        console.log(this.props.state.initial_timestamp);
+        let machine_url = `${url}/machine/${this.props.state.machine_id}`
         while (true) {
             await new Promise(resolve => setTimeout(resolve, 500))
             const response_machine = await axios.get(machine_url,
                 {headers: {'Authorization': this.state.user_token}})
-            if(response_machine.data.connectUser === this.state.user_id) {
+            if(response_machine.data.connectUser === this.props.state.user_id) {
                 const response_cans = await axios.get(cans_url,
                     {headers: {'Authorization': this.state.user_token}})
                 const smashed_cans = response_cans.data;

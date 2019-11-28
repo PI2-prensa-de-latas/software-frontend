@@ -18,11 +18,15 @@ const style = {
         padding: '0 10% 0 10%',
         textAlign: 'center',
     },
+    a : {
+        bottom: '10%',
+    },
     button : {
         textAlign: 'center',
         fontSize: '25px',
         width: '80%',
         height: '25%',
+        marginTop: '15%',
         marginLeft: '10%',
         backgroundColor: colors.MidGreen,
         borderTopLeftRadius: '50px',

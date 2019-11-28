@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import WaveHeader from '../components/WaveHeader/index';
 import SmashedCansList from '../components/SmashedCansList/index';
+import WarningPopup from '../components/WarningPopup';
 
 class SmashedCansListScreen extends Component {
   render () {
     return (
-      <div className="container-fluid" >
+      this.props.location.state !== undefined ? <div className="container-fluid" >
             <WaveHeader />
             <SmashedCansList state={this.props.location.state}/>
-      </div>);
+      </div> : <WarningPopup 
+          message="Acesso não autorizado :("
+          button="Ok"
+          path="/"
+      />);
   }
 }
 

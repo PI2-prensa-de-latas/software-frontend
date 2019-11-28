@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import QrCodeConfirmation from '../components/QrCodeConfirmation/index';
+import WarningPopup from '../components/WarningPopup';
 
 class QrCodeConfirmationScreen extends Component {
   render () {
     return (
-      <div className="container-fluid">
+      this.props.location.state !== undefined ? <div className="container-fluid">
         <div>
             <QrCodeConfirmation state={this.props.location.state} />
         </div> 
-      </div>);
+      </div> : <WarningPopup 
+          message="Acesso não autorizado :("
+          button="Ok"
+          path="/"
+      />);
   }
 }
 

@@ -6,7 +6,6 @@ import style from './style';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import url from '../../env';
-import WarningPopup from '../WarningPopup/index';
 
 class QrReaderCam extends Component {
     state = {
@@ -51,7 +50,7 @@ class QrReaderCam extends Component {
             return <Redirect 
                 to={{
                     pathname: "/QrCodeConfirmation",
-                    state: { user_token: this.state.user_token,
+                    state: {
                              user_id: this.state.user_id,
                              machine_id: this.state.machine_id,
                              initial_timestamp: this.state.initial_timestamp}
@@ -105,15 +104,10 @@ class QrReaderCam extends Component {
                     </Link>
                 </div>
                 {this.state.message_error === true ? (
-                    <WarningPopup 
-                        message={'Não Parece um QR Code nosso :('}
-                        button={'Ok'}
-                        path={'#'}
-                    />
-                    // <div style={style.popupError}>
-                    //     <p style={style.popupError.p}>Não Parece um QR Code nosso :(</p>
-                    //     <button onClick={this.closeErrorMessage} style={style.popupError.button}>Ok</button>
-                    // </div>
+                    <div style={style.popupError}>
+                        <p style={style.popupError.p}>Não Parece um QR Code nosso :(</p>
+                        <button onClick={this.closeErrorMessage} style={style.popupError.button}>Ok</button>
+                    </div>
                 ) : (
                         <div></div>
                     )}
