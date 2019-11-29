@@ -19,16 +19,20 @@ const style = {
         left: 0,
         marginTop: "-5px",
         marginLeft: "-5px",
-        border: "black solid 2px"   
+        border: "black solid 2px",
     },
     name: {
         fontStyle: "bold",
-        fontSize: "xx-large",
+        fontSize: "x-large",
         color: colors.MidGreen,
-        textAlign: "center",
-        top: "5%",
-        left: "40%",
-        position: "fixed"
+        textAlign: "left",
+        top: "4%",
+        left: "35%",
+        position: "fixed",
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        width: '100%',
+        height: '60px',
     },
     editIcon: {
         color: colors.MidGreen,

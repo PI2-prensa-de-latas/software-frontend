@@ -6,12 +6,14 @@ const style = {
         height: '60px',
         background: colors.MidGreen,
         color: colors.White,
+        position: "fixed",
     },
     icon : {
         float: 'left',
         fontSize: '40px',
         margin: '10px',
         position: 'absolute',
+        color: colors.White,
     },
     title : {
         textAlign: 'center',

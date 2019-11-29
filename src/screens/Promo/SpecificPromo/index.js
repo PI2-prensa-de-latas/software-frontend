@@ -19,6 +19,7 @@ class SpecificPromo extends React.Component {
                 <img
                     style={styles.img}
                     src={item.img}
+                    alt={"Promo item"}
                 />
             </div>
             <div style={styles.description}>
@@ -33,6 +34,7 @@ class SpecificPromo extends React.Component {
                     <img
                         style={styles.canIcon}
                         src={canIcon}
+                        alt={"can icon"}
                     />
                 </div>
                 <div style={styles.whiteBorder}/>

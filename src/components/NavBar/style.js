@@ -26,6 +26,9 @@ const style = {
     selected : {
         color: colors.LightGreen,
     },
+    none : {
+        color: colors.White,
+    },
     qrButton : {
         width: '100px',
         height: '100px',
@@ -35,7 +38,7 @@ const style = {
         position: 'absolute',
         borderRadius: '100%',
     },
-    qrContainner : {
+    qrContainer : {
         width: '90%',
         height: '90%',
         display: 'flex',

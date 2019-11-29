@@ -8,15 +8,16 @@ export default class WaveHeader extends React.Component {
     render() {
         return (
             <>
-                <div style={styles.container} >
+                <div style={styles.container}>
                     <img style={styles.img}
-                        src={headerImg}
+                         src={headerImg}
+                         alt={"Wave Header"}
                     />
                     <p style={styles.title}>
                         {this.props.title}
                     </p>
                 </div>
-                <div style={styles.blankSpace} />
+                <div style={styles.blankSpace}/>
             </>
         )
     }
