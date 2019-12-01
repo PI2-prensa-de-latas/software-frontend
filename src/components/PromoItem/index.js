@@ -21,6 +21,7 @@ export default class PromoItem extends React.Component {
                     <img
                         style={styles.img}
                         src={item.img}
+                        alt={"Promo item"}
                     />
                 </div>
                 <div style={styles.infoContainer}>
@@ -33,6 +34,7 @@ export default class PromoItem extends React.Component {
                             <img
                                 style={styles.canIcon}
                                 src={canIcon}
+                                alt={"can icon"}
                             />
                         </div>
                         <div

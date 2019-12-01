@@ -9,7 +9,8 @@ const COLORS = {
     Black: '#000',
     AlmostWhite: '#E7E5E5',
     Urgent: '#FC2D00',
-    Warning: '#F8FC26'
+    Warning: '#F8FC26',
+    InputGrey: '#CFD8DC'
 }
 
 export default COLORS;

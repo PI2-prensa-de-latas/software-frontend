@@ -6,14 +6,15 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from '../../env';
 
+const USER_TOKEN = localStorage.getItem('token');
+const USER_ID = localStorage.getItem('user');
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
+
 class SmashedCansList extends Component {
     state = {
         smashed_cans: [],
         rows: [],
         another_user: false,
-        // user_id: this.props.state.user_id,
-        // machine_id: this.props.state.machine_id,
-        user_token: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTczODQwNDUyfQ.vgumqjUn4yVXF5gMfXq41k4kGtbcovzJWxMZBAoY2LI',
     }
 
     componentDidMount() {
@@ -22,17 +23,17 @@ class SmashedCansList extends Component {
 
     async getSmashedCans () {
         let cans_url = `${url}/smashedCan?where={
-            "user":${this.props.state.user_id},
-            "machine":${this.props.state.machine_id},
-            "createdAt":{">":${this.props.state.initial_timestamp}}}`;
-        let machine_url = `${url}/machine/${this.props.state.machine_id}`
+            "user":${USER_ID},
+            "machine":${this.props.data.machine_id},
+            "createdAt":{">":${this.props.data.initial_timestamp}}}`;
+        let machine_url = `${url}/machine/${this.props.data.machine_id}`
         while (true) {
             await new Promise(resolve => setTimeout(resolve, 500))
             const response_machine = await axios.get(machine_url,
-                {headers: {'Authorization': this.state.user_token}})
-            if(response_machine.data.connectUser === this.props.state.user_id) {
+                {headers: {'Authorization': AuthStr}})
+            if(response_machine.data.connectUser === parseInt(USER_ID)) {
                 const response_cans = await axios.get(cans_url,
-                    {headers: {'Authorization': this.state.user_token}})
+                    {headers: {'Authorization': AuthStr}})
                 const smashed_cans = response_cans.data;
                 smashed_cans.sort((a, b) => a.id - b.id);
                 this.setState({ smashed_cans: smashed_cans });
@@ -54,7 +55,6 @@ class SmashedCansList extends Component {
 
         return (
             <div style={style.fullScreen}>
-                <h2 style={style.title}>Amassando Latas</h2>
                 <p style={style.instructions}>
                     Posicione a lata na entrada da máquina, na horizontal, com a logo virada para cima receba seus pontos.
                 </p>
@@ -71,7 +71,7 @@ class SmashedCansList extends Component {
                 </div>
                 <Link to={{
                     pathname: "/FinishCansList",
-                    state: { smashed_cans: this.state.smashed_cans }
+                    data: { smashed_cans: this.state.smashed_cans }
                 }}>
                     <button style={style.button}>Finalizar</button>
                 </Link>
@@ -80,7 +80,7 @@ class SmashedCansList extends Component {
                         <div style={style.opaqueScreen}></div>
                         <div style={style.popupAnotherUser}>
                             <p style={style.popupAnotherUser.p}>Parece que outro alguém começou a usar essa máquina D:</p>
-                            <Link to={'/'}>
+                            <Link to={'/Profile'}>
                                 <button style={style.popupAnotherUser.button}>Terminar</button>
                             </Link>
                         </div>

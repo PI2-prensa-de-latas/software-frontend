@@ -1,11 +1,9 @@
 import colors from './../../style/colors'
 
 const style = {
-    containner : {
+    container : {
         width: '100vw',
-        position: 'absolute',
         bottom: 0,
-        overflow: 'hidden',
         height: '80px',
         position: 'fixed',
         overflow: 'hidden',
@@ -17,7 +15,7 @@ const style = {
         bottom: 0,
         position: 'absolute',
     },
-    iconContainner : {
+    iconContainer : {
         display: 'flex',
         justifyContent: 'space-between',
         fontSize: 35,
@@ -28,6 +26,9 @@ const style = {
     selected : {
         color: colors.LightGreen,
     },
+    none : {
+        color: colors.White,
+    },
     qrButton : {
         width: '100px',
         height: '100px',
@@ -37,7 +38,7 @@ const style = {
         position: 'absolute',
         borderRadius: '100%',
     },
-    qrContainner : {
+    qrContainer : {
         width: '90%',
         height: '90%',
         display: 'flex',

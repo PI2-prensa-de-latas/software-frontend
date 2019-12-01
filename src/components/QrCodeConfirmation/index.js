@@ -6,10 +6,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from '../../env';
 
+const USER_TOKEN = localStorage.getItem('token');
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
+
 class QrCodeConfimartion extends Component {
     state = {
         machine_name: '',
-        user_token: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTczODQwNDUyfQ.vgumqjUn4yVXF5gMfXq41k4kGtbcovzJWxMZBAoY2LI'
     }
 
     componentDidMount() {
@@ -17,9 +19,9 @@ class QrCodeConfimartion extends Component {
     }
 
     async getMachineName() {
-        const current_url = `${url}/machine/${this.props.state.machine_id}`
+        const current_url = `${url}/machine/${this.props.data.machine_id}`
         const response = await axios.get(current_url,
-            {headers: {'Authorization': this.props.state.user_token}})
+            {headers: {'Authorization': AuthStr}})
         const machine_name = response.data.alias;
         this.setState({ machine_name: machine_name });
     }
@@ -35,10 +37,9 @@ class QrCodeConfimartion extends Component {
             <img src={check} alt='Check' style={style.check} />
             <Link to={{
                 pathname: "/SmashedCansList",
-                state: {
-                            user_id: this.props.state.user_id,
-                            machine_id: this.props.state.machine_id,
-                            initial_timestamp: this.props.state.initial_timestamp}
+                data: {
+                            machine_id: this.props.data.machine_id,
+                            initial_timestamp: this.props.data.initial_timestamp}
                 }}>
                 <button style={style.button}>Prosseguir</button>
             </Link>

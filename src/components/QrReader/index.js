@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import QrReader from 'react-qr-reader';
 import { Link } from 'react-router-dom';
+
 import './style.css';
 import style from './style';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import url from '../../env';
 
+const USER_TOKEN = localStorage.getItem('token');
+const USER_ID = localStorage.getItem('user');
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
+
 class QrReaderCam extends Component {
     state = {
         result: 'No result',
         message_error: false,
         redirect_qr_code_confirmation: false,
-        user_id: 1,
-        user_token: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTczODQwNDUyfQ.vgumqjUn4yVXF5gMfXq41k4kGtbcovzJWxMZBAoY2LI',
         initial_timestamp: null,
         machine_id: 0,
     }
@@ -50,8 +53,7 @@ class QrReaderCam extends Component {
             return <Redirect 
                 to={{
                     pathname: "/QrCodeConfirmation",
-                    state: {
-                             user_id: this.state.user_id,
+                    data: {
                              machine_id: this.state.machine_id,
                              initial_timestamp: this.state.initial_timestamp}
                 }} 
@@ -61,8 +63,8 @@ class QrReaderCam extends Component {
 
     async updateConnectedUserMachine (current_url) {
         axios.put(current_url, 
-            {connectUser: this.state.user_id}, 
-            {headers: {'Authorization': this.state.user_token}})
+            {connectUser: USER_ID}, 
+            {headers: {'Authorization': AuthStr}})
     }
 
     handleError = err => {
@@ -97,7 +99,7 @@ class QrReaderCam extends Component {
                 <div style={style.cornerBorder}>
                 </div>
                 <div>
-                    <Link to='/'>
+                    <Link to='/Profile'>
                         <button style={style.back}>
                             <p style={style.arrow}></p>
                         </button>

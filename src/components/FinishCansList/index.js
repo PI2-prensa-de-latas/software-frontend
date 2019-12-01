@@ -28,13 +28,12 @@ class FinishCansList extends Component {
 
         return (
             <div style={style.fullScreen}>
-                <h2 style={style.title}>Finalização</h2>
                 <div style={style.list}>
                     <table style={style.table}>
                         {rows}
                     </table>
                 </div>
-                <Link to={'/'}>
+                <Link to={'/Profile'}>
                     <button onClick={this.setSmashedCans} style={style.button}>Ok</button>
                 </Link>
             </div>
