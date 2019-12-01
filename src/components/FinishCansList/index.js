@@ -2,18 +2,43 @@ import React, { Component } from 'react';
 import style from './style';
 import can from '../../assets/images/beer_can.svg';
 import { MdCheckCircle } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
+import url from '../../env';
+
+const USER_TOKEN = localStorage.getItem('token');
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 class FinishCansList extends Component {
     state = {
         smashed_cans: [],
         rows: [],
+        finish_use: false,
     }
 
     componentDidMount() {
         this.setState({
-            smashed_cans: this.props.smashed_cans
+            smashed_cans: this.props.data.smashed_cans
         })
+    }
+
+    updateConnectedUserMachine = () => {
+        const current_url = `${url}/machine/${this.props.data.machine_id}`;
+        axios.patch(current_url, 
+            {connectUser: 0}, 
+            {headers: {'Authorization': AuthStr}})
+
+        this.setState({
+            finish_use: true,
+        })
+    }
+
+    redirectToProfile = () => {
+        if(this.state.finish_use) {
+            return <Redirect 
+                to={"/Profile"} 
+            />
+        }
     }
 
     render () {
@@ -33,9 +58,8 @@ class FinishCansList extends Component {
                         {rows}
                     </table>
                 </div>
-                <Link to={'/Profile'}>
-                    <button onClick={this.setSmashedCans} style={style.button}>Ok</button>
-                </Link>
+                <button onClick={this.updateConnectedUserMachine} style={style.button}>Ok</button>
+                {this.redirectToProfile()}
             </div>
         )
     }

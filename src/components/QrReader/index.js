@@ -62,7 +62,7 @@ class QrReaderCam extends Component {
     }
 
     async updateConnectedUserMachine (current_url) {
-        axios.put(current_url, 
+        axios.patch(current_url, 
             {connectUser: USER_ID}, 
             {headers: {'Authorization': AuthStr}})
     }

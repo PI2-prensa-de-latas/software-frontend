@@ -71,7 +71,8 @@ class SmashedCansList extends Component {
                 </div>
                 <Link to={{
                     pathname: "/FinishCansList",
-                    data: { smashed_cans: this.state.smashed_cans }
+                    data: { smashed_cans: this.state.smashed_cans,
+                            machine_id: this.props.data.machine_id }
                 }}>
                     <button style={style.button}>Finalizar</button>
                 </Link>

@@ -12,7 +12,7 @@ class QrCodeConfirmationScreen extends Component {
       </div> : <WarningPopup 
           message="Acesso não autorizado :("
           button="Ok"
-          path="/"
+          path="/Profile"
       />);
   }
 }
