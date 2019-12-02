@@ -14,19 +14,11 @@ const style = {
         color: colors.MidGreen,
         top: 0,
     },
-    instructions : {
-        marginLeft: '5vw',
-        marginBottom: '5vh',
-        marginTop: '100px',
-        height: '10vh',
-        width: '90vw',
-        textAlign: 'center',
-        fontSize: '18px',
-    },
     list : {
         backgroundColor: 'white',
-        height:'50vh',
+        height:'60vh',
         width: '80vw',
+        top: '20vh',
         marginLeft: '10vw',
         borderTop: '5px solid',
         borderLeft: '5px solid',
@@ -34,13 +26,6 @@ const style = {
         borderRadius: '7px',
         position: 'absolute',
         overflow: 'auto',
-    },
-    waitingCan : {
-        marginTop: '35%',
-        textAlign: 'center',
-        verticalAlign: 'middle',
-        display: 'block',
-        fontSize: '30px',
     },
     button : {
         position: 'absolute',
@@ -61,7 +46,7 @@ const style = {
     },
     table : {
         width: '100%',
-        maxHeight: '50vh',
+        maxHeight: '40vh',
         backgroundColor: colors.LightGray,
         borderCollapse: 'collapse',
     },
@@ -92,47 +77,6 @@ const style = {
     smashedCan: {
         height: '45px',
     },
-    popupAnotherUser : {
-        position: 'absolute',
-        top: '50vh',
-        left: '10vw',
-        width: '80vw',
-        height: '50vw',
-        marginTop: '-25vw',
-        border: "solid 2px",
-        backgroundColor: colors.LightGray,
-        borderRadius: '2%',
-        zIndex: 1,
-        p : {
-            fontSize: '20px',
-            padding: '0 10% 0 10%',
-            textAlign: 'center',
-        },
-        button : {
-            textAlign: 'center',
-            fontSize: '25px',
-            width: '80%',
-            height: '25%',
-            marginLeft: '10%',
-            backgroundColor: colors.MidGreen,
-            borderTopLeftRadius: '50px',
-            borderBottomLeftRadius: '50px',
-            borderTopRightRadius: '50px',
-            borderBottomRightRadius: '50px',
-            border: 'none',
-            fontWeight: 'bold',
-            color: 'white',
-        }
-    },
-    opaqueScreen: {
-        width: '100vw',
-        height: '100vh',
-        position: 'absolute',
-        top: 0,
-        zIndex: 1,
-        backgroundColor: 'white',
-        opacity: '0.5',
-    }
 }
 
 export default style;

@@ -2,8 +2,8 @@ import colors from './../../style/colors'
 
 const style = {
     qrcodeConfirmation : {
-        height: '100%',
-        width: '100%',
+        height: '100vh',
+        width: '100vw',
         position: 'absolute',
         backgroundColor: colors.MidGreen,
     },
@@ -29,10 +29,12 @@ const style = {
         color: colors.MidGray,
     },
     machine: {
-        width: '100vw',
+        width: '90vw',
+        height: '20vh',
         top: '10vh',
+        left: '5vw',
         position: 'absolute',
-        fontSize: '40px',
+        fontSize: '5vh',
         textAlign: 'center',
         color: colors.LightGray,
     },

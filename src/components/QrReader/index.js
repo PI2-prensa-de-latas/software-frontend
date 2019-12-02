@@ -4,17 +4,39 @@ import { Link } from 'react-router-dom';
 
 import './style.css';
 import style from './style';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import url from '../../env';
+
+const USER_TOKEN = localStorage.getItem('token');
+const USER_ID = localStorage.getItem('user');
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 class QrReaderCam extends Component {
     state = {
         result: 'No result',
         message_error: false,
+        redirect_qr_code_confirmation: false,
+        initial_timestamp: null,
+        machine_id: 0,
     }
 
     handleScan = data => {
-        let code = "TestError";
         if (data) {
-            if (data !== code) {
+            let result = data.split(":")
+            let code = result[0]
+            if (code === "prensaLatas") {
+                let initial_timestamp = new Date()/1;
+                let machine_id = result[1]
+                machine_id = parseInt(machine_id)
+                let current_url = `${url}/machine/${machine_id}`;
+                this.updateConnectedUserMachine(current_url)
+                this.setState({
+                    redirect_qr_code_confirmation: true,
+                    initial_timestamp: initial_timestamp,
+                    machine_id: machine_id
+                })
+            } else {
                 this.setState({
                     message_error: true,
                 })
@@ -24,6 +46,25 @@ class QrReaderCam extends Component {
                 result: data,
             })
         }
+    }
+
+    redirectQrCodeConfirmation = () => {
+        if(this.state.redirect_qr_code_confirmation) {
+            return <Redirect 
+                to={{
+                    pathname: "/QrCodeConfirmation",
+                    data: {
+                             machine_id: this.state.machine_id,
+                             initial_timestamp: this.state.initial_timestamp}
+                }} 
+            />
+        }
+    }
+
+    async updateConnectedUserMachine (current_url) {
+        axios.patch(current_url, 
+            {connectUser: USER_ID}, 
+            {headers: {'Authorization': AuthStr}})
     }
 
     handleError = err => {
@@ -48,6 +89,7 @@ class QrReaderCam extends Component {
                     className="qr-reader"
                 />
                 {console.log(this.state.result)}
+                {this.redirectQrCodeConfirmation()}
                 <div style={style.corner}>
                     <div style={Object.assign({}, style.top, style.left)}></div>
                     <div style={Object.assign({}, style.top, style.right)}></div>
@@ -57,7 +99,7 @@ class QrReaderCam extends Component {
                 <div style={style.cornerBorder}>
                 </div>
                 <div>
-                    <Link to='/'>
+                    <Link to='/Profile'>
                         <button style={style.back}>
                             <p style={style.arrow}></p>
                         </button>

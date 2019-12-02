@@ -6,6 +6,8 @@ import canIcon from './../../assets/svg/canIcon.svg';
 import parseTime from './../../utils/parseTime';
 import styleOfRemain from './../../utils/styleOfRemaining';
 
+/* eslint-disable */
+
 export default class PromoItem extends React.Component {
 
     render() {
