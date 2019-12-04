@@ -64,7 +64,6 @@ ReactDOM.render(
             <PublicRoute path="/Start" exact component={StartScreen} />
             <PublicRoute path="/Register" exact component={RegisterScreen} />
 
-            <PrivateRoute component={ProfileScreen} />
         </Switch>
     </BrowserRouter>
     ,

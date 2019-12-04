@@ -8,7 +8,7 @@ import style from "../NavBar/style";
 const USER_ID = localStorage.getItem('user');
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
-const URL = 'http://localhost:1337/Notification';
+const URL = 'http://localhost:1337/user';
 
 
 export default class ProfileFeed extends React.Component {
@@ -16,16 +16,16 @@ export default class ProfileFeed extends React.Component {
         notification: []
     }
 
-    //
-    // componentDidMount() {
-    //     axios
-    //         .get(`${URL}/${USER_ID}`,
-    //             {headers: {Authorization: AuthStr}})
-    //         .then(response => this.setState({notification: response.data})).then()
-    // }
+    componentDidMount() {
+        axios
+            .get(`${URL}/`,
+                {headers: {Authorization: AuthStr}})
+            .then(response => this.setState({notification: response.data[USER_ID-1].notification})).then()
+        console.log(this.state.notification)
+    }
 
     render() {
-        console.log(this.state.notification[0])
+        console.log(this.state.notification)
 
         return (
             <>
@@ -36,15 +36,15 @@ export default class ProfileFeed extends React.Component {
                         {
                             this.state.notification.map((notification, ind) => {
                                 return (
-                                    <div style={styles.container} onClick={() => this.redirectTo(notification.link)}>
+                                    <div style={styles.container} onClick={() => this.redirectTo("/Profile")}>
                                         <div style={styles.imgContainer}>
-                                            <img style={styles.img} src={notification.image}
+                                            <img style={styles.img} src={notification.iconUri}
                                                  alt={"Notification"}
                                             ></img>
                                         </div>
 
                                         <div style={styles.infoContainer}>
-                                            {notification.text}
+                                            {notification.description}
                                         </div>
                                     </div>
                                 )
