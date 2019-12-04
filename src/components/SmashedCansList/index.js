@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import style from './style';
 import can from '../../assets/images/beer_can.svg';
 import { MdCheckCircle } from 'react-icons/md';
-import axios from 'axios';
+import api from './../../services/api';
 import { Link } from 'react-router-dom';
-import url from '../../env';
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
@@ -22,17 +21,16 @@ class SmashedCansList extends Component {
     }
 
     async getSmashedCans () {
-        let cans_url = `${url}/smashedCan?where={
+        let cans_url = `/smashedCan?where={
             "user":${USER_ID},
             "machine":${this.props.data.machine_id},
             "createdAt":{">":${this.props.data.initial_timestamp}}}`;
-        let machine_url = `${url}/machine/${this.props.data.machine_id}`
         while (true) {
             await new Promise(resolve => setTimeout(resolve, 500))
-            const response_machine = await axios.get(machine_url,
+            const response_machine = await api.get(`/machine/${this.props.data.machine_id}`,
                 {headers: {'Authorization': AuthStr}})
             if(response_machine.data.connectUser === parseInt(USER_ID)) {
-                const response_cans = await axios.get(cans_url,
+                const response_cans = await api.get(cans_url,
                     {headers: {'Authorization': AuthStr}})
                 const smashed_cans = response_cans.data;
                 smashed_cans.sort((a, b) => a.id - b.id);
