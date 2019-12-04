@@ -19,7 +19,23 @@ const style = {
         margin: 'auto',
         textAlign: 'center',
         verticalAlign: 'middle',
-        paddingTop: '30%',
+        paddingTop: '10%',
+    },
+    profilePic: {
+        height: '140px',
+        borderRadius: "60px",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: "140px",
+        position: "relative",
+        paddingTop: "30%"
+    },
+    camIcon: {
+        display: "block",
+        position: "relative",
+        bottom: "20px",
+        paddingLeft: "70px",
     },
     textInput: {
         backgroundColor: 'transparent',
