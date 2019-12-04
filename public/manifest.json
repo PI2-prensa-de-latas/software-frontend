@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
+  "short_name": "Lucky Can",
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "lucky_can_logo.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
