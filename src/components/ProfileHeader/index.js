@@ -7,6 +7,7 @@ import {
 import axios from 'axios'
 import styles from './style'
 import defaultPic from './../../assets/images/Pic.png'
+import {Link} from "react-router-dom";
 
 
 const USER_TOKEN = localStorage.getItem('token');
@@ -41,7 +42,9 @@ export default class ProfileHeader extends React.Component {
                     />
                     <div style={styles.name}>
                         {this.state.user.name}
+                        <Link to="/EditProfile">
                         <MdEdit style={styles.editIcon}/>
+                        </Link>
                     </div>
 
                 </div>

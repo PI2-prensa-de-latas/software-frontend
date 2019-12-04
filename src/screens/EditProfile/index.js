@@ -1,18 +1,16 @@
 import React from 'react';
+import EditProfile from './../../components/EditProfile';
 
-import ProfileHeader from './../../components/ProfileHeader';
-import ProfileScore from './../../components/ProfileScore';
-import ProfileFeed from './../../components/ProfileFeed';
-
-import NavBar from './../../components/NavBar';
 import Header from '../../components/Header';
+import colors from "../../style/colors";
 
 export default class EditProfileScreen extends React.Component {
 
     render() {
         return (
             <>
-                <Header link={"/Start"} title={""}/>
+                <Header link={"/Start"} title={"Editar Perfil"} background={colors.MidGreen} fill={colors.White}/>
+                <EditProfile/>
             </>
         )
     }

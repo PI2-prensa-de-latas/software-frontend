@@ -21,11 +21,9 @@ export default class ProfileFeed extends React.Component {
             .get(`${URL}/`,
                 {headers: {Authorization: AuthStr}})
             .then(response => this.setState({notification: response.data[USER_ID-1].notification})).then()
-        console.log(this.state.notification)
     }
 
     render() {
-        console.log(this.state.notification)
 
         return (
             <>
