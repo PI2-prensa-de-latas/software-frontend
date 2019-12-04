@@ -8,9 +8,13 @@ import { BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
 import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 import SmashedCansListScreen from './screens/SmashedCansList';
 import PromoScreen from './screens/Promo';
+
 import ProfileScreen from './screens/Profile';
+import EditProfileScreen from './screens/EditProfile';
+
 import LoginScreen from './screens/Login';
 import StartScreen from './screens/Start';
+
 import RegisterScreen from './screens/Register';
 import { isAuthenticated } from "./services/auth";
 import MapScreen from './screens/Map';
@@ -32,13 +36,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 ReactDOM.render(
 <BrowserRouter>
         <Switch>
-            <Route path="/" exact={true} component={App} />
+            <Route path="/" exact={true} component={StartScreen} />
 
             <PrivateRoute path="/QrReader" exact={true} component={Cam} />
             <PrivateRoute path="/QrCodeConfirmation" exact={true} component={QrCodeConfirmationScreen} />
 			<PrivateRoute path="/SmashedCansList" exact={true} component={SmashedCansListScreen} />
             <PrivateRoute path="/Promo" exact={true} component={PromoScreen} />
+
             <PrivateRoute path="/Profile" exact={true} component={ProfileScreen} />
+            <PrivateRoute path="/EditProfile" exact={true} component={EditProfileScreen} />
 
             <Route path="/Login" exact component={LoginScreen} />
             <Route path="/Start" exact component={StartScreen} />
