@@ -56,7 +56,7 @@ ReactDOM.render(
             <PrivateRoute path="/Promo" exact={true} component={PromoScreen} />
 
             <PrivateRoute path="/Profile" exact={true} component={ProfileScreen} />
-            <PrivateRoute path="/EditProfile" exact={true} component={EditProfileScreen} />
+            <PublicRoute path="/EditProfile" exact={true} component={EditProfileScreen} />
 
             <PrivateRoute path="/Map" exact component={MapScreen} />
 

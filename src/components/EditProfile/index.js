@@ -94,7 +94,7 @@ export default class ProfileHeader extends React.Component {
                             style={styles.textInput}
                             value={this.state.password}
                             onChange={this.handleChange}
-                            <input type="file" />
+                            input type="file"
                             placeholder="senha"
                         />
                     </Form.Group>
