@@ -50,15 +50,14 @@ export default class ProfileHeader extends React.Component {
     handleSubmit = async e => {
         e.preventDefault();
         const {name, email, password} = this.state;
-        if (!name || !email || !password) {
-            this.setState({error: "Preencha todos os dados para se cadastrar"});
+        if (!name && !email) {
+            this.setState({error: "Preencha alguns dos campos para editar"});
         } else {
             try {
-                await api.post("/user", {name, email, password});
-                this.props.history.push("/Login");
+                await api.patch("/user", {name, email, password});
             } catch (err) {
                 console.log(err);
-                this.setState({error: "Ocorreu um erro ao registrar sua conta. T.T"});
+                this.setState({error: "Ocorreu um erro ao alterar sua conta. T.T"});
             }
         }
     };
@@ -75,7 +74,7 @@ export default class ProfileHeader extends React.Component {
                             type="name"
                             value={this.state.name}
                             onChange={this.handleChange}
-                            placeholder="nome"
+                            placeholder={this.state.user.name}
                         />
                     </Form.Group>
                     <br></br>
@@ -86,7 +85,7 @@ export default class ProfileHeader extends React.Component {
                             type="email"
                             value={this.state.email}
                             onChange={this.handleChange}
-                            placeholder="e-mail"
+                            placeholder={this.state.user.email}
                         />
                     </Form.Group>
                     <br></br>
@@ -95,18 +94,8 @@ export default class ProfileHeader extends React.Component {
                             style={styles.textInput}
                             value={this.state.password}
                             onChange={this.handleChange}
-                            type="password"
+                            <input type="file" />
                             placeholder="senha"
-                        />
-                    </Form.Group>
-                    <br></br>
-                    <Form.Group controlId="passwordConfirm">
-                        <Form.Control
-                            style={styles.textInput}
-                            value={this.state.passwordConfirm}
-                            onChange={this.handleChange}
-                            type="password"
-                            placeholder="confirme sua senha"
                         />
                     </Form.Group>
                     <br></br>
@@ -115,12 +104,10 @@ export default class ProfileHeader extends React.Component {
                         block
                         type="submit"
                     >
-                        Cadastrar
+                        Salvar
                     </Button>
                 </Form>
             </div>
         );
     }
 }
-
-export default withRouter(Register);

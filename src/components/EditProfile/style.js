@@ -1,46 +1,44 @@
-import colors from '../../style/colors'
+import colors from './../../style/colors';
 
 const style = {
-    container: {
+    container : {
+        height: '100%',
         width: '100%',
-        heigth: 100     ,
-        position: 'fixed',
-        top: -1,
-        left: 0,
-        textAlign: 'left',
-        zIndex:98,
+        margin: 0,
+        zIndex: '-1',
     },
-    profilePic: {
-        width: '100px',
-        height: '100px',
-        objectFit: 'cover',
-        borderRadius: "0% 50% 50% 50%",
-        top: 0,
-        left: 0,
-        marginTop: "-5px",
-        marginLeft: "-5px",
-        border: "black solid 2px",
+    logoIcon: {
+        paddingTop: '20%',
+        display: 'block',
+        marginLeft: 'auto',
+        marginRight:'auto',
+        width: '30%',
+        zIndex: '2',
     },
-    name: {
-        fontStyle: "bold",
-        fontSize: "x-large",
-        color: colors.MidGreen,
-        textAlign: "left",
-        top: "4%",
-        left: "35%",
-        position: "fixed",
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        width: '100%',
-        height: '60px',
+    containerLogin : {
+        margin: 'auto',
+        textAlign: 'center',
+        verticalAlign: 'middle',
+        paddingTop: '30%',
     },
-    editIcon: {
-        color: colors.MidGreen,
-        left: "90%",
-        top: "5%",
-        fontSize: "x-large",
-        position: "fixed",
-  }
+    textInput: {
+        backgroundColor: 'transparent',
+        padding: '10px',
+        border: 'none',
+        borderBottom: 'solid 1px #CFD8DC',
+    },
+    buttonInput:{
+        backgroundColor: colors.MidGreen,
+        border: 'none',
+        color: colors.White,
+        padding: '8px 70px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: "large",
+        borderRadius:'15px',
+        margin:'50px',
+    }
 }
 
 export default style;
