@@ -24,9 +24,23 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         {...rest}
         render={props =>
             isAuthenticated() ? (
+
                 <Component {...props} />
             ) : (
                 <Redirect to={{ pathname: "/Start", state: { from: props.location } }} />
+            )
+        }
+    />
+);
+
+const PublicRoute = ({ component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={props =>
+            isAuthenticated() ? (
+                <Redirect to={{ pathname: "/Profile", state: { from: props.location } }} />
+            ) : (
+                <Component {...props} />
             )
         }
     />
@@ -36,8 +50,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 ReactDOM.render(
 <BrowserRouter>
         <Switch>
-            <Route path="/" exact={true} component={StartScreen} />
-
             <PrivateRoute path="/QrReader" exact={true} component={Cam} />
             <PrivateRoute path="/QrCodeConfirmation" exact={true} component={QrCodeConfirmationScreen} />
 			<PrivateRoute path="/SmashedCansList" exact={true} component={SmashedCansListScreen} />
@@ -46,10 +58,13 @@ ReactDOM.render(
             <PrivateRoute path="/Profile" exact={true} component={ProfileScreen} />
             <PrivateRoute path="/EditProfile" exact={true} component={EditProfileScreen} />
 
-            <Route path="/Login" exact component={LoginScreen} />
-            <Route path="/Start" exact component={StartScreen} />
-            <Route path="/Register" exact component={RegisterScreen} />
-            <Route path="/Map" exact component={MapScreen} />
+            <PrivateRoute path="/Map" exact component={MapScreen} />
+
+            <PublicRoute path="/Login" exact component={LoginScreen} />
+            <PublicRoute path="/Start" exact component={StartScreen} />
+            <PublicRoute path="/Register" exact component={RegisterScreen} />
+
+            <PrivateRoute component={ProfileScreen} />
         </Switch>
     </BrowserRouter>
     ,
