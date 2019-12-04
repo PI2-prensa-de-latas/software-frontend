@@ -4,15 +4,13 @@ import {
     MdEdit
 } from "react-icons/md";
 
-import axios from 'axios'
 import styles from './style'
 import defaultPic from './../../assets/images/Pic.png'
-
+import api from './../../services/api';
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
-const URL = 'http://localhost:1337/user';
 
 export default class ProfileHeader extends React.Component {
 
@@ -21,10 +19,11 @@ export default class ProfileHeader extends React.Component {
     }
 
     componentDidMount = async () => {
-        await axios
-            .get(`${URL}/${USER_ID}`,
-                {headers: {Authorization: AuthStr}})
-            .then(response => this.setState({user: response.data}));
+        await api
+            .get(`/user/${USER_ID}`, {
+            headers: {Authorization: AuthStr}
+        }) 
+            .then( response => this.setState({user: response.data}) );
 
         if (this.state.user.pic === undefined) {
             this.setState({user: {...this.state.user, pic: defaultPic}})
@@ -32,6 +31,7 @@ export default class ProfileHeader extends React.Component {
     }
 
     render() {
+        console.log(this.state.user.name, 'user');
         return (
             <>
                 <div style={styles.container}>

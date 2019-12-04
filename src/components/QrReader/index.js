@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 
 import './style.css';
 import style from './style';
-import axios from 'axios';
+import api from './../../services/api';
 import { Redirect } from 'react-router-dom';
-import url from '../../env';
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
@@ -29,8 +28,7 @@ class QrReaderCam extends Component {
                 let initial_timestamp = new Date()/1;
                 let machine_id = result[1]
                 machine_id = parseInt(machine_id)
-                let current_url = `${url}/machine/${machine_id}`;
-                this.updateConnectedUserMachine(current_url)
+                this.updateConnectedUserMachine(machine_id)
                 this.setState({
                     redirect_qr_code_confirmation: true,
                     initial_timestamp: initial_timestamp,
@@ -61,8 +59,8 @@ class QrReaderCam extends Component {
         }
     }
 
-    async updateConnectedUserMachine (current_url) {
-        axios.patch(current_url, 
+    async updateConnectedUserMachine (machine_id) {
+        api.patch(`/machine/${machine_id}`, 
             {connectUser: USER_ID}, 
             {headers: {'Authorization': AuthStr}})
     }
