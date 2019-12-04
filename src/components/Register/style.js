@@ -37,6 +37,7 @@ const style = {
         display: 'inline-block',
         fontSize: "large",
         borderRadius:'15px',
+        margin:'50px',
     }
 }
 
