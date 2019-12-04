@@ -3,10 +3,10 @@ import style from './style';
 import can from '../../assets/images/beer_can.svg';
 import { MdCheckCircle } from 'react-icons/md';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
-import url from '../../env';
+import api from './../../services/api';
 
 const USER_TOKEN = localStorage.getItem('token');
+const USER_ID = localStorage.getItem('user');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 class FinishCansList extends Component {
@@ -23,10 +23,15 @@ class FinishCansList extends Component {
     }
 
     updateConnectedUserMachine = () => {
-        const current_url = `${url}/machine/${this.props.data.machine_id}`;
-        axios.patch(current_url, 
-            {connectUser: 0}, 
-            {headers: {'Authorization': AuthStr}})
+        // const current_url = `${url}/machine/${this.props.data.machine_id}`;
+        // axios.patch(current_url, 
+        //     {connectUser: 0}, 
+        //     {headers: {'Authorization': AuthStr}})
+        api.patch(
+            `/machine/${this.props.data.machine_id}`,
+            { connectUser: USER_ID },
+            { headers: { Authorization: AuthStr } }
+        );
 
         this.setState({
             finish_use: true,

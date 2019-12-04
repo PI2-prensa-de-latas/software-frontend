@@ -2,14 +2,13 @@ import React from 'react'
 
 import canImg from './../../assets/svg/canIconWhite.svg'
 
-import axios from 'axios'
 import styles from './style'
 import './style.css';
+import api from './../../services/api';
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
-const URL = 'http://localhost:1337/score';
 
 export default class ProfileScore extends React.Component {
 
@@ -18,8 +17,8 @@ export default class ProfileScore extends React.Component {
     }
 
     componentDidMount() {
-        axios
-            .post(URL, {user: USER_ID}, {headers: {Authorization: AuthStr}},
+        api
+            .post('/score', {user: USER_ID}, {headers: {Authorization: AuthStr}},
             )
             .then(response => this.setState({score: response.data}));
     }

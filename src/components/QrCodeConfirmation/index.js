@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import style from './style';
 import logo from '../../assets/images/logo.svg';
 import check from '../../assets/images/check_circle.svg';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import url from '../../env';
+import api from './../../services/api';
 
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
@@ -19,8 +18,7 @@ class QrCodeConfimartion extends Component {
     }
 
     async getMachineName() {
-        const current_url = `${url}/machine/${this.props.data.machine_id}`
-        const response = await axios.get(current_url,
+        const response = await api.get(`/machine/${this.props.data.machine_id}`,
             {headers: {'Authorization': AuthStr}})
         const machine_name = response.data.alias;
         this.setState({ machine_name: machine_name });
