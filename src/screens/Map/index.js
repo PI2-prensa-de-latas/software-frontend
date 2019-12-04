@@ -20,22 +20,36 @@ const LocationsSelect = (props) => {
     )
 }
 
-class MapScreen extends Component {
 
-    constructor () {
-        super();
+
+class MapScreen extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            currentLocation : fromLonLat(['', ''])
+        };
+
+        this.geo_success= this.geo_success.bind(this);
+        this.panToLocation = this.panToLocation.bind(this);
+
         this.locations = [
-            {name: 'London', coords: fromLonLat([-0.12755, 51.507222])},
             {name: 'Moscow', coords: fromLonLat([37.6178, 55.7517])},
             {name: 'Istanbul', coords: fromLonLat([28.9744, 41.0128])},
             {name: 'Rome', coords: fromLonLat([12.5, 41.9])},
             {name: 'Bern', coords: fromLonLat([7.4458, 46.95])}
         ]
-        this.state = {
-            currentLocation : fromLonLat([-0.12755, 51.507222])
-        }
-        this.panToLocation = this.panToLocation.bind(this);
     }
+
+    componentDidMount(){
+        navigator.geolocation.getCurrentPosition(this.geo_success);
+    }
+
+    geo_success(pos) {
+        this.setState({
+            currentLocation: fromLonLat([pos.coords.longitude, pos.coords.latitude]),
+        })
+        console.log(this.state.currentLocation);
+    };
 
     panToLocation(e) {
         const selectedIndex = e.target.selectedOptions[0].index;
@@ -50,7 +64,7 @@ class MapScreen extends Component {
     render() {
         return (
             <div className="MapScreen">
-                <LocationsSelect locations={this.locations} onSelectLocation={this.panToLocation}/>
+                {/*<LocationsSelect locations={this.locations} onSelectLocation={this.panToLocation}/>*/}
                 <MapComponent currentLocation={this.state.currentLocation}/>
                 <NavBar selected={"MAP"}/>
             </div>
