@@ -29,6 +29,27 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     />
 );
 
+// const isConnected = () => (
+//     axios.get(`https://www.google.com.br/`)
+//         .then(function (response) {
+//             console.log(response.status_code)
+//         })
+// )
+
+// const NoInternetRoute = ({ component: Component, ...rest }) => (
+
+//     <Route
+//         {...rest}
+//         render={
+//             <Component/>
+//             isAuthenticated() ? (
+//                 <Component {...props} />
+//             ) : (
+//                 <Redirect to={{ pathname: "/Start", state: { from: props.location } }} />
+//             )
+//         }
+//     />
+// );
 
 ReactDOM.render(
 <BrowserRouter>
@@ -54,4 +75,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.register();
+serviceWorker.unregister();
