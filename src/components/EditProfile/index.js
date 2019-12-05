@@ -30,7 +30,7 @@ export default class ProfileHeader extends React.Component {
 
     componentDidMount = async () => {
         await api
-            .get(`/${USER_ID}`,
+            .get(`/user/${USER_ID}`,
                 {headers: {Authorization: AuthStr}})
             .then(response => this.setState({user: response.data}));
 

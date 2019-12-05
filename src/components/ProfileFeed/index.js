@@ -1,14 +1,13 @@
 import React from 'react'
 
 import styles from './style'
-import axios from 'axios'
 import './style.css';
 import style from "../NavBar/style";
 
+import api from './../../services/api';
 const USER_ID = localStorage.getItem('user');
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
-const URL = 'http://localhost:1337/user';
 
 
 export default class ProfileFeed extends React.Component {
@@ -17,8 +16,8 @@ export default class ProfileFeed extends React.Component {
     }
 
     componentDidMount() {
-        axios
-            .get(`${URL}/`,
+        api
+            .get(`/user`,
                 {headers: {Authorization: AuthStr}})
             .then(response => this.setState({notification: response.data[USER_ID-1].notification})).then()
     }
