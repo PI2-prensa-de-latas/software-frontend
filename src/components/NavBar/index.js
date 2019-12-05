@@ -10,6 +10,8 @@ import style from './style'
 import qrIcon from './../../assets/svg/qrcode-scan.svg'
 import {Link} from "react-router-dom";
 
+/* eslint-disable */
+
 export default class NavBar extends React.Component {
 
     render () {
@@ -43,15 +45,17 @@ export default class NavBar extends React.Component {
                             <div/>
                         </div>
                     </div>
-                    <div style={style.qrButton}>
-                        <div style={style.qrContainer}>
-                            <img
-                                src={qrIcon}
-                                height={50}
-                                alt={""}
-                            />
+                    <Link to={'/QrReader'}>
+                        <div style={style.qrButton}>
+                            <div style={style.qrContainer}>
+                                <img
+                                    src={qrIcon}
+                                    height={50}
+                                    alt={""}
+                                />
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
                 <div style={style.blankSpace}/>
             </>

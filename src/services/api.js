@@ -2,7 +2,8 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 const api = axios.create({
-    baseURL: "http://localhost:1337"
+    // baseURL: "http://localhost:1337",      // development
+    baseURL: "https://api-producao.herokuapp.com/" // production
 });
 
 api.interceptors.request.use(async config => {
