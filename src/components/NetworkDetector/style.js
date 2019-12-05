@@ -1,10 +1,18 @@
-// import colors from './../../style/colors'
-
 const style = {
-    internetLosted : {
-        height: '20vh',
-        width: '50vw',
-        position: 'absolute',
+    divColor: {
+        height: '6vh',
+        backgroundColor: 'red',
+    },
+    space : {
+        height: '2vh',
+    },
+    text: {
+        textAlign: 'center',
+        margin: 0,
+        padding: 0,
+        fontSize: '2vh',
+        fontWeight: 'bold',
+        color: 'white',
     }
 }
 

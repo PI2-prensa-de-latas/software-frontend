@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './style';
 
 export default function (ComposedComponent) {
   class NetworkDetector extends Component {
@@ -34,8 +35,10 @@ export default function (ComposedComponent) {
       return (
         <div>
           { this.state.isDisconnected === true ? (
-              <div>
-                <p>Internetsss connection lost</p>
+              <div style={style.divColor}>
+                <div style={style.space}></div>
+                <p style={style.text}>Você não possui conexão com internet :(</p>
+                <div style={style.space}></div>
               </div>
             ) : (
               <div></div>

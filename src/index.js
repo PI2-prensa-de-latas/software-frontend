@@ -29,28 +29,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     />
 );
 
-// const isConnected = () => (
-//     axios.get(`https://www.google.com.br/`)
-//         .then(function (response) {
-//             console.log(response.status_code)
-//         })
-// )
-
-// const NoInternetRoute = ({ component: Component, ...rest }) => (
-
-//     <Route
-//         {...rest}
-//         render={
-//             <Component/>
-//             isAuthenticated() ? (
-//                 <Component {...props} />
-//             ) : (
-//                 <Redirect to={{ pathname: "/Start", state: { from: props.location } }} />
-//             )
-//         }
-//     />
-// );
-
 ReactDOM.render(
 <BrowserRouter>
         <Switch>
