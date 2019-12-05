@@ -1,12 +1,11 @@
 import React from 'react';
-import axios from 'axios';
 
 import WaveHeader from './../../components/WaveHeader';
 import PromoItem from './../../components/PromoItem';
 import NavBar from './../../components/NavBar';
 import SpecificPromo from './SpecificPromo';
 import Loader from 'react-loader-spinner';
-
+import api from './../../services/api';
 import styles from './style';
 import colors from './../../style/colors';
 import NetworkDetector from './../../components/NetworkDetector';
@@ -25,7 +24,10 @@ class PromoScreen extends React.Component {
 
 
     componentDidMount() {
-        axios.get('https://api.myjson.com/bins/7th74')
+        api.post(
+            '/getAllScores',
+            { user: USER_ID }
+        )
             .then(response => this.setState({
                 promo_list: response.data,
                 is_loading: false,
