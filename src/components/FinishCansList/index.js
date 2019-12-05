@@ -51,7 +51,7 @@ class FinishCansList extends Component {
         for(let i=0; i<this.state.smashed_cans.length; i++) {
             rows.push(<tr key={i} style={style.tr}>
                 <td style={style.tdLeft}><img src={can} alt='Logo' style={style.smashedCan} /></td>
-                <td style={style.tdMiddle}>{this.state.smashed_cans[i].category.trademark}</td>
+                <td style={style.tdMiddle}>{this.state.smashed_cans[i].canCategory.trademark}</td>
                 <td style={style.tdRight}><MdCheckCircle style={style.checkCircle}/></td>
             </tr>)
         }
