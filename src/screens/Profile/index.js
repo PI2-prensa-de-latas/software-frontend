@@ -27,6 +27,7 @@ export default class ProfileScreen extends React.Component {
             is_loading: true,
             user: "",
             score: "",
+            notification: [],
         }
     }
 
@@ -44,6 +45,11 @@ export default class ProfileScreen extends React.Component {
             .post('/score', {user: USER_ID}, {headers: {Authorization: AuthStr}},
             )
             .then(response => this.setState({score: response.data}));
+
+        await api
+            .get(`/user/${USER_ID}`,
+                {headers: {Authorization: AuthStr}})
+            .then(response => this.setState({notification: response.data.notification})).then()
 
         if (this.state.user.pic === undefined) {
             this.setState({user: {...this.state.user, pic: defaultPic}})
@@ -68,7 +74,7 @@ export default class ProfileScreen extends React.Component {
                         <>
                             <ProfileHeader user={this.state.user}/>
                             <ProfileScore score={this.state.score}/>
-                            <ProfileFeed/>
+                            <ProfileFeed notification={this.state.notification}/>
                         </>
                 }
                 <NavBar selected={"PROFILE"}/>

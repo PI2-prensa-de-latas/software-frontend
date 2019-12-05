@@ -37,6 +37,9 @@ const style = {
         bottom: "20px",
         paddingLeft: "70px",
     },
+    logoutIcon: {
+        marginBottom: "-3px",
+    },
     textInput: {
         backgroundColor: 'transparent',
         padding: '10px',
@@ -48,6 +51,18 @@ const style = {
         border: 'none',
         color: colors.White,
         padding: '8px 70px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: "large",
+        borderRadius:'15px',
+        margin:'0px',
+    },
+    buttonLogout:{
+        backgroundColor: colors.MidGreen,
+        border: 'none',
+        color: colors.White,
+        padding: '6px 40px',
         textAlign: 'center',
         textDecoration: 'none',
         display: 'inline-block',

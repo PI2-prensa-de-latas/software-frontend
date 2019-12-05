@@ -5,6 +5,7 @@ import './style.css';
 import style from "../NavBar/style";
 
 import api from './../../services/api';
+
 const USER_ID = localStorage.getItem('user');
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
@@ -12,18 +13,14 @@ const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 export default class ProfileFeed extends React.Component {
     state = {
-        notification: []
+        notification: [],
     }
 
     componentDidMount() {
-        api
-            .get(`/user`,
-                {headers: {Authorization: AuthStr}})
-            .then(response => this.setState({notification: response.data[USER_ID-1].notification})).then()
+        this.setState({notification: this.props.notification})
     }
 
     render() {
-
         return (
             <>
                 <div style={styles.containerFeed}>
