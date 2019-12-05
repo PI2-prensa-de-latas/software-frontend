@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WaveHeader from '../../components/WaveHeader/index';
 import SmashedCansList from '../../components/SmashedCansList/index';
 import WarningPopup from '../../components/WarningPopup';
+import NetworkDetector from './../../components/NetworkDetector';
 
 class SmashedCansListScreen extends Component {
   render () {
@@ -17,4 +18,4 @@ class SmashedCansListScreen extends Component {
   }
 }
 
-export default SmashedCansListScreen;
+export default NetworkDetector(SmashedCansListScreen);

@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import QrReaderCam from '../../components/QrReader/index';
+import NetworkDetector from './../../components/NetworkDetector';
 
-function Cam() {
-    return (
-        <div className="container-fluid">
-            <div>
-                <QrReaderCam />
-            </div>
-        </div>);
+class Cam extends React.Component {
+    
+    render() {
+        return (
+            <div className="container-fluid">
+                <div>
+                    <QrReaderCam />
+                </div>
+            </div>);
+    }
 }
 
-export default Cam;
+export default NetworkDetector(Cam);

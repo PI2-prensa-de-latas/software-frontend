@@ -9,8 +9,9 @@ import Loader from 'react-loader-spinner';
 
 import styles from './style';
 import colors from './../../style/colors';
+import NetworkDetector from './../../components/NetworkDetector';
 
-export default class PromoScreen extends React.Component {
+class PromoScreen extends React.Component {
 
     constructor(props){
         super(props);
@@ -91,3 +92,5 @@ export default class PromoScreen extends React.Component {
         }
     }
 }
+
+export default NetworkDetector(PromoScreen);

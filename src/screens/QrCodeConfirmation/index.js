@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QrCodeConfirmation from '../../components/QrCodeConfirmation/index';
 import WarningPopup from '../../components/WarningPopup';
+import NetworkDetector from './../../components/NetworkDetector';
 
 class QrCodeConfirmationScreen extends Component {
   render () {
@@ -17,4 +18,4 @@ class QrCodeConfirmationScreen extends Component {
   }
 }
 
-export default QrCodeConfirmationScreen;
+export default NetworkDetector(QrCodeConfirmationScreen);
