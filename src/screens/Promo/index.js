@@ -8,10 +8,12 @@ import Loader from 'react-loader-spinner';
 import api from './../../services/api';
 import styles from './style';
 import colors from './../../style/colors';
+import NetworkDetector from './../../components/NetworkDetector';
 
 const USER_ID = localStorage.getItem('user');
 
-export default class PromoScreen extends React.Component {
+
+class PromoScreen extends React.Component {
 
     constructor(props){
         super(props);
@@ -95,3 +97,5 @@ export default class PromoScreen extends React.Component {
         }
     }
 }
+
+export default NetworkDetector(PromoScreen);

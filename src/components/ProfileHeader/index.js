@@ -1,12 +1,13 @@
 import React from 'react'
 
 import {
-    MdEdit
+    MdMenu
 } from "react-icons/md";
 
 import styles from './style'
 import defaultPic from './../../assets/images/Pic.png'
 import api from './../../services/api';
+import {Link} from "react-router-dom";
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
@@ -16,19 +17,11 @@ export default class ProfileHeader extends React.Component {
 
     state = {
         user: ''
-    }
+    };
 
     componentDidMount = async () => {
-        await api
-            .get(`/user/${USER_ID}`, {
-            headers: {Authorization: AuthStr}
-        }) 
-            .then( response => this.setState({user: response.data}) );
-
-        if (this.state.user.pic === undefined) {
-            this.setState({user: {...this.state.user, pic: defaultPic}})
-        };
-    }
+        this.setState({user: this.props.user})
+    };
 
     render() {
         console.log(this.state.user.name, 'user');
@@ -41,7 +34,9 @@ export default class ProfileHeader extends React.Component {
                     />
                     <div style={styles.name}>
                         {this.state.user.name}
-                        <MdEdit style={styles.editIcon}/>
+                        <Link to="/EditProfile">
+                            <MdMenu style={styles.editIcon}/>
+                        </Link>
                     </div>
 
                 </div>
