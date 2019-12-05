@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import styles from './style'
-import defaultPic from './../../assets/images/Pic.png'
+
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import api from "../../services/api";
 import './style.css'
-import { logout } from "../../services/auth";
+import {logout} from "../../services/auth";
 
 import {
     FiLogOut
@@ -30,11 +30,12 @@ export default class ProfileHeader extends React.Component {
             user: "",
             img: "",
             info: "",
+            error: "",
         };
     }
 
     componentDidMount = async () => {
-            this.setState({user: this.props.user})
+        this.setState({user: this.props.user})
     }
 
     validateForm() {
@@ -45,26 +46,42 @@ export default class ProfileHeader extends React.Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+        console.log(this.state)
     };
 
     handleSubmit = async e => {
         e.preventDefault();
-        const {name, email, img} = this.state.user;
+        let {name, email, img} = this.state;
+        if(name==='')
+        {
+            name=this.state.name
+        }
+        if(email==='') {
+            email=this.state.email
+        }
+        if(img==='')
+        {
+            img=this.img
+        }
+        console.log(name);
+        console.log(email);
+        
+        console.log(img);
         console.log("upload button");
 
-        if (!name && !email && !img) {
-            this.setState({error: "Preencha alguns dos campos para editar"});
-            console.log("error");
-        } else {
-            try {
-                console.log("upload image");
-                await axios.post("https://api.imgur.com/3/upload",{img},{headers: {Authorization: AuthStrImg}}).then(response => (this.info = response))
-                console.log(this.state.info)
-                await api.patch(`/${USER_ID}`, {name, email, img}, {headers: {Authorization: AuthStr}},).then(response => console.log(response));
-            } catch (err) {
-                console.log(err);
-                this.setState({error: "Ocorreu um erro ao alterar sua conta. T.T"});
-            }
+        try {
+            await api.patch(`user/${USER_ID}`, {
+                name,
+                email,
+                img,
+            }, {headers: {Authorization: AuthStr}},).then(response => console.log(response));
+            console.log("upload image");
+            await axios.post("https://api.imgur.com/3/upload", {img}, {headers: {Authorization: AuthStrImg}}).then(response => (this.info = response))
+            console.log(this.state.info)
+
+        } catch (err) {
+            console.log(err);
+            this.setState({error: "Ocorreu um erro ao alterar sua conta. T.T"});
         }
     };
 
@@ -81,21 +98,22 @@ export default class ProfileHeader extends React.Component {
                     <img src={this.state.user.pic} alt='Logo' style={styles.profilePic}/>
 
                     <Form.Group controlId="img">
-                    <div className="image-upload">
-                        <label style={styles.camIcon} htmlFor="file-input">
-                            <img src={camIcon} alt='Camera Icon'/>
-                        </label>
-                        <input id="file-input" value={this.state.img} onChange={this.handleChange} type="file"/>
-                    </div>
+                        <div className="image-upload">
+                            <label style={styles.camIcon} htmlFor="file-input">
+                                <img src={camIcon} alt='Camera Icon'/>
+                            </label>
+                            <input id="file-input" value={this.state.img} onChange={this.handleChange} type="file"/>
+                        </div>
                     </Form.Group>
 
                     <Form.Group controlId="name">
                         <Form.Control
                             style={styles.textInput}
                             autoFocus
-                            type="name"
+                            type="text"
                             value={this.state.name}
                             onChange={this.handleChange}
+                            defaultValue={this.state.user.name}
                             placeholder={this.state.user.name}
                         />
                     </Form.Group>
@@ -107,11 +125,11 @@ export default class ProfileHeader extends React.Component {
                             type="email"
                             value={this.state.email}
                             onChange={this.handleChange}
+                            defaultValue={this.state.user.email}
                             placeholder={this.state.user.email}
                         />
                     </Form.Group>
                     <br></br>
-
                     <Button
                         style={styles.buttonInput}
                         block
@@ -128,7 +146,7 @@ export default class ProfileHeader extends React.Component {
                         onClick={this.handleLogout}
                         name="logout"
                     >
-                        <FiLogOut style={styles.logoutIcon} /> Log out
+                        <FiLogOut style={styles.logoutIcon}/> Log out
                     </Button>
                 </div>
 

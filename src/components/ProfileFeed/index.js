@@ -4,12 +4,6 @@ import styles from './style'
 import './style.css';
 import style from "../NavBar/style";
 
-import api from './../../services/api';
-
-const USER_ID = localStorage.getItem('user');
-const USER_TOKEN = localStorage.getItem('token');
-const AuthStr = 'Bearer '.concat(USER_TOKEN);
-
 
 export default class ProfileFeed extends React.Component {
     state = {
