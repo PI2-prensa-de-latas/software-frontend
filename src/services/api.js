@@ -3,7 +3,7 @@ import { getToken } from "./auth";
 
 const api = axios.create({
     // baseURL: "http://localhost:1337",      // development
-    baseURL: "http://159.65.236.163:8080/" // production
+    baseURL: "https://api-producao.herokuapp.com/" // production
 });
 
 api.interceptors.request.use(async config => {
