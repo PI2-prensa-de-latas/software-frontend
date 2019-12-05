@@ -29,15 +29,15 @@ export default class ProfileHeader extends React.Component {
     }
 
     componentDidMount = async () => {
-        await axios
-            .get(`${URL}/${USER_ID}`,
+        await api
+            .get(`/${USER_ID}`,
                 {headers: {Authorization: AuthStr}})
             .then(response => this.setState({user: response.data}));
 
         if (this.state.user.pic === undefined) {
             this.setState({user: {...this.state.user, pic: defaultPic}})
         }
-    };
+    }
 
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0
