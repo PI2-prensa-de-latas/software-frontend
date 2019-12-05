@@ -33,7 +33,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 ReactDOM.render(
 <BrowserRouter>
         <Switch>
-            <Route path="/" exact={true} component={App} />
             <PrivateRoute path="/QrReader" exact={true} component={Cam} />
             <PrivateRoute path="/QrCodeConfirmation" exact={true} component={QrCodeConfirmationScreen} />
 			<PrivateRoute path="/SmashedCansList" exact={true} component={SmashedCansListScreen} />
@@ -45,6 +44,7 @@ ReactDOM.render(
             <Route path="/Start" exact component={StartScreen} />
             <Route path="/Register" exact component={RegisterScreen} />
             <Route path="/Map" exact component={MapScreen} />
+            <Redirect from="*" to="/Profile"/>
         </Switch>
     </BrowserRouter>
     ,
