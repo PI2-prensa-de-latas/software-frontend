@@ -3,8 +3,9 @@ import React from 'react';
 import Login from './../../components/Login';
 import LoginHeader from './../../components/LoginHeader';
 import Header from './../../components/Header';
+import NetworkDetector from './../../components/NetworkDetector';
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
 
     render() {
         return (
@@ -16,3 +17,5 @@ export default class LoginScreen extends React.Component {
         )
     }
 }
+
+export default NetworkDetector(LoginScreen);

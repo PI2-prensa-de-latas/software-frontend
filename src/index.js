@@ -29,7 +29,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     />
 );
 
-
 ReactDOM.render(
 <BrowserRouter>
         <Switch>
