@@ -8,6 +8,7 @@ import headerImg from './../../assets/images/header_waves.svg'
 
 export default class WaveHeader extends React.Component {
     render() {
+        console.log(headerImg);
         return (
             <>
                 <div style={styles.container}>
