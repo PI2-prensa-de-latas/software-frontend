@@ -17,10 +17,7 @@ export default class ProfileScore extends React.Component {
     }
 
     componentDidMount() {
-        api
-            .post('/score', {user: USER_ID}, {headers: {Authorization: AuthStr}},
-            )
-            .then(response => this.setState({score: response.data}));
+        this.setState({score: this.props.score})
     }
 
     render() {

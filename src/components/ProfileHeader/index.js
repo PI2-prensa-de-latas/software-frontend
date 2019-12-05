@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {
-    MdEdit
+    MdMenu
 } from "react-icons/md";
 
 import styles from './style'
@@ -17,19 +17,11 @@ export default class ProfileHeader extends React.Component {
 
     state = {
         user: ''
-    }
+    };
 
     componentDidMount = async () => {
-        await api
-            .get(`/user/${USER_ID}`, {
-            headers: {Authorization: AuthStr}
-        }) 
-            .then( response => this.setState({user: response.data}) );
-
-        if (this.state.user.pic === undefined) {
-            this.setState({user: {...this.state.user, pic: defaultPic}})
-        };
-    }
+        this.setState({user: this.props.user})
+    };
 
     render() {
         console.log(this.state.user.name, 'user');
@@ -43,7 +35,7 @@ export default class ProfileHeader extends React.Component {
                     <div style={styles.name}>
                         {this.state.user.name}
                         <Link to="/EditProfile">
-                        <MdEdit style={styles.editIcon}/>
+                            <MdMenu style={styles.editIcon}/>
                         </Link>
                     </div>
 
