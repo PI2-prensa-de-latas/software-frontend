@@ -3,8 +3,9 @@ import colors from './../../style/colors'
 
 import Register from './../../components/Register';
 import Header from './../../components/Header';
+import NetworkDetector from './../../components/NetworkDetector';
 
-export default class RegisterScreen extends React.Component {
+class RegisterScreen extends React.Component {
 
     render() {
         return (
@@ -15,3 +16,5 @@ export default class RegisterScreen extends React.Component {
         )
     }
 }
+
+export default NetworkDetector(RegisterScreen);

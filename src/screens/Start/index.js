@@ -2,8 +2,9 @@ import React from 'react';
 
 import Start from './../../components/Start';
 import LoginHeader from './../../components/LoginHeader';
+import NetworkDetector from './../../components/NetworkDetector';
 
-export default class StartScreen extends React.Component {
+class StartScreen extends React.Component {
 
     render() {
         return (
@@ -14,3 +15,5 @@ export default class StartScreen extends React.Component {
         )
     }
 }
+
+export default NetworkDetector(StartScreen);

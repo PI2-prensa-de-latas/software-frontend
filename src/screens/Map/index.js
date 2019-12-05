@@ -5,6 +5,7 @@ import './style.css';
 import styles from './style'
 import MapComponent from './../../components/MapComponent';
 import NavBar from './../../components/NavBar';
+import NetworkDetector from './../../components/NetworkDetector';
 
 
 const LocationsSelect = (props) => {
@@ -72,4 +73,4 @@ class MapScreen extends Component {
     }
 }
 
-export default MapScreen;
+export default NetworkDetector(MapScreen);

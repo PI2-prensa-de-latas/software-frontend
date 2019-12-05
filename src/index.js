@@ -66,6 +66,7 @@ ReactDOM.render(
             <PublicRoute path="/Start" exact component={StartScreen} />
             <PublicRoute path="/Register" exact component={RegisterScreen} />
 
+            <Redirect from="*" to="/Profile"/>
         </Switch>
     </BrowserRouter>
     ,

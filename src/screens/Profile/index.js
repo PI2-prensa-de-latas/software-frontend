@@ -6,6 +6,7 @@ import ProfileFeed from './../../components/ProfileFeed';
 
 import NavBar from './../../components/NavBar';
 import WaveHeader from './../../components/WaveHeader';
+import NetworkDetector from './../../components/NetworkDetector';
 
 import Loader from 'react-loader-spinner';
 
@@ -19,7 +20,7 @@ const USER_ID = localStorage.getItem('user');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 
-export default class ProfileScreen extends React.Component {
+class ProfileScreen extends React.Component {
 
     constructor(props) {
         super(props);
@@ -82,3 +83,5 @@ export default class ProfileScreen extends React.Component {
         )
     }
 }
+
+export default NetworkDetector(ProfileScreen);
