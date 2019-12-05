@@ -54,14 +54,14 @@ export default class ProfileHeader extends React.Component {
         let {name, email, img} = this.state;
         if(name==='')
         {
-            name=this.state.name
+            name=this.state.user.name
         }
         if(email==='') {
-            email=this.state.email
+            email=this.state.user.email
         }
         if(img==='')
         {
-            img=this.img
+            img=this.state.user.img
         }
         console.log(name);
         console.log(email);
