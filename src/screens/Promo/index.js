@@ -10,6 +10,9 @@ import styles from './style';
 import colors from './../../style/colors';
 import NetworkDetector from './../../components/NetworkDetector';
 
+const USER_ID = localStorage.getItem('user');
+
+
 class PromoScreen extends React.Component {
 
     constructor(props){
