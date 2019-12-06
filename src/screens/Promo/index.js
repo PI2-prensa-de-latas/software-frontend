@@ -9,13 +9,14 @@ import api from './../../services/api';
 import styles from './style';
 import colors from './../../style/colors';
 import NetworkDetector from './../../components/NetworkDetector';
+import HttpsRedirect from 'react-https-redirect';
 
 const USER_ID = localStorage.getItem('user');
 
 
 class PromoScreen extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             promo_list: [],
@@ -29,7 +30,7 @@ class PromoScreen extends React.Component {
     componentDidMount() {
         api.post(
             '/getAllScores',
-            { user: USER_ID }
+            {user: USER_ID}
         )
             .then(response => {
                 if (response.data[0] !== null) {
@@ -57,10 +58,12 @@ class PromoScreen extends React.Component {
 
     render() {
         console.log(this.state.promo_list);
-        
+
         let items = this.state.promo_list.map((item, id) => {
             return (
-                <div onClick={() => {this.select(id)}} key={"divItem_"+id}>
+                <div onClick={() => {
+                    this.select(id)
+                }} key={"divItem_" + id}>
                     <PromoItem
                         item={item}
                         key={"item_" + id}
@@ -68,7 +71,7 @@ class PromoScreen extends React.Component {
                 </div>
             )
         })
-        
+
         let content = <></>
 
         if (this.state.is_loading) {
@@ -106,13 +109,15 @@ class PromoScreen extends React.Component {
             )
         } else {
             let selected = this.state.promo_list[this.state.selected_promo];
-            return(
+            return (
                 <>
-                <WaveHeader title={selected.name}/>
-                <SpecificPromo
-                    item={selected}
-                    backButton={this.clearSelection}
-                />
+                    <HttpsRedirect>
+                        <WaveHeader title={selected.name}/>
+                        <SpecificPromo
+                            item={selected}
+                            backButton={this.clearSelection}
+                        />
+                    </HttpsRedirect>
                 </>
             )
         }

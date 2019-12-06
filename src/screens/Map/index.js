@@ -9,13 +9,8 @@ import NetworkDetector from './../../components/NetworkDetector';
 import api from "../../services/api";
 import Loader from 'react-loader-spinner';
 import colors from "../../style/colors";
-import ProfileHeader from "../../components/ProfileHeader";
-import ProfileScore from "../../components/ProfileScore";
-import ProfileFeed from "../../components/ProfileFeed";
-import Geolocation from "ol/Geolocation";
-import Feature from "ol/Feature";
-import {Circle as CircleStyle, Fill, Stroke, Style} from "ol/style";
-import Point from "ol/geom/Point";
+
+import HttpsRedirect from 'react-https-redirect';
 
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
@@ -106,35 +101,39 @@ class MapScreen extends Component {
                     this
                         .geo_success
                 );
-            this.setState({none: false
+            this.setState({
+                none: false
             });
             this.forceUpdate();
         }
 
         return (
+
             <>
-                {
-                    this.state.is_loading ?
-                        <Loader
-                            style={styles.loading}
-                            type="Grid"
-                            color={colors.MidGreen}
-                            height={100}
-                            width={100}
-                        />
-                        :
-                        <>
-                            <div className="MapScreen">
-                                <MapComponent locations={this.state.locations}
-                                              currentLocation={this.state.currentLocation}/>
-                            </div>
-                        </>
+                <HttpsRedirect>
+                    {
+                        this.state.is_loading ?
+                            <Loader
+                                style={styles.loading}
+                                type="Grid"
+                                color={colors.MidGreen}
+                                height={100}
+                                width={100}
+                            />
+                            :
+                            <>
+                                <div className="MapScreen">
+                                    <MapComponent locations={this.state.locations}
+                                                  currentLocation={this.state.currentLocation}/>
+                                </div>
+                            </>
+                    }
+                    <NavBar selected={"MAP"}/>
+                    </HttpsRedirect>
+                </>
+
+                );
                 }
-                <NavBar selected={"MAP"}/>
-            </>
+                }
 
-        );
-    }
-}
-
-export default NetworkDetector(MapScreen);
+                export default NetworkDetector(MapScreen);

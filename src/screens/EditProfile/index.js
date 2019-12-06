@@ -6,13 +6,15 @@ import colors from "../../style/colors";
 import api from "../../services/api";
 import Loader from "react-loader-spinner";
 import styles from "../Promo/style";
+import HttpsRedirect from 'react-https-redirect';
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
+
 export default class EditProfileScreen extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             user: "",
@@ -32,19 +34,21 @@ export default class EditProfileScreen extends React.Component {
     render() {
         return (
             <>
-                <Header link={"/Start"} title={"Editar Perfil"} background={colors.MidGreen} fill={colors.White}/>
-                {
-                    this.state.is_loading ?
-                        <Loader
-                            style={styles.loading}
-                            type="Grid"
-                            color={colors.MidGreen}
-                            height={100}
-                            width={100}
-                        />
-                        :
-                        <EditProfile user={this.state.user}/>
-                }
+                <HttpsRedirect>
+                    <Header link={"/Start"} title={"Editar Perfil"} background={colors.MidGreen} fill={colors.White}/>
+                    {
+                        this.state.is_loading ?
+                            <Loader
+                                style={styles.loading}
+                                type="Grid"
+                                color={colors.MidGreen}
+                                height={100}
+                                width={100}
+                            />
+                            :
+                            <EditProfile user={this.state.user}/>
+                    }
+                </HttpsRedirect>
             </>
         )
     }
