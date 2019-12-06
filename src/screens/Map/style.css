@@ -4,4 +4,9 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    float: left;
+    display: block;
+    background-color: #6899D3;
+    margin: 0;
+    padding: 0;
 }

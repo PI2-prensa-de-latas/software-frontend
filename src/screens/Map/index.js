@@ -129,11 +129,11 @@ class MapScreen extends Component {
                             </>
                     }
                     <NavBar selected={"MAP"}/>
-                    </HttpsRedirect>
-                </>
+                </HttpsRedirect>
+            </>
 
-                );
-                }
-                }
+        );
+    }
+}
 
-                export default NetworkDetector(MapScreen);
+export default NetworkDetector(MapScreen);

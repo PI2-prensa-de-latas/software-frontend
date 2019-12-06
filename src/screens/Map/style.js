@@ -30,7 +30,7 @@ const style = {
     },
     blankSpace: {
         top: 0,
-        height: 100,
+        height: 80,
         width: '100%',
     }
 }
