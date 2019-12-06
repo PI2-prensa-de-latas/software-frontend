@@ -31,10 +31,16 @@ class PromoScreen extends React.Component {
             '/getAllScores',
             { user: USER_ID }
         )
-            .then(response => this.setState({
-                promo_list: response.data,
-                is_loading: false,
-            }))
+            .then(response => {
+                if (response.data[0] !== null) {
+                    this.setState({
+                        promo_list: response.data,
+                    })
+                }
+            })
+            .then(
+                this.setState({is_loading: false})
+            )
     }
 
     select(i) {
@@ -51,7 +57,7 @@ class PromoScreen extends React.Component {
 
     render() {
         console.log(this.state.promo_list);
-
+        
         let items = this.state.promo_list.map((item, id) => {
             return (
                 <div onClick={() => {this.select(id)}} key={"divItem_"+id}>
@@ -62,6 +68,30 @@ class PromoScreen extends React.Component {
                 </div>
             )
         })
+        
+        let content = <></>
+
+        if (this.state.is_loading) {
+            content = (
+                <Loader
+                    style={styles.loading}
+                    type="Grid"
+                    color={colors.MidGreen}
+                    height={100}
+                    width={100}
+                />
+            )
+        } else if (this.state.promo_list.length > 0) {
+            content = items;
+        } else {
+            content = (
+                <div style={styles.noPromoMessage}>
+                    <span>
+                        Não estamos com promoções ativas. Daqui a pouco colocamos mais ;)
+                    </span>
+                </div>
+            )
+        }
 
         if (this.state.selected_promo === null) {
             console.log(styles.loading);
@@ -69,16 +99,7 @@ class PromoScreen extends React.Component {
                 <>
                     <WaveHeader title="Promoções"/>
                     {
-                        this.state.is_loading ?
-                            <Loader
-                                style={styles.loading}
-                                type="Grid"
-                                color={colors.MidGreen}
-                                height={100}
-                                width={100}
-                            />
-                        :
-                            items
+                        content
                     }
                     <NavBar selected="PROMO"/>
                 </>
