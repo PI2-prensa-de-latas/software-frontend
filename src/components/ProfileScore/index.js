@@ -4,11 +4,6 @@ import canImg from './../../assets/svg/canIconWhite.svg'
 
 import styles from './style'
 import './style.css';
-import api from './../../services/api';
-
-const USER_TOKEN = localStorage.getItem('token');
-const USER_ID = localStorage.getItem('user');
-const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 export default class ProfileScore extends React.Component {
 

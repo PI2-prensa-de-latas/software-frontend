@@ -6,12 +6,8 @@ import {
 
 import styles from './style'
 import defaultPic from './../../assets/images/Pic.png'
-import api from './../../services/api';
 import {Link} from "react-router-dom";
 
-const USER_TOKEN = localStorage.getItem('token');
-const USER_ID = localStorage.getItem('user');
-const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 export default class ProfileHeader extends React.Component {
 

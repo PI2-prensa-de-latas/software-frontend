@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import QrReaderCam from '../../components/QrReader/index';
 import NetworkDetector from './../../components/NetworkDetector';
 import HttpsRedirect from "react-https-redirect";

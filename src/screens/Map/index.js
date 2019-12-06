@@ -16,19 +16,6 @@ const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 
-const LocationsSelect = (props) => {
-    const locations = props.locations.map((item, index) =>
-        <option key={index} value={item.coords} className="dd-locations">{item.name}</option>
-    );
-    return (
-        <div>
-            <select style={styles.searchBar} onChange={props.onSelectLocation}>
-                {locations}
-            </select>
-        </div>
-    )
-}
-
 
 class MapScreen extends Component {
     constructor(props) {

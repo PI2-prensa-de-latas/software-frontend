@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Cam from './screens/Cam';
-import * as serviceWorker from './serviceWorker';
 import {BrowserRouter, Switch, Redirect, Route} from 'react-router-dom';
 import QrCodeConfirmationScreen from './screens/QrCodeConfirmation';
 import SmashedCansListScreen from './screens/SmashedCansList';
