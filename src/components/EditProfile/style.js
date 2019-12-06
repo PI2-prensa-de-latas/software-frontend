@@ -23,13 +23,14 @@ const style = {
     },
     profilePic: {
         height: '140px',
-        borderRadius: "60px",
+        borderRadius: "500px",
         display: "block",
         marginLeft: "auto",
         marginRight: "auto",
         width: "140px",
         position: "relative",
-        paddingTop: "30%"
+        marginTop: "30%",
+        border: "black solid 2px",
     },
     camIcon: {
         display: "block",
@@ -69,6 +70,10 @@ const style = {
         fontSize: "large",
         borderRadius:'15px',
         margin:'50px',
+    },
+    picName: {
+        marginTop: '1vh',
+        marginBottom: '2vh'
     }
 }
 

@@ -11,7 +11,6 @@ import NetworkDetector from './../../components/NetworkDetector';
 import Loader from 'react-loader-spinner';
 
 import api from './../../services/api';
-import defaultPic from "../../assets/images/Pic.png";
 import styles from "../Promo/style";
 import colors from "../../style/colors";
 
@@ -52,9 +51,9 @@ class ProfileScreen extends React.Component {
                 {headers: {Authorization: AuthStr}})
             .then(response => this.setState({notification: response.data.notification})).then()
 
-        if (this.state.user.pic === undefined) {
-            this.setState({user: {...this.state.user, pic: defaultPic}})
-        }
+        // if (this.state.user.pic === undefined) {
+        //     this.setState({user: {...this.state.user, pic: defaultPic}})
+        // }
         this.setState({is_loading: false})
     }
 

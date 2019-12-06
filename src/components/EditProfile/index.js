@@ -101,10 +101,6 @@ export default class ProfileHeader extends React.Component {
                 })
             }
 
-            // img_link = this.state.img_link
-
-            // await axios.get()
-
             await api.patch(`user/${USER_ID}`, {
                 "name": name,
                 "email": email,
@@ -114,24 +110,6 @@ export default class ProfileHeader extends React.Component {
                 window.location.reload();
             })
             console.log("upload image");
-
-            // await axios.post("https://api.imgur.com/3/image",  
-            //     {headers: {Authorization: AuthStrImg}}
-            // ).then(response => {
-            //     console.log(response)
-            // })
-            // console.log(this.state.info)
-
-        //     return fetch('https://api.imgur.com/3/upload.json', {
-        //   method: 'POST',
-        //   headers: {
-        //     Accept: 'application/json',
-        //     Authorization: AuthStrImg// imgur specific
-        //   },
-        //   body: formData
-        // }).then(res => {
-        //     console.log(res)
-        // })
 
         } catch (err) {
             console.log(err);
@@ -154,7 +132,6 @@ export default class ProfileHeader extends React.Component {
                     ) : (
                         <img src={defaultPic} alt='Logo' style={styles.profilePic}/>
                     )}
-                    {/* <img src={this.state.user.pic} alt='Logo' style={styles.profilePic}/> */}
 
                     <Form.Group controlId="img">
                         <div className="image-upload">
@@ -164,6 +141,12 @@ export default class ProfileHeader extends React.Component {
                             <input id="file-input" onChange={this.handleChangeImage} type="file"/>
                         </div>
                     </Form.Group>
+
+                    {this.state.img !== null ? (
+                        <p style={styles.picName}>{this.state.img.name}</p>
+                    ) : (
+                        <p></p>
+                    )}
 
                     <Form.Group controlId="name">
                         <Form.Control
