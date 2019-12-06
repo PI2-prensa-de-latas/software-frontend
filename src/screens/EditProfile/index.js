@@ -4,7 +4,6 @@ import EditProfile from './../../components/EditProfile';
 import Header from '../../components/Header';
 import colors from "../../style/colors";
 import api from "../../services/api";
-import defaultPic from "../../assets/images/Pic.png";
 import Loader from "react-loader-spinner";
 import styles from "../Promo/style";
 
@@ -26,10 +25,6 @@ export default class EditProfileScreen extends React.Component {
             .get(`/user/${USER_ID}`,
                 {headers: {Authorization: AuthStr}})
             .then(response => this.setState({user: response.data}));
-
-        if (this.state.user.pic === undefined) {
-            this.setState({user: {...this.state.user, pic: defaultPic}})
-        }
 
         this.setState({is_loading: false})
     }

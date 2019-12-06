@@ -28,10 +28,17 @@ export default class ProfileHeader extends React.Component {
         return (
             <>
                 <div style={styles.container}>
-                    <img style={styles.profilePic}
-                         src={this.state.user.pic}
-                         alt={""}
-                    />
+                    {this.state.user.profile_pic_uri !== '' ? (
+                        <img style={styles.profilePic}
+                            src={this.state.user.profile_pic_uri}
+                            alt={""} 
+                        />
+                    ) : (
+                        <img style={styles.profilePic}
+                            src={defaultPic}
+                            alt={""}
+                        />
+                    )}
                     <div style={styles.name}>
                         {this.state.user.name}
                         <Link to="/EditProfile">

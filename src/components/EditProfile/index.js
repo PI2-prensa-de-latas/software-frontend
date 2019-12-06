@@ -13,11 +13,12 @@ import {
 } from "react-icons/fi";
 
 import camIcon from "../../assets/svg/camIcon.svg";
+import defaultPic from "../../assets/images/Pic.png";
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
-const AuthStrImg = 'Bearer '.concat('82ac7643e61293e');
+const AuthStrImg = 'Client-ID '.concat('82ac7643e61293e');
 
 
 export default class ProfileHeader extends React.Component {
@@ -28,7 +29,8 @@ export default class ProfileHeader extends React.Component {
             name: "",
             email: "",
             user: "",
-            img: "",
+            img: null,
+            img_link: "",
             info: "",
             error: "",
         };
@@ -42,16 +44,27 @@ export default class ProfileHeader extends React.Component {
         return this.state.email.length > 0 && this.state.name.length > 0;
     }
 
-    handleChange = event => {
+    handleChangeFields = event => {
         this.setState({
             [event.target.id]: event.target.value
-        });
-        console.log(this.state)
-    };
+        })
+    }
+
+    handleChangeImage = event => {
+        this.setState({
+            img: event.target.files[0],
+        })
+    }
 
     handleSubmit = async e => {
+        console.log(this.state.user)
         e.preventDefault();
-        let {name, email, img} = this.state;
+        let {name, email, img, img_link} = this.state;
+
+        // const current_user = await axios.get(`user/${USER_ID}`, {headers: {Authorization: AuthStr}})
+        console.log(name)
+        console.log(email)
+        console.log(img)
         if(name==='')
         {
             name=this.state.user.name
@@ -59,25 +72,44 @@ export default class ProfileHeader extends React.Component {
         if(email==='') {
             email=this.state.user.email
         }
-        if(img==='')
+        if(img===null)
         {
-            img=this.state.user.img
+            img_link=this.state.user.profile_pic_uri
         }
         console.log(name);
         console.log(email);
-        
         console.log(img);
         console.log("upload button");
+        
+        // blob = img.blob()
+        if (img) {
+            var formData = new FormData()
+            formData.append('type', 'file')
+            formData.append('image', img, img.name)
+        }
+
+        console.log(img)
 
         try {
+            if (img) {
+                await axios.post("https://api.imgur.com/3/image", 
+                    img, 
+                    {headers: {Authorization: AuthStrImg}}
+                ).then(response => {
+                    console.log(response.data.data.link)
+                    img_link = response.data.data.link
+                })
+            }
+
             await api.patch(`user/${USER_ID}`, {
-                name,
-                email,
-                img,
-            }, {headers: {Authorization: AuthStr}},).then(response => console.log(response));
+                "name": name,
+                "email": email,
+                "profile_pic_uri": img_link,
+            }, {headers: {Authorization: AuthStr}},).then(response => console.log(response))
+            .then( () => {
+                window.location.reload();
+            })
             console.log("upload image");
-            await axios.post("https://api.imgur.com/3/upload", {img}, {headers: {Authorization: AuthStrImg}}).then(response => (this.info = response))
-            console.log(this.state.info)
 
         } catch (err) {
             console.log(err);
@@ -95,16 +127,26 @@ export default class ProfileHeader extends React.Component {
         return (
             <div style={styles.container}>
                 <Form style={styles.containerLogin} onSubmit={this.handleSubmit}>
-                    <img src={this.state.user.pic} alt='Logo' style={styles.profilePic}/>
+                    {this.state.user.profile_pic_uri !== '' ? (
+                        <img src={this.state.user.profile_pic_uri} alt='Logo' style={styles.profilePic}/>
+                    ) : (
+                        <img src={defaultPic} alt='Logo' style={styles.profilePic}/>
+                    )}
 
                     <Form.Group controlId="img">
                         <div className="image-upload">
                             <label style={styles.camIcon} htmlFor="file-input">
                                 <img src={camIcon} alt='Camera Icon'/>
                             </label>
-                            <input id="file-input" value={this.state.img} onChange={this.handleChange} type="file"/>
+                            <input id="file-input" onChange={this.handleChangeImage} type="file"/>
                         </div>
                     </Form.Group>
+
+                    {this.state.img !== null ? (
+                        <p style={styles.picName}>{this.state.img.name}</p>
+                    ) : (
+                        <p></p>
+                    )}
 
                     <Form.Group controlId="name">
                         <Form.Control
@@ -112,7 +154,7 @@ export default class ProfileHeader extends React.Component {
                             autoFocus
                             type="text"
                             value={this.state.name}
-                            onChange={this.handleChange}
+                            onChange={this.handleChangeFields}
                             defaultValue={this.state.user.name}
                             placeholder={this.state.user.name}
                         />
@@ -124,7 +166,7 @@ export default class ProfileHeader extends React.Component {
                             autoFocus
                             type="email"
                             value={this.state.email}
-                            onChange={this.handleChange}
+                            onChange={this.handleChangeFields}
                             defaultValue={this.state.user.email}
                             placeholder={this.state.user.email}
                         />
