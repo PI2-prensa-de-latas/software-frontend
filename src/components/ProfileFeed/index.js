@@ -3,7 +3,11 @@ import React from 'react'
 import styles from './style'
 import './style.css';
 import style from "../NavBar/style";
+import api from './../../services/api';
 
+const USER_TOKEN = localStorage.getItem('token');
+const USER_ID = localStorage.getItem('user');
+const AuthStr = 'Bearer '.concat(USER_TOKEN);
 
 export default class ProfileFeed extends React.Component {
     state = {
@@ -12,6 +16,18 @@ export default class ProfileFeed extends React.Component {
 
     componentDidMount() {
         this.setState({notification: this.props.notification})
+    }
+
+    getCansNumberNotification = () => {
+        const response = api.get(
+            `/registerSimpleCan/${USER_ID}`,
+            { headers: { Authorization: AuthStr } }
+        );
+        response.sort((a, b) => a.id - b.id);
+        this.setState({
+            notification: response.data
+        })
+        console.log(response)
     }
 
     render() {

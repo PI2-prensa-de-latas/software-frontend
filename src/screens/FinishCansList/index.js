@@ -9,14 +9,16 @@ class FinishCansListScreen extends Component {
     render() {
         return (
             <HttpsRedirect>
-                this.props.location.data !== undefined ? <div className="container-fluid">
-                <WaveHeader title={'Finalização'}/>
-                <FinishCansList data={this.props.location.data}/>
-            </div> : <WarningPopup
-                message="Acesso não autorizado :("
-                button="Ok"
-                path="/Profile"
-            />
+                <>
+                    {this.props.location.data !== undefined ? <div className="container-fluid">
+                        <WaveHeader title={'Finalização'}/>
+                        <FinishCansList data={this.props.location.data}/>
+                    </div> : <WarningPopup
+                        message="Acesso não autorizado :("
+                        button="Ok"
+                        path="/Profile"
+                    />}
+                </>
             </HttpsRedirect>
         );
     }
