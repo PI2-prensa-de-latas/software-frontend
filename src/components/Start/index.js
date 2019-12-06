@@ -12,10 +12,6 @@ export default class Start extends Component {
                     <NavLink to="/Register" style={styles.buttonInput}> Cadastre-se </NavLink>
 
                     <NavLink to="/Login" style={styles.buttonInput}> Login </NavLink>
-
-                    <div style={styles.text}>
-                        Recuperar senha
-                    </div>
                 </div>
 
             </div>
