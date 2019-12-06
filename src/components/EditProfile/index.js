@@ -13,11 +13,12 @@ import {
 } from "react-icons/fi";
 
 import camIcon from "../../assets/svg/camIcon.svg";
+import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 
 const USER_TOKEN = localStorage.getItem('token');
 const USER_ID = localStorage.getItem('user');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
-const AuthStrImg = 'Bearer '.concat('82ac7643e61293e');
+// const AuthStrImg = 'Bearer '.concat('82ac7643e61293e');
 
 
 export default class ProfileHeader extends React.Component {
@@ -76,14 +77,26 @@ export default class ProfileHeader extends React.Component {
                 img,
             }, {headers: {Authorization: AuthStr}},).then(response => console.log(response));
             console.log("upload image");
-            await axios.post("https://api.imgur.com/3/upload", {img}, {headers: {Authorization: AuthStrImg}}).then(response => (this.info = response))
-            console.log(this.state.info)
+            // await axios.post("https://api.imgur.com/3/image", {base64_img}, {headers: {Authorization: AuthStrImg}}).then(response => (this.info = response))
+            // console.log(this.state.info)
+
+            cloudinary.v2.uploader.upload(img,
+                { use_filename: true, 
+                  unique_filename: false },
+            function(error, result) { console.log(result, error); });
 
         } catch (err) {
             console.log(err);
             this.setState({error: "Ocorreu um erro ao alterar sua conta. T.T"});
         }
     };
+
+    uploadWidget() {
+        cloudinary.openUploadWidget({ cloud_name: 'dmiffqm7p', upload_preset: 'preset', tags:['xmas']},
+            function(error, result) {
+                console.log(result);
+            });
+    }
 
     handleLogout = async e => {
         console.log("asd");
