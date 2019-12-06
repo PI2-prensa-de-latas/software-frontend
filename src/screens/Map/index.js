@@ -33,10 +33,8 @@ class MapScreen extends Component {
             currentLocation: fromLonLat(['', '']),
             locations: []
         };
-
         this.geo_success = this.geo_success.bind(this);
         this.panToLocation = this.panToLocation.bind(this);
-
     }
 
     componentDidMount = async () => {
@@ -64,8 +62,7 @@ class MapScreen extends Component {
             .getCurrentPosition(
                 this
                     .geo_success
-            )
-        ;
+            );
     };
 
     geo_success(pos) {
@@ -88,9 +85,10 @@ class MapScreen extends Component {
 
     render() {
         return (
+
             <div className="MapScreen">
                 <LocationsSelect locations={this.state.locations} onSelectLocation={this.panToLocation}/>
-                <MapComponent currentLocation={this.state.currentLocation}/>
+                <MapComponent locations={this.state.locations} currentLocation={this.state.currentLocation}/>
                 <NavBar selected={"MAP"}/>
             </div>
         );
