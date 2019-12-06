@@ -45,7 +45,7 @@ class MapComponent extends Component {
     componentDidMount() {
         const mapDOMNode = ReactDOM.findDOMNode(this.mapRef);
         var view = new View({
-            center: this.props.currentLocation,
+            center: fromLonLat([this.props.locations[0].loc_x, this.props.locations[0].loc_y]),
             zoom: 12
         });
 
@@ -105,7 +105,7 @@ class MapComponent extends Component {
         });
         for (var i = 0; i < this.props.locations.length; i++){
             var iconFeature = new Feature({
-                geometry: new Point(fromLonLat([this.props.locations[i].loc_y, this.props.locations[i].loc_x])),
+                geometry: new Point(fromLonLat([this.props.locations[i].loc_x, this.props.locations[i].loc_y])),
             });
             console.log(iconFeature);
             var iconStyle = new Style({

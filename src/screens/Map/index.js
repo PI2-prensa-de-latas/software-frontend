@@ -41,15 +41,15 @@ class MapScreen extends Component {
         };
         this.geo_success = this.geo_success.bind(this);
         this.panToLocation = this.panToLocation.bind(this);
-    }
-
-    componentDidMount = async () => {
-        await navigator
+        navigator
             .geolocation
             .getCurrentPosition(
                 this
                     .geo_success
             );
+    }
+
+    componentDidMount = async () => {
         await api
             .get(`/machine`, {
                 headers: {Authorization: AuthStr}
@@ -80,12 +80,9 @@ class MapScreen extends Component {
         this.setState({
             currentLocation: fromLonLat([pos.coords.longitude, pos.coords.latitude]),
         })
-        console.log(this.state.currentLocation);
-        console.log(pos.coords.longitude,)
-        console.log(pos.coords.latitude,)
+        console.log("currentPos", this.state.currentLocation);
 
-    }
-    ;
+    };
 
     panToLocation(e) {
         const selectedIndex = e.target.selectedOptions[0].index;
