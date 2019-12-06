@@ -12,6 +12,10 @@ import colors from "../../style/colors";
 import ProfileHeader from "../../components/ProfileHeader";
 import ProfileScore from "../../components/ProfileScore";
 import ProfileFeed from "../../components/ProfileFeed";
+import Geolocation from "ol/Geolocation";
+import Feature from "ol/Feature";
+import {Circle as CircleStyle, Fill, Stroke, Style} from "ol/style";
+import Point from "ol/geom/Point";
 
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
@@ -38,7 +42,9 @@ class MapScreen extends Component {
             currentLocation: fromLonLat(['', '']),
             locations: [],
             is_loading: true,
+            none: true,
         };
+        this.coordinates = "";
         this.geo_success = this.geo_success.bind(this);
         this.panToLocation = this.panToLocation.bind(this);
         navigator
@@ -68,9 +74,6 @@ class MapScreen extends Component {
                         }
                     });
                     this.setState({locations: locations});
-                    this.mapComp = (
-                        <MapComponent locations={this.state.locations} currentLocation={this.state.currentLocation}/>
-                    )
                 }
             );
         this.setState({is_loading: false})
@@ -95,7 +98,19 @@ class MapScreen extends Component {
     }
 
     render() {
-        console.log("loc", this.state.locations)
+        console.log("locrender", this.state.currentLocation);
+        if (this.state.none) {
+            navigator
+                .geolocation
+                .getCurrentPosition(
+                    this
+                        .geo_success
+                );
+            this.setState({none: false
+            });
+            this.forceUpdate();
+        }
+
         return (
             <>
                 {
@@ -110,7 +125,8 @@ class MapScreen extends Component {
                         :
                         <>
                             <div className="MapScreen">
-                                {this.mapComp}
+                                <MapComponent locations={this.state.locations}
+                                              currentLocation={this.state.currentLocation}/>
                             </div>
                         </>
                 }

@@ -33,6 +33,10 @@ class MapComponent extends Component {
         )
     }
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps.currentLocation !== this.props.currentLocation;
+    }
+
     componentWillUpdate(nextProps) {
         const mapView = this.olMap.getView();
         mapView.animate({
@@ -103,7 +107,7 @@ class MapComponent extends Component {
         var vectorArr = new VectorSource({
             //create empty vector
         });
-        for (var i = 0; i < this.props.locations.length; i++){
+        for (var i = 0; i < this.props.locations.length; i++) {
             var iconFeature = new Feature({
                 geometry: new Point(fromLonLat([this.props.locations[i].loc_x, this.props.locations[i].loc_y])),
             });
