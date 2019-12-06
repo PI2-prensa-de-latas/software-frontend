@@ -30,6 +30,7 @@ export default class Login extends Component {
         const { email, password } = this.state;
         if (!email || !password) {
             this.setState({ error: "Preencha e-mail e senha para continuar!" });
+            alert("Preencha e-mail e senha para continuar!");
         } else {
             try {
                 const response = await api.post("/Login", { email, password });
@@ -40,6 +41,7 @@ export default class Login extends Component {
                     error:
                         "Houve um problema com o login, verifique suas credenciais. T.T"
                 });
+                alert(this.state.error);
             }
         }
     };
@@ -71,7 +73,6 @@ export default class Login extends Component {
                     <Button
                         style={styles.buttonInput}
                         block
-                        disabled={!this.validateForm()}
                         type="submit"
                     >
                         Login
