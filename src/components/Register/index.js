@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import styles from './style';
 import logo from "../../assets/svg/logo.svg";
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import api from "../../services/api";
 
 class Register extends Component {
@@ -31,16 +31,19 @@ class Register extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        const { name, email, password } = this.state;
-        if (!name || !email || !password) {
-            this.setState({ error: "Preencha todos os dados para se cadastrar" });
+        const {name, email, password, passwordConfirm} = this.state;
+        if (!name || !email || !password || !passwordConfirm) {
+            this.setState({error: "Preencha todos os dados para se cadastrar"});
+            alert("Preencha todos os dados para se cadastrar")
+        } else if (password !== passwordConfirm) {
+            alert("Sua senha precisa ser igual")
         } else {
             try {
-                await api.post("/user", { name, email, password });
+                await api.post("/user", {name, email, password});
                 this.props.history.push("/Login");
             } catch (err) {
                 console.log(err);
-                this.setState({ error: "Ocorreu um erro ao registrar sua conta. T.T" });
+                this.setState({error: "Ocorreu um erro ao registrar sua conta. T.T"});
             }
         }
     };

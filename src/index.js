@@ -19,6 +19,7 @@ import RegisterScreen from './screens/Register';
 import {isAuthenticated} from "./services/auth";
 import MapScreen from './screens/Map';
 import HttpsRedirect from 'react-https-redirect';
+import { registerServiceWorker } from './serviceWorker'
 
 const PrivateRoute = ({component: Component, ...rest}) => (
     <Route
@@ -78,6 +79,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-
-serviceWorker.register();
-
+registerServiceWorker();

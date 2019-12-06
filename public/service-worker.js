@@ -1,38 +1,36 @@
-const CACHE_NAME = 'pwa-cache-v1';
+var CACHE_NAME = 'lucky-can-app';
 
-const urlsToCache = [
-  "/",
-  "static/js/bundle.js",
-  'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
-  'https://5a9dd5a1a65e7d0014436b95.mockapi.io/note'
-]
+var urlsToCache = [
+    '/',
+    '/static/js/bundle.js',
+    '/static/js/main.chunk.js',
+    '/static/js/1.chunk.js',
+    '/static/js/0.chunk.js',
+    '/favicon.ico',
+    '/css?family=Open+Sans',
+    '/icon?family=Material+Icons'
+];
 
 self.addEventListener('install', function (event) {
+    // Perform install steps
     event.waitUntil(
-      caches.open(CACHE_NAME)
-        .then(function (cache) {
-          return cache.addAll(urlsToCache);
-        })
-    );
-  });
-
-self.addEventListener("activate", event => {
-    const cacheWhitelist = [CACHE_NAME];
-    event.waitUntil(
-        caches.keys().then(keyList =>
-        Promise.all(keyList.map(key => {
-            if (!cacheWhitelist.includes(key)) {
-            return caches.delete(key);
-            }
-        }))
-        )
+        caches.open(CACHE_NAME)
+            .then(function (cache) {
+                return cache.addAll(urlsToCache);
+            })
     );
 });
 
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-      caches.match(event.request).then(response => {
-        return response || fetch(event.request);
-      })
+        caches.match(event.request)
+            .then(function (response) {
+                    // Cache hit - return response
+                    if (response) {
+                        return response;
+                    }
+                    return fetch(event.request);
+                }
+            )
     );
-  });
+});  
