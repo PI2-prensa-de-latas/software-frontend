@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button'
 import styles from './style';
 import api from "../../services/api";
 import { login } from "../../services/auth";
-import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
     constructor(props) {

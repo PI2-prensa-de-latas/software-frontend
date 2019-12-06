@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import Cam from './screens/Cam';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
