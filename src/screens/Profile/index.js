@@ -7,6 +7,7 @@ import ProfileFeed from './../../components/ProfileFeed';
 import NavBar from './../../components/NavBar';
 import WaveHeader from './../../components/WaveHeader';
 import NetworkDetector from './../../components/NetworkDetector';
+import HttpsRedirect from 'react-https-redirect';
 
 import Loader from 'react-loader-spinner';
 
@@ -60,24 +61,26 @@ class ProfileScreen extends React.Component {
     render() {
         return (
             <>
-                <WaveHeader/>
-                {
-                    this.state.is_loading ?
-                        <Loader
-                            style={styles.loading}
-                            type="Grid"
-                            color={colors.MidGreen}
-                            height={100}
-                            width={100}
-                        />
-                        :
-                        <>
-                            <ProfileHeader user={this.state.user}/>
-                            <ProfileScore score={this.state.score}/>
-                            <ProfileFeed notification={this.state.notification}/>
-                        </>
-                }
-                <NavBar selected={"PROFILE"}/>
+                <HttpsRedirect>
+                    <WaveHeader/>
+                    {
+                        this.state.is_loading ?
+                            <Loader
+                                style={styles.loading}
+                                type="Grid"
+                                color={colors.MidGreen}
+                                height={100}
+                                width={100}
+                            />
+                            :
+                            <>
+                                <ProfileHeader user={this.state.user}/>
+                                <ProfileScore score={this.state.score}/>
+                                <ProfileFeed notification={this.state.notification}/>
+                            </>
+                    }
+                    <NavBar selected={"PROFILE"}/>
+                </HttpsRedirect>
             </>
         )
     }
