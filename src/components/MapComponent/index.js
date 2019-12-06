@@ -11,6 +11,7 @@ import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 import {OSM, Vector as VectorSource} from 'ol/source';
 import {Circle as CircleStyle, Fill, Stroke, Style, Icon} from 'ol/style';
 import {fromLonLat} from 'ol/proj';
+import canIcon from "../../assets/svg/canIcon.svg";
 
 
 class MapComponent extends Component {
@@ -42,10 +43,9 @@ class MapComponent extends Component {
     }
 
     componentDidMount() {
-        console.log("componente",Date.now())
         const mapDOMNode = ReactDOM.findDOMNode(this.mapRef);
         var view = new View({
-            center: [0, 0],
+            center: this.props.currentLocation,
             zoom: 12
         });
 
@@ -66,7 +66,6 @@ class MapComponent extends Component {
             },
             projection: view.getProjection()
         });
-
         geolocation.setTracking(true);
 
 
@@ -85,7 +84,7 @@ class MapComponent extends Component {
         var positionFeature = new Feature();
         positionFeature.setStyle(new Style({
             image: new CircleStyle({
-                radius:6,
+                radius: 6,
                 fill: new Fill({
                     color: '#3399CC'
                 }),
@@ -104,22 +103,19 @@ class MapComponent extends Component {
         var vectorArr = new VectorSource({
             //create empty vector
         });
-        console.log(this.props)
         for (var i = 0; i < this.props.locations.length; i++){
             var iconFeature = new Feature({
-                geometry: new Point(fromLonLat(this.props.locations[i].coords)),
+                geometry: new Point(fromLonLat([this.props.locations[i].loc_y, this.props.locations[i].loc_x])),
             });
+            console.log(iconFeature);
             var iconStyle = new Style({
-                image: new CircleStyle({
-                    radius: 6,
-                    fill: new Fill({
-                        color: '#3399CC'
-                    }),
-                    stroke: new Stroke({
-                        color: '#fff',
-                        width: 2
-                    })
+                image: new Icon({
+                    anchor: [0, 0],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    src: canIcon,
                 })
+
             });
             // THIS IS NEW - add each style individually to the feature
             iconFeature.setStyle(iconStyle);

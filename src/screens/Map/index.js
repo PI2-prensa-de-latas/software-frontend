@@ -7,6 +7,11 @@ import MapComponent from './../../components/MapComponent';
 import NavBar from './../../components/NavBar';
 import NetworkDetector from './../../components/NetworkDetector';
 import api from "../../services/api";
+import Loader from 'react-loader-spinner';
+import colors from "../../style/colors";
+import ProfileHeader from "../../components/ProfileHeader";
+import ProfileScore from "../../components/ProfileScore";
+import ProfileFeed from "../../components/ProfileFeed";
 
 const USER_TOKEN = localStorage.getItem('token');
 const AuthStr = 'Bearer '.concat(USER_TOKEN);
@@ -31,13 +36,20 @@ class MapScreen extends Component {
         super(props);
         this.state = {
             currentLocation: fromLonLat(['', '']),
-            locations: []
+            locations: [],
+            is_loading: true,
         };
         this.geo_success = this.geo_success.bind(this);
         this.panToLocation = this.panToLocation.bind(this);
     }
 
     componentDidMount = async () => {
+        await navigator
+            .geolocation
+            .getCurrentPosition(
+                this
+                    .geo_success
+            );
         await api
             .get(`/machine`, {
                 headers: {Authorization: AuthStr}
@@ -51,18 +63,17 @@ class MapScreen extends Component {
                         let alias = machine.alias;
                         return {
                             name: alias,
-                            coords: fromLonLat([loc_x, loc_y]),
+                            loc_x: loc_x,
+                            loc_y: loc_y,
                         }
                     });
                     this.setState({locations: locations});
+                    this.mapComp = (
+                        <MapComponent locations={this.state.locations} currentLocation={this.state.currentLocation}/>
+                    )
                 }
             );
-        navigator
-            .geolocation
-            .getCurrentPosition(
-                this
-                    .geo_success
-            );
+        this.setState({is_loading: false})
     };
 
     geo_success(pos) {
@@ -70,6 +81,9 @@ class MapScreen extends Component {
             currentLocation: fromLonLat([pos.coords.longitude, pos.coords.latitude]),
         })
         console.log(this.state.currentLocation);
+        console.log(pos.coords.longitude,)
+        console.log(pos.coords.latitude,)
+
     }
     ;
 
@@ -84,13 +98,28 @@ class MapScreen extends Component {
     }
 
     render() {
+        console.log("loc", this.state.locations)
         return (
-
-            <div className="MapScreen">
-                <LocationsSelect locations={this.state.locations} onSelectLocation={this.panToLocation}/>
-                <MapComponent locations={this.state.locations} currentLocation={this.state.currentLocation}/>
+            <>
+                {
+                    this.state.is_loading ?
+                        <Loader
+                            style={styles.loading}
+                            type="Grid"
+                            color={colors.MidGreen}
+                            height={100}
+                            width={100}
+                        />
+                        :
+                        <>
+                            <div className="MapScreen">
+                                {this.mapComp}
+                            </div>
+                        </>
+                }
                 <NavBar selected={"MAP"}/>
-            </div>
+            </>
+
         );
     }
 }
