@@ -22,14 +22,11 @@ class FinishCansList extends Component {
         })
     }
 
-    updateConnectedUserMachine = () => {
-        // const current_url = `${url}/machine/${this.props.data.machine_id}`;
-        // axios.patch(current_url, 
-        //     {connectUser: 0}, 
-        //     {headers: {'Authorization': AuthStr}})
-        api.patch(
-            `/machine/${this.props.data.machine_id}`,
-            { connectUser: USER_ID },
+    createCansNumberNotification = () => {
+        api.post(
+            `/registerSimpleCan/`,
+            { cansNumber: this.state.smashed_cans.length,
+              user: USER_ID },
             { headers: { Authorization: AuthStr } }
         );
 
@@ -63,7 +60,7 @@ class FinishCansList extends Component {
                         {rows}
                     </table>
                 </div>
-                <button onClick={this.updateConnectedUserMachine} style={style.button}>Ok</button>
+                <button onClick={this.createCansNumberNotification} style={style.button}>Ok</button>
                 {this.redirectToProfile()}
             </div>
         )
